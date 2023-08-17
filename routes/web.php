@@ -40,6 +40,7 @@ Route::get('/admin/dashboard', [AdminController::class, 'AdminDashboard'])->name
 
 Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
 Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('admin.profile');
+Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
 
 }); // End Admin Group Middleware 
 
