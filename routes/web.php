@@ -60,6 +60,9 @@ Route::get('/instructor/logout', [InstructorController::class, 'InstructorLogout
 Route::get('/instructor/profile', [InstructorController::class, 'InstructorProfile'])->name('instructor.profile');
 Route::post('/instructor/profile/store', [InstructorController::class, 'InstructorProfileStore'])->name('instructor.profile.store');
 
+Route::get('/instructor/change/password', [InstructorController::class, 'InstructorChangePassword'])->name('instructor.change.password');
+Route::post('/instructor/password/update', [InstructorController::class, 'InstructorPasswordUpdate'])->name('instructor.password.update');
+
 }); // End Instructor Group Middleware 
 
 Route::get('/instructor/login', [InstructorController::class, 'InstructorLogin'])->name('instructor.login');
