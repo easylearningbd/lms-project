@@ -50,7 +50,7 @@
 <div class="col-lg-8">
     <div class="card">
 
-        <form method="POST" action="{{ route('admin.profile.store') }}"  enctype="multipart/form-data">
+        <form method="POST" action="{{ route('admin.password.update') }}"  enctype="multipart/form-data">
             @csrf
 
         <div class="card-body">

@@ -43,6 +43,7 @@ Route::get('/admin/profile', [AdminController::class, 'AdminProfile'])->name('ad
 Route::post('/admin/profile/store', [AdminController::class, 'AdminProfileStore'])->name('admin.profile.store');
 
 Route::get('/admin/change/password', [AdminController::class, 'AdminChangePassword'])->name('admin.change.password');
+Route::post('/admin/password/update', [AdminController::class, 'AdminPasswordUpdate'])->name('admin.password.update');
 
 }); // End Admin Group Middleware 
 
