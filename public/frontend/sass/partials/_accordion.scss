@@ -1,0 +1,105 @@
+/*========== generic-accordion =========*/
+.generic-accordion {
+  .generic-list-item {
+    li {
+      font-size: $font-size-15;
+      color: rgba(35, 61, 99, 0.8);
+      font-weight: $font-weight-regular;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  .card {
+    border: 0;
+    @include border-radius(8px);
+    margin-bottom: 10px;
+  }
+  .card-header {
+    padding: 0;
+    background-color: transparent;
+    border-bottom: 0;
+    .btn {
+      width: 100%;
+      @include border-radius(8px);
+      padding: 10px 20px 10px 50px;
+      text-align: left;
+      color: $theme-color;
+      text-decoration: none;
+      font-size: $font-size-17;
+      position: relative;
+      font-weight: $font-weight-semi-bold;
+      background-color: rgba(127, 136, 151, 0.07);
+      border: 0;
+      &[aria-expanded=true] {
+        .la-angle-up,
+        .la-minus {
+          display: block;
+        }
+      }
+      &[aria-expanded=false] {
+        .la-angle-down,
+        .la-plus {
+          display: block;
+        }
+      }
+      .la {
+        display: none;
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        @include transform(translateY(-50%));
+        font-size: $font-size-20;
+      }
+    }
+  }
+}
+/*========== generic--accordion =========*/
+.generic--accordion {
+  .card-header {
+    .btn {
+      padding-left: 20px;
+      @include border-radius(0);
+      .la {
+        left: auto;
+        right: 20px;
+        font-size: $font-size-16;
+      }
+      &:hover {
+        background-color: rgba(127, 136, 151, 0.1);
+      }
+    }
+  }
+  .card {
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    @include border-radius(0);
+    &:first-of-type {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    }
+    &:not(:first-of-type):not(:last-of-type) {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    }
+  }
+}
+/*========== generic-accordion-layout-2 =========*/
+.generic-accordion-layout-2 {
+  .card {
+    background-color: $white;
+    @include box-shadow(0 0 15px rgba(0,0,0,.075));
+    border: 1px solid rgba(128, 137, 150, 0.1);
+  }
+  .card-header {
+    .btn {
+      padding-top: 17px;
+      padding-bottom: 17px;
+      background-color: $white;
+      &[aria-expanded=true] {
+        background-color: $theme-color-2;
+        color: $white;
+        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+}

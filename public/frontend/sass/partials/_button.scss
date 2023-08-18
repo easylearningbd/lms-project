@@ -1,0 +1,183 @@
+/*========= theme-btn ========*/
+.theme-btn {
+  background-color: $theme-color-2;
+  color: $white;
+  font-weight: $font-weight-semi-bold;
+  padding: 10px 20px;
+  @include border-radius(5px);
+  cursor: pointer;
+  font-size: $font-size-15;
+  &:hover {
+    background-color: $theme-color-3;
+    color: $white;
+    .icon {
+      padding-left: 5px;
+    }
+  }
+}
+.icon {
+  @include transition(0.3s);
+}
+/*===== theme-btn-white ======*/
+.theme-btn-white {
+  background-color: $white;
+  color: $theme-color;
+  @include box-shadow(0 0 7px rgba(0, 0, 0, 0.07));
+  &:hover {
+    background-color: $theme-color-2;
+    color: $white;
+    svg {
+      fill: $color-10;
+    }
+  }
+}
+/*===== theme-btn-transparent ======*/
+.theme-btn-transparent {
+  background-color: transparent;
+  color: $theme-color;
+  @include box-shadow(none);
+  border: 1px solid rgba(128, 138, 150, 0.2);
+  &:hover {
+    background-color: transparent;
+    border-color: rgba(128, 138, 150, 0.5);
+    color: $theme-color;
+  }
+}
+/*===== theme-btn-sm ======*/
+.theme-btn-sm {
+  padding: 6px 14px;
+  font-size: $font-size-14;
+}
+/*===== icon-btn ======*/
+.icon-btn {
+  width: 43px;
+  height: 43px;
+  line-height: 43px;
+  text-align: center;
+  @include border-radius(100%);
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  font-size: $font-size-22;
+  &:hover {
+    background-color: $white;
+    border-color: $white;
+    color: $theme-color-2;
+  }
+}
+/*===== icon-element ======*/
+.icon-element {
+  color: $theme-color;
+  font-size: $font-size-40;
+  width: 80px;
+  height: 80px;
+  line-height: 80px;
+  @include border-radius(100%);
+  background-color: $white;
+  @include box-shadow(0 0 40px rgba(14, 16, 48, .07));
+  text-align: center;
+  @include transition(0.3s);
+  display: inline-block;
+}
+/*===== icon-element-lg ======*/
+.icon-element-lg {
+  width: 110px;
+  height: 110px;
+  line-height: 110px;
+  font-size: $font-size-50;
+}
+/*===== icon-element-md ======*/
+.icon-element-md {
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  font-size: $font-size-30;
+}
+/*===== icon-element-sm ======*/
+.icon-element-sm {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  font-size: $font-size-20;
+}
+/*===== icon-element-xs ======*/
+.icon-element-xs {
+  width: 33px;
+  height: 33px;
+  line-height: 33px;
+  font-size: $font-size-17;
+}
+
+/*===== btn-text ======*/
+.btn-text {
+  color: $theme-color-4;
+  @include transition(0.3s);
+  display: inline-block;
+  &:hover {
+    color: $theme-color-2;
+    .icon-btn {
+      background-color: $white;
+      border-color: $white;
+      color: $theme-color-2;
+    }
+  }
+}
+.play-button {
+  svg {
+    width: 70px;
+  }
+}
+
+/*==== collapse-btn =====*/
+.collapse-btn {
+  &[aria-expanded="true"] {
+    .collapse-btn-show {
+      display: inline-block;
+    }
+    .collapse-btn-hide {
+      display: none;
+    }
+  }
+  &[aria-expanded="false"] {
+    .collapse-btn-show {
+      display: none;
+    }
+  }
+}
+.collapse--btn {
+  color: $theme-color-4;
+  @include transition(0.3s);
+  &:hover {
+    color: $theme-color-2;
+  }
+}
+.btn--group {
+  .btn {
+    &.active {
+      border-color: $theme-color-2;
+    }
+  }
+}
+/*===== theme-picker-btn =====*/
+.theme-picker-btn {
+  font-size: $font-size-14;
+  color: $theme-color;
+  border: 0;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  background-color: transparent;
+  &:hover {
+   svg {
+     fill: $color-10;
+   }
+  }
+  svg {
+    width: 19px;
+    height: 19px;
+    fill: transparent;
+    stroke: rgba(0,0,0, 0.7);
+    transition: stroke .2s;
+  }
+}
+.light-mode-btn {
+  display: none;
+}

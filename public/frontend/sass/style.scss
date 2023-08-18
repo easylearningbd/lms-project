@@ -1,0 +1,175 @@
+/*
+	Template Name: Aduca
+	Version: 2.0
+	Author: TechyDevs
+	Author Email: contact@techydevs.com
+	Description: Aduca - Education HTML5 Template
+
+*/
+/*------------------------------------------------------------------
+[Table of contents]
+	+ General
+		- Global Styles
+		- general Styles
+		- Preloader
+		- Back To Top
+		- theme-btn
+		- section-heading
+		- Move bg
+		- Move bg 2
+		- section divider
+	+ Header
+		- Logo
+		- Category
+		- Seach form
+		- Main Navigation
+		- Dropdown
+		- Offcanvas menu
+		- Admission
+	+ Content
+		+ Main Files
+			- index.html
+			- home-2.html
+		+ Banner Area
+			- Breadcrumb
+	    + About
+	        - About us
+	    + Courses
+	        - Course Grid
+	        - Course Detail
+		+ Pages
+			- Teacher
+			- Teacher Detail
+			- FAQs
+			- Admission
+			- Gallery
+			- Pricing Table
+			- Sing up
+			- Log in
+			- Error 404 page
+		+ Blog
+		    - Blog Grid
+		    - Blog Single
+		+ Contact
+		    - Contact
+	+ Footer
+		+ Top Footer
+			- Logo
+			- Company
+			- Courses
+			- Mobile app
+		+ Bottom Footer
+		    - Copyright
+		    - Language Select
+	+ Responsive Design Styles
+            - $laptop_ls: 'only screen and (min-width: 320px) and (max-width: 1919px)';
+            - $laptop_l: '(max-width: 1440px)';
+            - $laptop_m: '(max-width: 1366px)';
+            - $laptop_m_two: '(max-width: 1280px)';
+            - $laptop_m_three: '(max-width: 1200px)';
+            - $laptop_m_four: '(max-width: 1199px)';
+            - $laptop_m_five: '(max-width: 1024px)';
+            - $laptop_m_six: '(min-width: 1200px)';
+            - $medium_device: 'only screen and (min-width: 992px) and (max-width: 1200px)';
+            - $tab_device: 'only screen and (min-width: 768px) and (max-width: 991px)';
+            - $tab_device-and-mobile: 'only screen and (min-width: 320px) and (max-width: 990px)';
+            - $tab_device_two: '(max-width: 768px)';
+            - $tab_device_three: '(max-width: 991px)';
+            - $tab_device_four: '(min-width: 991px)';
+            - $large_mobile: 'only screen and (min-width: 480px) and (max-width: 767px)';
+            - $large_mobile: ' (max-width: 600px)';
+            - $large_mobile: ' (max-width: 575px)';
+            - $large_mobile: ' (max-width: 480px)';
+            - $small_mobile: 'only screen and (min-width: 320px) and (max-width: 479px)';
+            - $small_mobile: ' (max-width: 425px)';
+            - $small_mobile: '(max-width: 400px)';
+            - $small_mobile: '(max-width: 320px)';
+            - $small_mobile: '(max-width: 375px)';
+            - $device-1600: '(max-width: 1600px)';
+            - $device-767: '(max-width: 767px)';
+            - $device-992: '(max-width: 992px)';
+            - $device-767: '(max-width: 767px)';
+            - $device-481: '(max-width: 481px)';
+            - $device-384: '(max-width: 384px)';
+-------------------------------------------------------------------*/
+// variable scss
+@import "partials/variables";
+
+// mixin scss
+@import "partials/mixins";
+@import "partials/keyframes";
+// common scss
+@import "partials/common";
+// general scss
+@import "partials/general";
+// button scss
+@import "partials/button";
+// info-box scss
+@import "partials/info-box";
+// accordion scss
+@import "partials/accordion";
+// rating scss
+@import "partials/rating";
+// category scss
+@import "partials/category";
+// counter scss
+@import "partials/counter";
+// filer-uploader scss
+@import "partials/filer-uploader";
+// team-member scss
+@import "partials/team-member";
+// contact scss
+@import "partials/contact";
+// comment scss
+@import "partials/comment";
+// clientlogo scss
+@import "partials/clientlogo";
+// testimonial scss
+@import "partials/testimonial";
+// gallery scss
+@import "partials/gallery";
+// call-to-action scss
+@import "partials/call-to-action";
+// icon-box scss
+@import "partials/icon-box";
+// chart scss
+@import "partials/chart";
+// faq scss
+@import "partials/faq";
+// about scss
+@import "partials/about";
+// custom scss
+@import "partials/custom";
+// flip-box scss
+@import "partials/flip-box";
+// pricing scss
+@import "partials/pricing";
+// tab scss
+@import "partials/tab";
+// table scss
+@import "partials/table";
+// modal scss
+@import "partials/modal";
+// cards scss
+@import "partials/cards";
+// menu scss
+@import "partials/menu";
+// dashboard scss
+@import "partials/dashboard";
+// progressbar scss
+@import "partials/progressbar";
+// hero scss
+@import "partials/hero";
+// breadcrumb scss
+@import "partials/breadcrumb";
+// error scss
+@import "partials/error";
+// sidebar scss
+@import "partials/sidebar";
+// course scss
+@import "partials/course";
+// footer scss
+@import "partials/footer";
+// preference scss
+@import "partials/preference";
+

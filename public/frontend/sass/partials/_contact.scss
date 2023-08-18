@@ -1,0 +1,257 @@
+/*======== contact-form-action =========*/
+.label-text {
+  font-size: $font-size-15;
+  color: $theme-color;
+  font-weight: $font-weight-medium;
+}
+.form--control {
+  height: 50px;
+  padding-left: 45px;
+  font-size: $font-size-14;
+  color: $theme-color;
+  border-color: rgba(127,136,151,0.2);
+  font-weight: $font-weight-regular;
+  @include box-shadow(none);
+  @include border-radius(5px);
+  &:focus {
+    @include box-shadow(none);
+    border-color: $theme-color-2;
+  }
+}
+.form--control-gray {
+  background-color: rgba(127, 136, 151, 0.1);
+  border-color: transparent;
+  &:focus {
+    background-color: rgba(127, 136, 151, 0.1);
+  }
+}
+.form-group {
+  position: relative;
+}
+.input-group {
+  .form-control {
+    &:not(:first-child) {
+      border-top-left-radius: 5px;
+      border-bottom-left-radius: 5px;
+    }
+  }
+}
+.input-icon {
+  position: absolute;
+  top: 15px;
+  left: 20px;
+  font-size: $font-size-18;
+  z-index: 4;
+}
+.search-close-icon,
+.search-icon {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.search-close-icon {
+  color: $theme-color;
+  padding: 15px;
+  top: 50%;
+  @include transform(translateY(-50%));
+  cursor: pointer;
+  font-size: $font-size-18;
+}
+.search-icon {
+  color: $theme-color;
+  padding: 15px;
+  top: 50%;
+  @include transform(translateY(-50%) rotate(-90deg));
+  cursor: pointer;
+  @include transition(0.3s);
+  font-size: $font-size-18;
+  background-color: transparent;
+  border: none;
+  &:hover {
+    color: $theme-color-2;
+  }
+}
+/*=========== toggle-password =============*/
+.toggle-password {
+  .eye-off {
+    display: none;
+  }
+  &.active {
+    .eye-off {
+      display: block;
+    }
+    .eye-on {
+      display: none;
+    }
+  }
+}
+/*=========== custom-control-label =============*/
+.custom--control-label {
+  cursor: pointer;
+  &::before,
+  &:after {
+    top: .4rem;
+  }
+}
+.custom--control-label-boxed {
+  display: block;
+  border: 1px solid rgba(128, 137, 150, 0.1);
+  background-color: $white;
+  @include border-radius(8px);
+  @include transition(0.3s);
+  @include box-shadow(0 0 40px rgba(82, 85, 90, 0.1));
+  padding: 20px 20px 20px 50px;
+  &::before,
+  &:after {
+    top: 1.7rem;
+    left: 1.5rem;
+  }
+}
+.custom-control-input {
+  &:checked {
+    ~ {
+      .custom--control-label-boxed {
+        border-color: $theme-color-2;
+      }
+      .custom--control-label {
+        &::before {
+          background-color: $theme-color-2;
+          border-color: $theme-color-2;
+          @include box-shadow(none);
+        }
+      }
+    }
+  }
+  &:focus {
+    &:not(:checked) {
+      ~ {
+        .custom--control-label {
+          &::before {
+            border-color: $theme-color-2;
+          }
+        }
+      }
+    }
+    ~ {
+      .custom--control-label {
+        &::before {
+          @include box-shadow(0 0 0 .2rem rgba(236,82,82,.25));
+        }
+      }
+    }
+  }
+}
+/*-======= MAP ========-*/
+#map {
+  width: 100%;
+  height: 500px;
+}
+/*==== leaflet-bar ======*/
+.leaflet-bar {
+  @include box-shadow(0 0 0 0);
+  a {
+    @include border-radius(4px);
+    border-bottom: 0;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    @include box-shadow(0 1px 5px rgba(0,0,0,.3));
+    margin-bottom: 4px;
+    font-size: $font-size-20;
+    &:hover {
+      @include border-radius(4px);
+      border-bottom: 0;
+      width: 35px;
+      height: 35px;
+      line-height: 35px;
+      background-color: $theme-color-2;
+      color: $white;
+    }
+  }
+}
+.payment-logo {
+  position: absolute;
+  right: 20px;
+  top: 21px;
+}
+.payment-tab-toggle {
+  padding-right: 20px;
+  padding-left: 20px;
+  > label {
+    cursor: pointer;
+    display: block;
+    position: relative;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 30px;
+    margin-bottom: 0;
+    font-weight: $font-weight-semi-bold;
+    color: $theme-color;
+    &:before {
+      background-color: $white;
+      border: 2px solid $color-gray-2;
+      @include border-radius(100%);
+      content: "";
+      position: absolute;
+      top: 18px;
+      left: 0;
+      width: 18px;
+      height: 18px;
+      @include transition(0.3s);
+    }
+    &:after {
+      background-color: $color-gray-2;
+      @include border-radius(100%);
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 23px;
+      width: 8px;
+      height: 8px;
+      @include transition(0.3s);
+      @include transform(scale(0));
+    }
+  }
+  > input {
+    position: absolute;
+    visibility: hidden;
+    &:checked ~ label {
+      &:before {
+        border-color: $theme-color-2
+      }
+      &:after {
+        background-color: $theme-color-2;
+        @include transform(scale(1));
+      }
+    }
+  }
+}
+/*====== payment-tab =======*/
+.payment-tab {
+  background-color: $white;
+  max-height: 55px;
+  overflow: hidden;
+  position: relative;
+  @include transition(0.5s);
+  width: 100%;
+  @include border-radius(8px);
+  @include box-shadow(0 10px 40px rgba(82, 85, 90, 0.1));
+  margin-bottom: 15px;
+  &.is-active {
+    max-height: 400px;
+    .payment-tab-content {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.payment-tab-content {
+  padding: 0 20px 20px 20px;
+  visibility: hidden;
+  opacity: 0;
+  @include transition(0.2s);
+}
+.contact-success-message {
+  display: none;
+}

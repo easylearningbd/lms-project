@@ -1,0 +1,48 @@
+/*=============== comments-wrapper ===============*/
+.meta-tags {
+  a {
+    color: $theme-color-2;
+    @include transition(0.3s);
+    position: relative;
+    padding-right: 8px;
+    padding-left: 4px;
+    &::after {
+      position: absolute;
+      content: "";
+      top: 7px;
+      right: 0;
+      width: 3px;
+      height: 3px;
+      background-color: rgba(127, 136, 151, 0.4);
+      @include border-radius(100%);
+    }
+    &:first-child {
+      padding-left: 0;
+    }
+    &:hover {
+      color: $theme-color;
+    }
+  }
+}
+.helpful-action {
+  .btn {
+    border-color: rgba(128, 137, 150, 0.3);
+    padding: 0 10px;
+    color: $theme-color-4;
+    margin-right: 2px;
+    font-size: $font-size-15;
+    &:hover {
+      background-color: rgba(128, 137, 150, 0.1);
+      color: $theme-color;
+    }
+  }
+}
+.review-reply {
+  margin-left: 104px;
+  @media #{$large_mobile} {
+    margin-left: 0;
+  }
+  @media #{$small_mobile} {
+    margin-left: 0;
+  }
+}

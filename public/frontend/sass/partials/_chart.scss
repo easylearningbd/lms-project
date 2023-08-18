@@ -1,0 +1,33 @@
+.chart-legend {
+  li {
+    font-size: $font-size-15;
+    margin-bottom: 3px;
+    display: inline-block;
+    padding-right: 15px;
+    &:last-child {
+      padding-right: 0;
+    }
+  }
+}
+
+[class$="-legend"] {
+  cursor: pointer;
+  li {
+    display: inline-block;
+    padding-right: 14px;
+    font-size: $font-size-15;
+    &:last-child {
+      padding-right: 0;
+    }
+    &.hidden {
+      text-decoration: line-through;
+    }
+    span {
+      @include border-radius(5px);
+      display: inline-block;
+      height: 10px;
+      margin-right: 5px;
+      width: 10px;
+    }
+  }
+}

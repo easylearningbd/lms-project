@@ -1,0 +1,31 @@
+@mixin transition($time-set) {
+  -webkit-transition: all $time-set;
+  -moz-transition: all $time-set;
+  -ms-transition: all $time-set;
+  -o-transition: all $time-set;
+  transition: all $time-set;
+}
+@mixin border-radius($radius-property) {
+  -webkit-border-radius: $radius-property;
+  -moz-border-radius: $radius-property;
+  border-radius: $radius-property;
+}
+@mixin box-shadow($shadow-property) {
+  -webkit-box-shadow: $shadow-property;
+  -moz-box-shadow: $shadow-property;
+  box-shadow: $shadow-property;
+}
+@mixin perspective($property) {
+  -webkit-perspective: $property;
+  -moz-perspective: $property;
+  -ms-perspective: $property;
+  perspective: $property;
+}
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -moz-transform: $property;
+  -ms-transform: $property;
+  -o-transform: $property;
+  transform: $property;
+}
+

@@ -1,0 +1,31 @@
+/*-======== member-card =======-*/
+.member-card {
+  padding-top: 40px;
+  .card-image {
+    width: 100px;
+    height: 100px;
+    @include border-radius(100%);
+    margin-left: auto;
+    margin-right: auto;
+    .card-img-top {
+      @include border-radius(100%);
+    }
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 50%;
+    @include transform(translateX(-50%));
+    width: 60px;
+    height: 4px;
+    background-color: rgba(127, 136, 151, 0.2);
+    @include border-radius(0 0 5px 5px);
+    @include transition(0.3s);
+  }
+  &:hover {
+    &:after {
+      background-color: $theme-color-2;
+    }
+  }
+}

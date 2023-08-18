@@ -1,0 +1,293 @@
+/*======== card-item =========*/
+.card-item {
+  @include border-radius(8px);
+  margin-bottom: 30px;
+  @include transition(0.3s);
+  @include box-shadow(0 0 40px rgba(82, 85, 90, 0.1));
+  border: 0;
+  .card-title {
+    color: $theme-color;
+    font-weight: $font-weight-semi-bold;
+    line-height: 25px;
+    margin-bottom: 1px;
+    font-size: $font-size-20;
+    a {
+      color: $theme-color;
+      @include transition(0.3s);
+      &:hover {
+        color: $theme-color-2;
+      }
+    }
+  }
+  .card-text {
+    a {
+      color: $theme-color-4;
+      @include transition(0.3s);
+      &:hover {
+        color: $theme-color-2;
+      }
+    }
+  }
+  .card-body {
+    padding: 1.6rem;
+    &.d-flex {
+      @media #{$tab_device} {
+        flex-direction: column;
+        text-align: center;
+      }
+      @media #{$large_mobile} {
+        flex-direction: column;
+        text-align: center;
+      }
+      @media #{$small_mobile} {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  }
+}
+/*======== card-image =========*/
+.card-image {
+  position: relative;
+  .card-img-top {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+  .course-badge-labels {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+  }
+  .course--badge-labels {
+    left: auto;
+    right: 10px;
+  }
+  .play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%) scale(0.6));
+    @include transition(150ms ease-in-out);
+    opacity: 0;
+    visibility: hidden;
+  }
+  &:hover {
+    .play-button {
+      @include transform(translate(-50%, -50%) scale(1));
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+/*======= course-badge =======*/
+.course-badge {
+  background-color: $color-2;
+  color: $white;
+  font-weight: $font-weight-bold;
+  display: inline-block;
+  padding: 4px 10px;
+  @include border-radius(8px);
+  font-size: $font-size-12;
+  line-height: 18px;
+  letter-spacing: 0.2px;
+  &.blue {
+    background-color: $color-3;
+  }
+  &.green {
+    background-color: $color-4;
+  }
+  &.red {
+    background-color: $color-5;
+  }
+  &.sky-blue {
+    background-color: $color-7;
+  }
+}
+/*======= share-wrap ======*/
+.share-wrap {
+  position: relative;
+  .social-icons {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    opacity: 0;
+    visibility: hidden;
+    width: 115px;
+    @include transition(0.3s);
+    &.social-active {
+      opacity: 1;
+      visibility: visible;
+     @include transform(translateX(-45px));
+    }
+  }
+}
+.share-toggle {
+  z-index: 1;
+  position: relative;
+  &.share-toggle-active {
+    i {
+      &::before {
+        content: "\f00d";
+      }
+    }
+  }
+}
+/*======= card-item-list-layout ======*/
+.card-item-list-layout {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  @media #{$large_mobile} {
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  @media #{$small_mobile} {
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  .card-image {
+    width: 33%;
+    @media #{$large_mobile} {
+      width: auto;
+    }
+    @media #{$small_mobile} {
+      width: auto;
+    }
+    a {
+      height: 100%;
+    }
+    .card-img-top {
+      border-top-right-radius: 0;
+      border-bottom-left-radius: 8px;
+      height: 100%;
+      object-fit: cover;
+      @media #{$large_mobile} {
+        height: auto;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 0;
+      }
+      @media #{$small_mobile} {
+        height: auto;
+        border-top-right-radius: 8px;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+  .card-body {
+    width: 67%;
+    @media #{$large_mobile} {
+      width: auto;
+    }
+    @media #{$small_mobile} {
+      width: auto;
+    }
+  }
+}
+/*====== card-preview =======*/
+.tooltip_templates {
+  display: none;
+}
+.tooltipster-sidetip  {
+  width: 380px !important;
+  .tooltipster-box {
+    background: $white;
+    border: 0;
+    @include box-shadow(0 0 10px rgba(82, 85, 90, 0.2));
+    @include border-radius(8px);
+  }
+  .tooltipster-content {
+    color: inherit;
+    line-height: inherit;
+    padding: 0;
+  }
+  .card-item {
+    margin-bottom: 0;
+    @include box-shadow(none);
+  }
+  &.tooltipster-top {
+    .tooltipster-arrow-background {
+      border-top-color: $white;
+      top: 2px;
+    }
+  }
+  &.tooltipster-right {
+    .tooltipster-arrow-background {
+      border-right-color: $white;
+      left: 0;
+    }
+    .tooltipster-arrow {
+      top: 50% !important;
+      @include transform(translateY(-50%));
+      margin-top: 0;
+      left: -1px;
+    }
+  }
+  &.tooltipster-left {
+    .tooltipster-arrow-background {
+      left: 0;
+      border-left-color: $white;
+    }
+    .tooltipster-arrow {
+      top: 50% !important;
+      @include transform(translateY(-50%));
+      margin-top: 0;
+      right: -1px;
+    }
+  }
+  &.tooltipster-bottom {
+    .tooltipster-arrow-background {
+      border-bottom-color: $white;
+      top: -2px;
+    }
+  }
+  &.tooltipster-top,
+  &.tooltipster-right,
+  &.tooltipster-bottom,
+  &.tooltipster-left {
+    .tooltipster-arrow-border {
+      border: none;
+    }
+  }
+}
+/*======== media-card =======*/
+.media-card {
+  .media-img {
+    width: 80px;
+    height: 80px;
+    margin-right: 15px;
+    @include border-radius(8px);
+    img {
+      width: 100%;
+      height: 100%;
+      @include border-radius(8px);
+    }
+  }
+  .media--img {
+    border: 4px solid $white;
+    @include box-shadow(0 0 8px 0px rgba(0, 0, 0, 0.05));
+  }
+  .media-img-md {
+    width: 100px;
+    height: 100px;
+  }
+  .media-img-lg {
+    width: 200px;
+    height: 200px;
+  }
+  .media-body {
+    h5 {
+      color: $theme-color;
+      font-weight: $font-weight-semi-bold;
+      line-height: 18px;
+      a {
+        color: $theme-color;
+        @include transition(0.3s);
+        &:hover {
+          color: $theme-color-2;
+        }
+      }
+    }
+  }
+}

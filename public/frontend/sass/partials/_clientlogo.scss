@@ -1,0 +1,52 @@
+/*===== client-logo-item =======*/
+.client-logo-item {
+  display: inline-block;
+  img {
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    @include transition(0.3s);
+  }
+  &:hover {
+    img {
+      -webkit-filter: grayscale(0);
+      filter: grayscale(0);
+    }
+  }
+}
+/*====== client--logo-item ========*/
+.client--logo-item {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  img {
+    -webkit-filter: grayscale(0);
+    filter: grayscale(0);
+  }
+}
+/*====== client--logo-item-2 ========*/
+.client--logo-item-2 {
+  img {
+    max-width: 100px;
+  }
+}
+.client-logo-2 {
+  @media #{$tab_device} {
+    margin-top: 50px;
+  }
+  @media #{$large_mobile} {
+    margin-top: 50px;
+  }
+  @media #{$small_mobile} {
+    margin-top: 50px;
+  }
+}
+.client-logo-wrap {
+  @media #{$tab_device} {
+    text-align: center!important;
+  }
+  @media #{$large_mobile} {
+    text-align: center!important;
+  }
+  @media #{$small_mobile} {
+    text-align: center!important;
+  }
+}

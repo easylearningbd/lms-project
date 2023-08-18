@@ -1,0 +1,95 @@
+/*=================================
+  Skillbar
+ =================================*/
+.skill {
+  margin-bottom: 20px;
+}
+.progress_bg {
+  background-color: rgba(127, 136, 151, 0.1);
+  @include border-radius(30px);
+  margin-top: 10px;
+  .progress_bar {
+    height: 10px;
+    background-color:  $theme-color-2;
+    @include border-radius(30px);
+    position: relative;
+    &:after {
+      position: absolute;
+      content: '';
+      top: -4px;
+      right: -1px;
+      width: 18px;
+      height: 18px;
+      background-color: $theme-color-2;
+      @include border-radius(50%);
+      @include box-shadow(0 0 1px rgba(0, 0, 0, 0.2));
+    }
+  }
+}
+
+/*======== skillbar ========*/
+.skillbar {
+  position:relative;
+  display:block;
+  width:100%;
+  background-color: rgba(127, 136, 151, 0.1);
+  height: 15px;
+  @include border-radius(30px);
+  @include transition(0.4s linear);
+  -webkit-transition-property:width, background-color;
+  -moz-transition-property:width, background-color;
+  -ms-transition-property:width, background-color;
+  -o-transition-property:width, background-color;
+  transition-property:width, background-color;
+}
+.skillbar-skillbar {
+  height: 7px;
+}
+.skillbar-skillbar-2 {
+  height: 4px;
+}
+.skillbar-bar {
+  height: 15px;
+  width: 0;
+  background-color: $theme-color-4;
+  @include border-radius(30px);
+}
+.skillbar--bar {
+  height: 7px;
+}
+.skillbar--bar-2 {
+  height: 4px;
+}
+.skill-bar-percent {
+  font-size: $font-size-15;
+  font-weight: $font-weight-semi-bold;
+  color: $theme-color;
+}
+.skillbar-title {
+  font-size: $font-size-15;
+}
+/*======== my-course-progress-bar-wrap ========*/
+.my-course-progress-bar-wrap {
+  .skillbar-title {
+    width: 26%;
+    @media #{$laptop_m_four} {
+      width: 100%;
+    }
+  }
+  .skillbar-box {
+    width: 56%;
+    @media #{$laptop_m_four} {
+      width: 100%;
+    }
+  }
+  .skill-bar-percent {
+    width: 18%;
+    text-align: right;
+    @media #{$laptop_m_four} {
+      position: absolute;
+      width: auto;
+      top: 0;
+      right: 0;
+    }
+  }
+}

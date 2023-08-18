@@ -1,0 +1,30 @@
+/*-============ cta-content-wrap =============-*/
+.cta-content-wrap {
+  svg {
+    @media #{$tab_device} {
+      margin-bottom: 16px;
+    }
+    @media #{$large_mobile} {
+      margin-bottom: 16px;
+    }
+    @media #{$small_mobile} {
+      margin-bottom: 16px;
+    }
+  }
+  .section__title {
+    @media #{$large_mobile} {
+      font-size: $font-size-35 !important;
+    }
+  }
+}
+.cta-btn-box {
+  @media #{$tab_device} {
+    text-align: left !important;
+  }
+  @media #{$large_mobile} {
+    text-align: left !important;
+  }
+  @media #{$small_mobile} {
+    text-align: left !important;
+  }
+}

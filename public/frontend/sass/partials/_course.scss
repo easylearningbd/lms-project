@@ -1,0 +1,745 @@
+/*================ course-overview-card ===================*/
+.course-overview-card {
+  margin-bottom: 30px;
+  .overview-list-item {
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    li {
+      margin-bottom: 15px;
+      width: 50%;
+      padding-right: 20px;
+      position: relative;
+      padding-left: 25px;
+      font-size: $font-size-15;
+      @media #{$large_mobile} {
+        width: 100%;
+        padding-right: 0;
+      }
+      @media #{$small_mobile} {
+        width: 100%;
+        padding-right: 0;
+      }
+      i {
+        position: absolute;
+        top: 5px;
+        left: 0;
+      }
+    }
+  }
+}
+.curriculum-header {
+  @media #{$large_mobile} {
+    flex-direction: column;
+  }
+  @media #{$small_mobile} {
+    flex-direction: column;
+  }
+  h3 {
+    @media #{$large_mobile} {
+      width: 100%;
+      text-align: left;
+      padding-bottom: 4px;
+    }
+    @media #{$small_mobile} {
+      width: 100%;
+      text-align: left;
+      padding-bottom: 4px;
+    }
+  }
+}
+.curriculum-duration {
+  @media #{$large_mobile} {
+    width: 100%;
+    text-align: left;
+  }
+  @media #{$small_mobile} {
+    width: 100%;
+    text-align: left;
+  }
+}
+.instructor-wrap {
+  .media-card {
+    @media #{$large_mobile} {
+      flex-direction: column;
+    }
+    @media #{$small_mobile} {
+      flex-direction: column;
+    }
+  }
+}
+.instructor-img {
+  margin-right: 40px;
+  @media #{$large_mobile} {
+    margin-bottom: 40px;
+    margin-right: 0;
+  }
+  @media #{$small_mobile} {
+    margin-bottom: 40px;
+    margin-right: 0;
+  }
+  .media-img {
+    @include border-radius(100%);
+    width: 120px;
+    height: 120px;
+    img {
+      @include border-radius(100%);
+    }
+  }
+}
+/*================ course-dashboard-container ===================*/
+.course-dashboard-container {
+  @media #{$tab_device} {
+    display: block !important;
+  }
+  @media #{$large_mobile} {
+    display: block !important;
+  }
+  @media #{$small_mobile} {
+    display: block !important;
+  }
+}
+
+/*================ course-dashboard-column ===================*/
+.course-dashboard-column {
+  width: 75%;
+  @include transition(0.5s);
+  @media #{$laptop_m} {
+    width: calc(100% - 400px);
+  }
+  @media #{$laptop_m_four} {
+    width: calc(100% - 350px);
+  }
+  @media #{$tab_device} {
+     width: 100%;
+  }
+  @media #{$large_mobile} {
+     width: 100%;
+  }
+  @media #{$small_mobile} {
+     width: 100%;
+  }
+  &.active {
+    width: 100%;
+  }
+}
+.lecture-video-detail {
+  position: relative;
+  z-index: 3;
+}
+/*==== lecture-tab-body ======*/
+.lecture-tab-body {
+  .generic-tab {
+    .mobile-menu-nav-item {
+      display: none;
+      @media #{$tab_device} {
+        display: block;
+      }
+       @media #{$large_mobile} {
+        display: block;
+      }
+       @media #{$small_mobile} {
+        display: block;
+      }
+    }
+  }
+}
+/*==== lecture-video-detail-body ======*/
+.lecture-video-detail-body {
+  padding: 20px 50px 50px 50px;
+}
+/*================ lecture-overview-item ===================*/
+.lecture-overview-item {
+  margin-bottom: 30px;
+  margin-top: 30px;
+  .generic-list-item {
+    li {
+      span {
+        color: $theme-color;
+        margin-right: 8px;
+      }
+    }
+  }
+}
+.question-overview-result-header {
+  @media #{$small_mobile} {
+    display: block !important;
+  }
+}
+/*================ lecture-overview-stats-wrap ===================*/
+.lecture-overview-stats-wrap {
+  @media #{$large_mobile} {
+    display: block !important;
+  }
+  @media #{$small_mobile} {
+    display: block !important;
+  }
+  >*.lecture-overview-stats-wide-item {
+    width: 75%;
+    @media #{$large_mobile} {
+     width: auto;
+    }
+    @media #{$small_mobile} {
+     width: auto;
+    }
+  }
+  >* {
+    width: 25%;
+    @media #{$large_mobile} {
+      width: auto;
+    }
+    @media #{$small_mobile} {
+      width: auto;
+    }
+  }
+  >*:first-child {
+    width: 20%;
+    @media #{$large_mobile} {
+      width: auto;
+      margin-bottom: 12px;
+    }
+    @media #{$small_mobile} {
+      width: auto;
+    }
+  }
+}
+/*====== lecture-description ======*/
+.lecture-description {
+  p,
+  .generic-list-item {
+    padding-bottom: 20px;
+  }
+}
+.lecture-owner-decription {
+  p {
+    padding-bottom: 10px;
+  }
+  strong {
+    font-weight: $font-weight-semi-bold;
+    color: $theme-color;
+  }
+}
+/*================ question-overview-filter-wrap ===================*/
+.question-overview-filter-wrap {
+  @media #{$large_mobile} {
+    display: block !important;
+  }
+}
+.question-overview-filter-item {
+  flex: 1;
+  margin-right: 8px;
+  @media #{$large_mobile} {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+  &:last-child {
+    margin-right: 0;
+  }
+  .generic-action-wrap {
+    .theme-btn {
+      font-weight: $font-weight-regular;
+      color: $theme-color-4;
+      text-align: left;
+      &:before {
+        position: absolute;
+        top: 50%;
+        @include transform(translateY(-50%));
+        font-family: "Line Awesome Free";
+        font-size: $font-size-15;
+        color: $theme-color-4;
+        pointer-events: none;
+        display: inline-block;
+        content: "\f107";
+        right: 15px;
+        font-weight: 900;
+      }
+    }
+    .dropdown-menu {
+      min-width: 100%;
+    }
+  }
+}
+
+/*================ lecture-quest-wrap ===================*/
+.lecture-quest-wrap {
+  position: relative;
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  @media #{$laptop_m} {
+    width: 700px;
+  }
+  @media #{$laptop_m_four} {
+    width: 600px;
+  }
+  @media #{$tab_device} {
+    width: auto;
+  }
+  @media #{$large_mobile} {
+    width: auto;
+  }
+  @media #{$small_mobile} {
+    width: auto;
+  }
+}
+.replay-question-wrap,
+.new-question-wrap {
+  background-color: $white;
+  padding-top: 30px;
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+.new-question-wrap,
+.search-course-wrap {
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  @media #{$tab_device} {
+    width: auto;
+  }
+  @media #{$large_mobile} {
+    width: auto;
+  }
+  @media #{$small_mobile} {
+    width: auto;
+  }
+}
+/*====== replay-question-body ========*/
+.replay-question-body {
+  .question-list-item {
+    .media {
+      &:hover {
+        background-color: transparent;
+      }
+    }
+  }
+}
+.replay-action-bar {
+  border: 1px solid rgba(127, 136, 151, 0.2);
+  background-color: rgba(127, 136, 151, 0.1);
+  border-bottom: 0;
+  @include border-radius(4px 4px 0 0);
+  .btn-group {
+    .btn {
+      color: $theme-color;
+      @include box-shadow(0 0 0 0);
+      &:first-child {
+        @include border-radius(4px 0 0 0);
+      }
+      &:last-child {
+        @include border-radius(0);
+      }
+      &:hover {
+        background-color: $theme-color-2;
+        color: $white;
+      }
+    }
+  }
+}
+.question-replay-body {
+  .form--control {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+}
+/*====== question-overview-result-wrap ========*/
+.question-overview-result-wrap {
+  &.active {
+    display: none;
+  }
+}
+/*================ question-list-item ===================*/
+.question-list-item {
+  .media-body {
+    overflow: hidden;
+  }
+  .media {
+    &:hover {
+      background-color: rgba(127, 136, 151, 0.05);
+    }
+  }
+}
+.question-meta-content {
+  overflow: hidden;
+  padding-right: 145px;
+  @media #{$large_mobile} {
+    padding-right: 20px;
+  }
+  @media #{$small_mobile} {
+    padding-right: 20px;
+  }
+}
+/*========= number-upvotes ==========*/
+.number-upvotes {
+  span {
+    font-weight: $font-weight-semi-bold;
+  }
+  button {
+    border: none;
+    margin-left: 10px;
+    font-size: $font-size-15;
+    color: $theme-color-4;
+    @include transition(0.3s);
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    @include border-radius(50%);
+    background-color: transparent;
+    outline: none;
+    &:hover {
+      color: $theme-color;
+      background-color: rgba(127, 136, 151, 0.2);
+    }
+  }
+}
+/*================ lecture-announcement-wrap ===================*/
+.lecture-announcement-wrap {
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+  @media #{$laptop_m_four} {
+    width: 600px;
+  }
+  @media #{$tab_device} {
+    width: auto;
+  }
+  @media #{$large_mobile} {
+    width: auto;
+  }
+  @media #{$small_mobile} {
+    width: auto;
+  }
+}
+/*============= my-course-filter-wrap ==============*/
+.my-course-filter-wrap {
+  @media #{$tab_device} {
+    display: block !important;
+  }
+  @media #{$large_mobile} {
+    display: block !important;
+  }
+  @media #{$small_mobile} {
+    display: block !important;
+  }
+}
+/*============= my-course-sort-by-content ==============*/
+.my-course-sort-by-content {
+  width: 18%;
+  @media #{$tab_device} {
+    width: 100%;
+  }
+  @media #{$large_mobile} {
+    width: 100%;
+  }
+  @media #{$small_mobile} {
+    width: 100%;
+  }
+}
+/*============= my-course-filter-by-content ==============*/
+.my-course-filter-by-content {
+  padding-left: 10px;
+  width: 50%;
+  @media #{$laptop_m_three} {
+    width: 58%;
+  }
+  @media #{$tab_device} {
+   padding: 10px 0 10px 0;
+    width: 100%;
+  }
+  @media #{$large_mobile} {
+   padding: 10px 0 10px 0;
+    width: 100%;
+  }
+  @media #{$small_mobile} {
+   padding: 10px 0 10px 0;
+    width: 100%;
+  }
+}
+.my-course-filter-by-content-inner {
+  @media #{$tab_device} {
+   flex-wrap: wrap;
+  }
+  @media #{$large_mobile} {
+    flex-wrap: wrap;
+  }
+  @media #{$small_mobile} {
+    flex-wrap: wrap;
+  }
+  .select-container {
+    width: 33%;
+    margin-right: 10px;
+    @media #{$tab_device} {
+      width: 48%;
+      margin-bottom: 10px;
+    }
+    @media #{$large_mobile} {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+    @media #{$small_mobile} {
+      width: 100%;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+}
+.my-course-search-content {
+  width: 32%;
+  padding-left: 20px;
+  @media #{$laptop_m_three} {
+    width: 25%;
+  }
+  @media #{$tab_device} {
+    width: 100%;
+    padding-left: 0;
+  }
+   @media #{$large_mobile} {
+    width: 100%;
+    padding-left: 0;
+  }
+   @media #{$small_mobile} {
+    width: 100%;
+    padding-left: 0;
+  }
+}
+/*================ course-alert-info ===================*/
+.course-alert-info {
+  .close {
+    padding: 22px 15px;
+  }
+  .alert-link {
+    @include transition(0.2s);
+    &:hover {
+      color: $theme-color-2;
+    }
+  }
+}
+/*================ my-course-info ===================*/
+.my-course-info {
+  form {
+    @media #{$device-375px} {
+      margin-top: 15px;
+      width: 100%;
+    }
+  }
+}
+/*================ course-dashboard-side-heading ===================*/
+.course-dashboard-side-heading {
+  padding: 20px;
+  position: relative;
+}
+.sidebar-open,
+.sidebar-close {
+  background-color: transparent;
+  border: none;
+  font-size: $font-size-22;
+  color: $theme-color;
+  outline: none;
+  @include transition(0.3s);
+  &:hover {
+    @include transform(rotate(90deg));
+    color: $theme-color-2;
+  }
+}
+.sidebar-open {
+  padding: 10px 16px;
+  background-color: $theme-color;
+  color: $white;
+  @include border-radius(4px 0 0 4px);
+  position: absolute;
+  top: 20px;
+  left: -40px;
+  opacity: 0;
+  visibility: hidden;
+  @include transition(0.3s);
+  font-size: $font-size-15;
+  font-weight: $font-weight-semi-bold;
+  z-index: -1;
+  .la {
+    margin-right: 5px;
+  }
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  &:hover {
+    @include transform(rotate(0));
+    color: $white;
+    left: -155px;
+  }
+}
+.course-duration {
+  span {
+    font-size: $font-size-13;
+    color: $theme-color-4;
+    position: relative;
+    padding-right: 12px;
+    padding-left: 2px;
+    font-weight: $font-weight-medium;
+    display: inline-block;
+    &:first-child {
+      padding-left: 0;
+    }
+    &:last-child {
+      padding-right: 0;
+      &:after {
+        display: none;
+      }
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      top: 7px;
+      right: 0;
+      width: 4px;
+      height: 4px;
+      background-color: rgba(127, 136, 151, 0.4);
+      @include border-radius(100%);
+    }
+  }
+}
+/*======= lecture-viewer-container ========*/
+.lecture-viewer-container {
+  position: relative;
+}
+.lecture-viewer-text-wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $white;
+  z-index: 4;
+  display: none;
+  padding-bottom: 50px;
+  &.active {
+    display: block;
+  }
+}
+.lecture-viewer-text-content {
+  overflow: auto;
+  height: 100%;
+  padding: 50px 80px 0 80px;
+  @media #{$large_mobile} {
+    padding: 30px 30px 0 30px;
+  }
+}
+.lecture-viewer-text-body {
+  width: 700px;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  @media #{$laptop_l} {
+    width: auto;
+  }
+}
+.lecture-viewer-content-detail {
+  .generic-list-item {
+    li {
+      font-size: $font-size-17;
+      line-height: 32px;
+      margin-bottom: 12px;
+      strong {
+        color: $theme-color;
+        font-weight: $font-weight-semi-bold;
+      }
+    }
+  }
+}
+/*======= curriculum-sidebar-list ========*/
+.curriculum-sidebar-list {
+  .course-item-link {
+    cursor: pointer;
+    padding: 12px 20px;
+    @include transition(0.3s);
+    &.active {
+      background-color: rgba(53, 143, 247, 0.1);
+      &:hover {
+        background-color: rgba(53, 143, 247, 0.2);
+      }
+    }
+    &:hover {
+      background-color: rgba(127, 136, 151, 0.1);
+    }
+  }
+}
+.course-item-content-wrap {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+}
+.course-item-content {
+  flex-grow: 1;
+}
+.courser-item-meta-wrap {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+.course-item-meta {
+  font-size: $font-size-14;
+  i {
+    margin-right: 3px;
+  }
+}
+/*================ course-dashboard-sidebar-column ===================*/
+.course-dashboard-sidebar-column {
+  width: 25%;
+  height: 100vh;
+  position: fixed;
+  right: 0;
+  background-color: $white;
+  @include transition(0.5s);
+  z-index: 5;
+  @include box-shadow(0 0 8px 0px rgba(0, 0, 0, 0.05));
+  border: 1px solid rgba(127, 136, 151, 0.2);
+  border-top: 0;
+  @media #{$laptop_m} {
+    width: 400px;
+  }
+  @media #{$laptop_m_four} {
+    width: 350px;
+  }
+  @media #{$tab_device} {
+    display: none;
+  }
+  @media #{$large_mobile} {
+    display: none;
+  }
+  @media #{$small_mobile} {
+    display: none;
+  }
+  &.active {
+    right: -25%;
+    @media #{$laptop_m} {
+     right: -400px;
+    }
+    @media #{$laptop_m_four} {
+      right: -350px;
+    }
+  }
+}
+.course-dashboard-sidebar-wrap {
+  height: 100%;
+  overflow-x: hidden;
+  padding-bottom: 90px;
+  background-color: $white;
+  z-index: 5;
+}
+
+
+
+
+
+
+

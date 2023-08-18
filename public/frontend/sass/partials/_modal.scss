@@ -1,0 +1,64 @@
+/* modal container */
+.modal-container {
+  &.fade {
+    .modal-dialog {
+      @include transform(scale(.8) translate(0, 0));
+      @include transition(0.2s)
+    }
+  }
+  .close {
+    span {
+      @include transition(0.3s);
+    }
+    &:hover {
+      span {
+        @include transform(rotate(90deg));
+        color: $theme-color-2;
+      }
+    }
+  }
+  .modal-content {
+    @include border-radius(8px);
+  }
+  .modal-dialog {
+    @include transform(scale(.8) translate(0, 0));
+  }
+  &.show{
+    display: block;
+    .modal-dialog {
+      @include transform(scale(1) translate(0, 0));
+    }
+  }
+}
+/*========== copy-to-clipboard ============*/
+.copy-to-clipboard {
+  position: relative;
+}
+.success-message {
+  background-color: $color-4;
+  color: $white;
+  @include border-radius(4px);
+  padding: 3px 6px;
+  position: absolute;
+  top: -10px;
+  left: 45%;
+  @include transform(translateX(-50%));
+  @include transition(0.4s);
+  opacity: 0;
+  visibility: hidden;
+  &.active {
+    top: -40px;
+    opacity: 1;
+    visibility: visible;
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    bottom: -4px;
+    left: 50%;
+    @include transform(translateX(-50%) rotate(45deg));
+    background-color: $color-4;
+    width: 8px;
+    height: 8px;
+  }
+}

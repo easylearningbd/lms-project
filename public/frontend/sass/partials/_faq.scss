@@ -1,0 +1,64 @@
+/*======================================
+      faq-area
+ ======================================*/
+.faq-panel {
+  margin-bottom: 10px;
+  &.is-active {
+    .faq-heading {
+      .faq__title {
+        background-color: $theme-color-2;
+        color: $white;
+        i {
+          @include transform(rotate(-90deg));
+        }
+      }
+    }
+  }
+}
+.faq-heading {
+  .faq__title {
+    color: $theme-color;
+    width: 100%;
+    cursor: pointer;
+    padding: 20px 30px 18px 30px;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    font-weight: $font-weight-medium;
+    font-size: $font-size-20;
+    background-color: rgba(127, 136, 151, 0.1);
+    position: relative;
+    @include border-radius(4px);
+    @include transition(0.3s);
+    @media #{$small_mobile} {
+      font-size: $font-size-60;
+    }
+    @media #{$small_mobile} {
+      font-size: $font-size-16;
+    }
+    @media #{$small_mobile} {
+      padding-right: 20px;
+      padding-left: 20px;
+    }
+    i {
+      @include transition(0.3s);
+    }
+    &:hover {
+      background-color: $theme-color-2;
+      color: $white;
+    }
+  }
+}
+.faq-content {
+  padding: 20px;
+  display: none;
+  .faq__desc {
+    font-size: $font-size-16;
+    color: $theme-color-4;
+    line-height: 28px;
+  }
+}

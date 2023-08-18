@@ -1,0 +1,246 @@
+.review-wrap,
+.feedback-wrap {
+  .media-card {
+    @media #{$large_mobile} {
+      flex-direction: column;
+    }
+    @media #{$small_mobile} {
+      flex-direction: column;
+    }
+  }
+  .media-body {
+    @media #{$large_mobile} {
+      width: 100%;
+    }
+    @media #{$small_mobile} {
+      width: 100%;
+    }
+  }
+}
+.review-wrap {
+  .media-img {
+    @media #{$large_mobile} {
+       margin-right: 0!important;
+      margin-bottom: 16px;
+    }
+    @media #{$small_mobile} {
+       margin-right: 0!important;
+      margin-bottom: 16px;
+    }
+  }
+}
+.review-rating-summary {
+  width: 180px;
+  text-align: center;
+  border-right: 1px solid rgba(128, 137, 150, 0.1);
+  padding-right: 30px;
+  margin-right: 40px;
+  @media #{$large_mobile} {
+    width: 100%;
+    padding-right: 0;
+    margin-right: 0;
+    margin-bottom: 40px;
+    border-right: 0;
+  }
+  @media #{$small_mobile} {
+    width: 100%;
+    padding-right: 0;
+    margin-right: 0;
+    margin-bottom: 40px;
+    border-right: 0;
+  }
+}
+.stats-average__count {
+  color: $color-2;
+  font-size: $font-size-65;
+  font-weight: $font-weight-bold;
+}
+.review-bars {
+  position: relative;
+  @media #{$small_mobile} {
+    flex-direction: column;
+  }
+}
+.review-bars__text {
+  text-transform: uppercase;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-15;
+  margin-right: 15px;
+  @media #{$small_mobile} {
+    width: 100%;
+    text-align: left;
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+}
+.review-bars__fill {
+  width: 400px;
+  margin-right: 15px;
+  @media #{$tab_device} {
+    width: 320px;
+  }
+  @media #{$large_mobile} {
+    width: 320px;
+  }
+  @media #{$small_mobile} {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 8px;
+  }
+}
+.review-bars__percent {
+  opacity: 0.8;
+  @media #{$small_mobile} {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}
+/*======== leave-rating =======*/
+.leave-rating {
+  width: auto;
+  display: inline-block;
+  position: relative;
+  input {
+    display: none;
+    &:checked {
+      ~ label {
+       &::before {
+         color: $color-2;
+       }
+      }
+    }
+    &:nth-of-type(5) {
+      &:checked {
+        ~ .rating-result-text {
+          &::before {
+            content:"Awful!";
+          }
+        }
+      }
+    }
+    &:nth-of-type(4) {
+      &:checked {
+        ~ .rating-result-text {
+          &::before {
+            content:"Poor!";
+          }
+        }
+      }
+    }
+    &:nth-of-type(3) {
+      &:checked {
+        ~ .rating-result-text {
+          &::before {
+            content:"Average!";
+          }
+        }
+      }
+    }
+    &:nth-of-type(2) {
+      &:checked {
+        ~ .rating-result-text {
+          &::before {
+            content:"Good!";
+          }
+        }
+      }
+    }
+    &:nth-of-type(1) {
+      &:checked {
+        ~ .rating-result-text {
+          &::before {
+            content:"Amazing!!";
+          }
+        }
+      }
+    }
+  }
+  label {
+    float: right;
+    display: inline-block;
+    position: relative;
+    padding-right: 8px;
+    font-size: $font-size-20;
+    cursor: pointer;
+    margin-bottom: 0;
+    &::before {
+      content: "\f005";
+      color: rgba(128, 137, 150, 0.4);
+      font-family: "Line Awesome Free";
+      font-weight: 900;
+    }
+    &:hover {
+      ~ label {
+        &::before {
+          color: $color-2;
+        }
+      }
+      &::before {
+        color: $color-2;
+      }
+    }
+    &:nth-of-type(5) {
+      &:hover {
+         ~ .rating-result-text {
+           &::before {
+             content:"Awful!";
+           }
+         }
+      }
+    }
+    &:nth-of-type(4) {
+      &:hover {
+         ~ .rating-result-text {
+           &::before {
+             content:"Poor!";
+           }
+         }
+      }
+    }
+    &:nth-of-type(3) {
+      &:hover {
+         ~ .rating-result-text {
+           &::before {
+             content:"Average!";
+           }
+         }
+      }
+    }
+    &:nth-of-type(2) {
+      &:hover {
+         ~ .rating-result-text {
+           &::before {
+             content:"Good!";
+           }
+         }
+      }
+    }
+    &:nth-of-type(1) {
+      &:hover {
+         ~ .rating-result-text {
+           &::before {
+             content:"Amazing!!";
+           }
+         }
+      }
+    }
+  }
+}
+/*======= leave--rating =======*/
+.leave--rating {
+  background-color: rgba(128, 137, 150, 0.1);
+  @include border-radius(8px);
+  padding: 10px 18px;
+}
+/*======= rating-result-text =======*/
+.rating-result-text {
+   color: $theme-color;
+   padding-bottom: 10px;
+   position: absolute;
+   width: 100%;
+   bottom: 100%;
+  &::before{
+    content:"Select Rating";
+  }
+ }

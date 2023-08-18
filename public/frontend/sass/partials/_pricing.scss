@@ -1,0 +1,32 @@
+/*-===============================
+    PACKAGE AREA
+===============================-*/
+.package-tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background-color: $theme-color-2;
+  color: $white;
+  font-weight: $font-weight-semi-bold;
+  display: block;
+  text-align: center;
+  padding: 14px 10px;
+  font-size: $font-size-17;
+}
+
+.package-item-active {
+  padding-top: 55px;
+  margin-top: -24px;
+  @media #{$tab_device} {
+    margin-top: 0;
+  }
+  @media #{$large_mobile} {
+    margin-top: 0;
+  }
+  @media #{$small_mobile} {
+    margin-top: 0;
+  }
+}

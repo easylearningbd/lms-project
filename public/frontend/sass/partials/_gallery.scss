@@ -1,0 +1,85 @@
+/*====================================================
+    GALLERY
+ ====================================================*/
+.portfolio-filter {
+  text-align: center;
+  li {
+    display: inline-block;
+    padding: 8px 25px;
+    cursor: pointer;
+    color: $theme-color;
+    @include border-radius(8px);
+    position: relative;
+    z-index: 1;
+    @include transition(0.3s);
+    &.active {
+      color: $theme-color-2;
+      @include box-shadow(0 6px 25px rgba(14, 16, 48, .1));
+      background-color: $white;
+    }
+  }
+}
+
+.generic-portfolio-item {
+  position: relative;
+  z-index: 1;
+  @include border-radius(8px);
+  margin-bottom: 30px;
+  img {
+    width: 100%;
+    height: 100%;
+    @include transition(0.6s);
+  }
+  &:hover {
+    img {
+      @include transform(scale(1.1));
+    }
+    .generic-portfolio-content {
+      .portfolio-link {
+        opacity: 1;
+        visibility: visible;
+        .icon-element,
+         &:after {
+          visibility: visible;
+          opacity: 1;
+        }
+        .icon-element {
+          @include transform(translate(-50%, -50%) scale(1));
+        }
+      }
+    }
+  }
+}
+
+.generic-portfolio-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  @include border-radius(8px);
+  .portfolio-link {
+    display: block;
+    .icon-element {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      @include transform(translate(-50%, -50%) scale(1.4));
+      opacity: 0;
+      visibility: hidden;
+      z-index: 1;
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      @include border-radius(8px);
+      @include transition(0.3s);
+    }
+  }
+}

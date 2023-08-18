@@ -1,0 +1,22 @@
+/*-========= counter-item ===========-*/
+.counter-item {
+  margin-bottom: 30px;
+  text-align: center;
+  .counter__title {
+    font-size: $font-size-50;
+    font-weight: $font-weight-semi-bold;
+    margin-bottom: 10px;
+    color: $theme-color;
+  }
+  .counter__meta {
+    font-size: $font-size-15;
+    font-weight: $font-weight-medium;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  &:hover {
+    .icon-element {
+      @include transform(translateY(-5px));
+    }
+  }
+}

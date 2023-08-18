@@ -1,0 +1,124 @@
+/*==== category-item =====*/
+.category-item {
+  @include border-radius(8px);
+  position: relative;
+  margin-bottom: 30px;
+  overflow: hidden;
+  .cat__img {
+    width: 100%;
+    @include border-radius(8px);
+    @include transition(0.3s);
+  }
+  .category-content {
+    position: absolute;
+    text-align: center;
+    padding-top: 50px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    color: $white;
+    @include transition(0.3s);
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+  }
+  .cat__title {
+    color: $white;
+    font-size: $font-size-22;
+    @include transition(0.3s);
+    font-weight: $font-weight-semi-bold;
+    a {
+      color: $white;
+    }
+  }
+  .cat__meta {
+    margin-top: 4px;
+    @include transition(0.3s);
+  }
+  .btn {
+    opacity: 0;
+    visibility: hidden;
+  }
+  &::after {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $theme-color;
+    opacity: .7;
+    content: "";
+    @include border-radius(8px);
+    @include transition(0.3s);
+  }
+  &:hover {
+    .category-content {
+      padding-top: 0;
+    }
+    .cat__meta {
+      opacity: 0;
+      visibility: hidden;
+      margin: 0;
+    }
+    .btn {
+      opacity: 1;
+      visibility: visible;
+    }
+    img {
+      @include transform(scale(1.1) rotate(3deg));
+    }
+  }
+}
+/*===== category-item-layout-2 =====*/
+.category-item-layout-2 {
+  background-color: $white;
+  @include border-radius(8px);
+  @include box-shadow(0 0 40px rgba(82, 85, 90, 0.08));
+  .category-content {
+    color: $theme-color;
+    position: inherit;
+    top: auto;
+    left: auto;
+    display: block;
+    padding: 40px 20px;
+  }
+  .cat__title {
+    padding-top: 15px;
+    color: $theme-color;
+    font-size: $font-size-19;
+  }
+  &::after {
+    display: none;
+  }
+  &:hover {
+    .category-content {
+      padding-top: 40px;
+    }
+    .icon-element {
+      @include transform(translateY(-6px));
+    }
+  }
+}
+.category-btn-box {
+  @media #{$tab_device} {
+    text-align: left !important;
+  }
+  @media #{$large_mobile} {
+     text-align: left !important;
+  }
+  @media #{$small_mobile} {
+     text-align: left !important;
+  }
+}
+.category-carousel {
+  .owl-stage-outer{
+    padding: 40px;
+    margin: -40px;
+  }
+}

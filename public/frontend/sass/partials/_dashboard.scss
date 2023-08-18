@@ -1,0 +1,271 @@
+/*======== dashboard-menu-toggler ========*/
+.dashboard-menu-toggler {
+  display: none;
+  position: relative;
+  cursor: pointer;
+  @media #{$laptop_m_three} {
+    display: inline-block;
+  }
+  &:hover {
+    background-color: rgba(127, 136, 151, 0.1);
+  }
+}
+/*======== dashboard-content-wrap =========*/
+.dashboard-content-wrap {
+  height: 100vh;
+  padding-top: 45px;
+  width: calc(100% - 325px);
+  margin-left: auto;
+  padding-right: 30px;
+  padding-left: 30px;
+  @media #{$laptop_m_three} {
+    padding-top: 30px;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+  }
+}
+
+/*======== profile-detail =========*/
+.profile-detail {
+  .generic-list-item {
+    li {
+      padding-bottom: 15px;
+      margin-bottom: 15px;
+      display: -webkit-flex;
+      display: -ms-flex;
+      display: flex;
+      @media #{$large_mobile} {
+        display: block;
+      }
+      &:last-child {
+        margin-bottom: 0;
+        padding-bottom: 0;
+        border-bottom: none;
+      }
+      .profile-name {
+        color: $theme-color;
+        font-weight: $font-weight-semi-bold;
+        width: 300px;
+        @media #{$large_mobile} {
+          width: auto;
+          display: block;
+          margin-bottom: 4px;
+        }
+      }
+      .profile-desc {
+        width: 500px;
+        @media #{$tab_device} {
+          width: 400px;
+        }
+        @media #{$large_mobile} {
+         width: auto;
+        }
+      }
+    }
+  }
+}
+/*======= message =========*/
+.dashboard-message-wrapper {
+  border: 1px solid rgba(127, 136, 151, 0.1);
+  @include border-radius(8px);
+  background-color: $white;
+  @include box-shadow(0 0 18px 0 rgba(0,0,0,.03));
+  @media #{$tab_device} {
+    flex-direction: column;
+  }
+  @media #{$large_mobile} {
+    flex-direction: column;
+  }
+  @media #{$small_mobile} {
+    flex-direction: column;
+  }
+}
+/*======= message-sidebar =========*/
+.message-sidebar {
+  width: 350px;
+  border-right: 1px solid rgba(127, 136, 151, 0.1);
+  @media #{$tab_device} {
+    width: 100%;
+    border-right: 0;
+  }
+  @media #{$large_mobile} {
+    width: 100%;
+    border-right: 0;
+  }
+  @media #{$small_mobile} {
+    width: 100%;
+    border-right: 0;
+  }
+}
+/*======= message-active =========*/
+.message-active {
+  background-color: rgba(53, 143, 227, 0.07);
+}
+/*======= conversation-wrap =========*/
+.conversation-wrap {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.conversation-box {
+  max-height: 620px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding-right: 30px;
+  padding-left: 30px;
+}
+/*======= conversation-item =========*/
+.conversation-item {
+  .media-body {
+    flex: inherit;
+  }
+  .message-body {
+    display: inline-block;
+    padding: 10px 15px;
+    @include border-radius(8px);
+    position: relative;
+    background-color: $color-gray-2;
+    @media #{$small_mobile} {
+      width: 100%;
+    }
+    .la-check {
+      display: none;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      right: -6px;
+      top: 50%;
+      @include transform(translateY(-50%) rotate(45deg));
+      width: 12px;
+      height: 12px;
+      background-color: $color-gray-2;
+    }
+  }
+  .message-typing {
+    -ms-flex-align: center;
+    align-items: center;
+    display: -ms-flexbox;
+    display: flex;
+    .typing-director {
+      padding-top: 8px;
+      margin-left: 3px;
+    }
+  }
+}
+/*======= message-sent =========*/
+.message-sent {
+  .media {
+    flex-direction: row-reverse;
+  }
+  .message-body {
+    background-color: $color-3;
+    color: $white;
+    .la-check {
+      display: inline-block;
+    }
+    h5 {
+      color: $white;
+    }
+    span {
+      opacity: 0.8;
+      text-align: right;
+    }
+    &::after {
+      background-color: $color-3;
+    }
+  }
+  .avatar-sm {
+    margin-right: 0!important;
+    margin-left: 1rem;
+  }
+}
+/*======= message-reply =========*/
+.message-reply {
+  .media-body {
+    flex-direction: row-reverse;
+  }
+  .message-body {
+    &::after {
+      right: auto;
+      left: -6px;
+    }
+  }
+}
+/*======= message-reply-body =========*/
+.message-reply-body {
+  .emojionearea-emojis-list {
+    padding-top: 20px;
+  }
+  .emojionearea {
+    border: 0;
+    @include box-shadow(none);
+  }
+  .emojionearea-search {
+    height: auto !important;
+    > input {
+      height: auto !important;
+      border: 1px solid rgba(128, 137, 150, 0.1);
+      @include border-radius(4px);
+      padding: 3px 12px;
+    }
+  }
+  .emojionearea-editor {
+    width: 100%;
+    min-height: 60px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 0;
+    margin-right: 10px;
+    flex: 1;
+    font-size: $font-size-15;
+    font-weight: $font-weight-medium;
+    color: $theme-color;
+    border: none;
+    resize: none;
+    outline: none;
+    &:before {
+      color: $theme-color-4 !important;
+    }
+  }
+  .emojionearea-button {
+    top: 50%;
+    @include transform(translateY(-50%));
+  }
+}
+/*========= data-list =========*/
+.data-list {
+  .btn-group {
+    @media #{$laptop_m_three} {
+      width: 100%;
+      margin-bottom: 15px;
+    }
+  }
+  .btn {
+    &.active {
+      background-color: $theme-color-2;
+      color: $white;
+    }
+  }
+}
+.dashboard-info-card {
+  .card-body.d-flex {
+    @media #{$tab_device} {
+      flex-direction: row;
+      text-align: left;
+    }
+    @media #{$large_mobile} {
+      flex-direction: row;
+      text-align: left;
+    }
+    @media #{$small_mobile} {
+      flex-direction: row;
+      text-align: left;
+    }
+  }
+}
+.emojionearea .emojionearea-picker.emojionearea-picker-position-top {
+  @media #{$device-320px} {
+    right: -100px;
+  }
+}

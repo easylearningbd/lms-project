@@ -1,0 +1,10 @@
+/*============ ERROR AREA =========*/
+.error-content {
+  svg {
+    width: 300px;
+    fill: $theme-color-4;
+    @media #{$small_mobile} {
+      width: 250px;
+    }
+  }
+}

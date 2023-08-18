@@ -1,0 +1,123 @@
+/*======= file upload ========*/
+.file-upload-wrap {
+  position: relative;
+  .file-upload-input {
+    @include border-radius(4px);
+    width: 100%;
+    border: 2px dashed rgba(128, 137, 150, 0.2);
+    height: 120px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    z-index: 1;
+    @include transition(0.3s);
+    text-indent: -99999px;
+    &:hover {
+      border-color: rgba(128, 137, 150, 0.4);
+      background-color: rgba(128, 137, 150, 0.03);
+    }
+  }
+  .file-upload-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    line-height: 120px;
+    text-align: center;
+    font-size: $font-size-16;
+    color: rgba(128, 137, 150, 0.9);
+    font-weight: $font-weight-medium;
+  }
+  .MultiFile-list {
+    margin-top: 20px;
+    > .MultiFile-label {
+      @include border-radius(4px);
+      background-color: rgba(128, 137, 150, 0.06);
+      display: inline-block;
+      border: 2px solid rgba(128, 137, 150, 0.1);
+      padding: 16px;
+      position: relative;
+      width: 100%;
+      + .MultiFile-label {
+        margin-top: 20px;
+      }
+      > span {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+    }
+    .MultiFile-remove {
+      @include box-shadow(0 4px 20px rgba(0, 0, 0, 0.2));
+      @include border-radius(50%);
+      position: absolute;
+      background-color: $white;
+      color: $theme-color;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      top: -16px;
+      right: -16px;
+      z-index: 1;
+      &:hover {
+        color: $theme-color-2;
+      }
+    }
+  }
+}
+/*======== file-upload-wrap-2 =======*/
+.file-upload-wrap-2 {
+  .file-upload-input {
+    border: 1px solid rgba(128, 137, 150, 0.1);
+    height: 50px;
+    background-color: rgba(128, 137, 150, 0.04);
+    width: 191px;
+  }
+  .file-upload-text {
+    line-height: 50px;
+    width: auto;
+    left: 20px;
+  }
+}
+/*======== file--upload-wrap =======*/
+.file--upload-wrap {
+  .MultiFile-list {
+    > .MultiFile-label {
+      padding: 5px 12px;
+      font-size: $font-size-15;
+    }
+    .MultiFile-remove {
+      width: 25px;
+      height: 25px;
+      line-height: 25px;
+    }
+  }
+}
+/*======== file-upload-wrap-3 =======*/
+.file-upload-wrap-3 {
+  .file-upload-input {
+    width: 30px;
+    border: 0;
+    height: 25px;
+    background-color: transparent;
+    @include border-radius(0);
+    &:hover {
+      background-color: transparent;
+    }
+  }
+  .file-upload-text {
+    line-height: 30px;
+    font-size: $font-size-20;
+  }
+  .MultiFile-list {
+    position: absolute;
+    right: 0;
+    bottom: 55px;
+  }
+}

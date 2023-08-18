@@ -1,0 +1,58 @@
+/*===== generic-tab =====*/
+.generic-tab {
+  border-bottom: 0;
+  .nav-item {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+  .nav-link {
+    color: $theme-color-4;
+    border: 0;
+    @include border-radius(8px);
+    @include transition(0.2s);
+    &:hover {
+      color: $theme-color-2;
+    }
+    &.active {
+      color: $theme-color-2;
+      @include box-shadow(0 6px 25px rgba(14, 16, 48, .1));
+    }
+  }
+}
+/*===== generic-tab-layout-2 =====*/
+.generic-tab-layout-2 {
+  .nav-item {
+    margin-right: 10px;
+    margin-bottom: 0;
+  }
+  .nav-link {
+    @include border-radius(0);
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      border-top-left-radius: 6px;
+      border-top-right-radius: 6px;
+      background-color: $theme-color;
+      opacity: 0;
+      visibility: hidden;
+      @include transition(0.3s);
+    }
+    &.active {
+      color: $theme-color-2;
+      @include box-shadow(none);
+      .shop-cart-btn {
+        color: $theme-color-2;
+      }
+      &::after {
+        opacity: 1;
+        visibility: visible;
+        background-color: $theme-color-2;
+      }
+    }
+  }
+}
