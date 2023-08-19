@@ -20,7 +20,7 @@
         <h3 class="fs-17 font-weight-semi-bold pb-4">Edit Profile</h3>
        
        
-        <form method="post" action="" enctype="multipart/form-data" class="row pt-40px">
+        <form method="post" action="{{ route('user.profile.update') }}" enctype="multipart/form-data" class="row pt-40px">
         @csrf
        
         <div class="media media-card align-items-center">
@@ -33,7 +33,7 @@
                     <span class="file-upload-text"><i class="la la-photo mr-2"></i>Upload a Photo</span>
                 </div><!-- file-upload-wrap -->
                 <p class="fs-14">Max file size is 5MB, Minimum dimension: 200x200 And Suitable files are .jpg & .png</p>
-                
+
             </div>
         </div><!-- end media -->
         
