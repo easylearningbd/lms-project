@@ -1,13 +1,18 @@
 @extends('frontend.dashboard.user_dashboard')
 @section('userdashboard')
 
+@php
+    $id = Auth::user()->id;
+    $profileData = App\Models\User::find($id);
+@endphp
+
 <div class="breadcrumb-content d-flex flex-wrap align-items-center justify-content-between mb-5">
     <div class="media media-card align-items-center">
         <div class="media-img media--img media-img-md rounded-full">
-            <img class="rounded-full" src="images/small-avatar-1.jpg" alt="Student thumbnail image">
+            <img class="rounded-full" src="{{ (!empty($profileData->photo)) ? url('upload/user_images/'.$profileData->photo) : url('upload/no_image.jpg')}}" alt="Student thumbnail image">
         </div>
         <div class="media-body">
-            <h2 class="section__title fs-30">Howdy, Tim Buchalka</h2>
+            <h2 class="section__title fs-30">Hello, {{ $profileData->name }}</h2>
             <div class="rating-wrap d-flex align-items-center pt-2">
                 <div class="review-stars">
                     <span class="rating-number">4.4</span>
@@ -21,10 +26,7 @@
             </div><!-- end rating-wrap -->
         </div><!-- end media-body -->
     </div><!-- end media -->
-    <div class="file-upload-wrap file-upload-wrap-2 file--upload-wrap">
-        <input type="file" name="files[]" class="multi file-upload-input">
-        <span class="file-upload-text"><i class="la la-upload mr-2"></i>Upload a course</span>
-    </div><!-- file-upload-wrap -->
+   
 </div><!-- end breadcrumb-content -->
 <div class="section-block mb-5"></div>
 <div class="dashboard-heading mb-5">
@@ -255,194 +257,9 @@
             </div><!-- end card-body -->
         </div><!-- end card -->
     </div><!-- end col-lg-4 -->
-    <div class="col-lg-4 responsive-column-half">
-        <div class="card card-item">
-            <div class="card-body">
-                <h3 class="fs-18 font-weight-semi-bold pb-4">Total Sales</h3>
-                <canvas id="doughnut-chart"></canvas>
-                <div id="legend" class="mt-40px text-center"></div>
-            </div>
-        </div><!-- end card -->
-    </div><!-- end col-lg-4 -->
-    <div class="col-lg-4 responsive-column-half">
-        <div class="card card-item">
-            <div class="card-body">
-                <h3 class="fs-18 font-weight-semi-bold pb-4">Net Income</h3>
-                <canvas id="bar-chart"></canvas>
-                <ul class="chart-legend mt-40px text-center">
-                    <li>Sales for this month</li>
-                </ul>
-            </div>
-        </div><!-- end card -->
-    </div><!-- end col-lg-4 -->
-    <div class="col-lg-4">
-        <div class="card card-item">
-            <div class="card-body">
-                <h3 class="fs-18 font-weight-semi-bold pb-4">Earning by Location</h3>
-                <div class="my-course-progress-bar-wrap">
-                    <div class="d-flex flex-wrap align-items-center mb-2 position-relative">
-                        <p class="skillbar-title">USA:</p>
-                        <div class="skillbar-box">
-                            <div class="skillbar skillbar-skillbar-2" data-percent="80%">
-                                <div class="skillbar-bar skillbar--bar-2 bg-1"></div>
-                            </div><!-- End Skill Bar -->
-                        </div>
-                        <div class="skill-bar-percent">80%</div>
-                    </div>
-                    <div class="d-flex flex-wrap align-items-center mb-2 position-relative">
-                        <p class="skillbar-title">UK:</p>
-                        <div class="skillbar-box">
-                            <div class="skillbar skillbar-skillbar-2" data-percent="70%">
-                                <div class="skillbar-bar skillbar--bar-2 bg-2"></div>
-                            </div><!-- End Skill Bar -->
-                        </div>
-                        <div class="skill-bar-percent">70%</div>
-                    </div>
-                    <div class="d-flex flex-wrap align-items-center mb-2 position-relative">
-                        <p class="skillbar-title">China:</p>
-                        <div class="skillbar-box">
-                            <div class="skillbar skillbar-skillbar-2" data-percent="60%">
-                                <div class="skillbar-bar skillbar--bar-2 bg-3"></div>
-                            </div><!-- End Skill Bar -->
-                        </div>
-                        <div class="skill-bar-percent">60%</div>
-                    </div>
-                    <div class="d-flex flex-wrap align-items-center mb-2 position-relative">
-                        <p class="skillbar-title">Canada:</p>
-                        <div class="skillbar-box">
-                            <div class="skillbar skillbar-skillbar-2" data-percent="50%">
-                                <div class="skillbar-bar skillbar--bar-2 bg-4"></div>
-                            </div><!-- End Skill Bar -->
-                        </div>
-                        <div class="skill-bar-percent">50%</div>
-                    </div>
-                    <div class="d-flex flex-wrap align-items-center mb-2 position-relative">
-                        <p class="skillbar-title">Brazil:</p>
-                        <div class="skillbar-box">
-                            <div class="skillbar skillbar-skillbar-2" data-percent="40%">
-                                <div class="skillbar-bar skillbar--bar-2 bg-5"></div>
-                            </div><!-- End Skill Bar -->
-                        </div>
-                        <div class="skill-bar-percent">40%</div>
-                    </div>
-                    <div class="d-flex flex-wrap align-items-center mb-2 position-relative">
-                        <p class="skillbar-title">Russia:</p>
-                        <div class="skillbar-box">
-                            <div class="skillbar skillbar-skillbar-2" data-percent="30%">
-                                <div class="skillbar-bar skillbar--bar-2 bg-6"></div>
-                            </div><!-- End Skill Bar -->
-                        </div>
-                        <div class="skill-bar-percent">30%</div>
-                    </div>
-                    <div class="d-flex flex-wrap align-items-center mb-2 position-relative">
-                        <p class="skillbar-title">Australia:</p>
-                        <div class="skillbar-box">
-                            <div class="skillbar skillbar-skillbar-2" data-percent="20%">
-                                <div class="skillbar-bar skillbar--bar-2 bg-7"></div>
-                            </div><!-- End Skill Bar -->
-                        </div>
-                        <div class="skill-bar-percent">20%</div>
-                    </div>
-                </div><!-- end my-course-progress-bar-wrap -->
-            </div>
-        </div><!-- end card -->
-    </div><!-- end col-lg-4 -->
-    <div class="col-lg-7 responsive-column-half">
-        <div class="card card-item">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center pb-4">
-                    <h3 class="fs-18 font-weight-semi-bold pb-4">Earning Statistics</h3>
-                    <div class="select-container w-auto">
-                        <select class="select-container-select">
-                            <option value="this-week">This Week</option>
-                            <option value="this-month">This Month</option>
-                            <option value="last-months">Last 6 Months</option>
-                            <option value="this-year">This Year</option>
-                        </select>
-                    </div>
-                </div>
-                <canvas id="line-chart"></canvas>
-                <ul class="chart-legend mt-40px text-center">
-                    <li>Earnings for this month</li>
-                </ul>
-            </div>
-        </div><!-- end card -->
-    </div><!-- end col-lg-7 -->
-    <div class="col-lg-5 responsive-column-half">
-        <div class="card card-item">
-            <div class="card-body">
-                <div class="d-flex justify-content-between align-items-center pb-4">
-                    <h3 class="fs-18 font-weight-semi-bold">Notifications</h3>
-                    <span class="fs-15 cursor-pointer">Mark all as read</span>
-                </div>
-                <div class="notification-body scrolled-box custom-scrollbar-styled">
-                    <a href="dashboard.html" class="media media-card align-items-center">
-                        <div class="icon-element icon-element-sm flex-shrink-0 bg-1 mr-3 text-white">
-                            <i class="la la-bolt"></i>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="fs-15">Your resume updated!</h5>
-                            <span class="d-block lh-18 pt-1 text-gray fs-13">1 hour ago</span>
-                        </div>
-                    </a>
-                    <a href="dashboard.html" class="media media-card align-items-center">
-                        <div class="icon-element icon-element-sm flex-shrink-0 bg-2 mr-3 text-white">
-                            <i class="la la-lock"></i>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="fs-15">You changed password</h5>
-                            <span class="d-block lh-18 pt-1 text-gray fs-13">November 12, 2019</span>
-                        </div>
-                    </a>
-                    <a href="dashboard.html" class="media media-card align-items-center">
-                        <div class="icon-element icon-element-sm flex-shrink-0 bg-3 mr-3 text-white">
-                            <i class="la la-user"></i>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="fs-15">Your account has been created successfully</h5>
-                            <span class="d-block lh-18 pt-1 text-gray fs-13">November 12, 2019</span>
-                        </div>
-                    </a>
-                    <a href="dashboard.html" class="media media-card align-items-center">
-                        <div class="icon-element icon-element-sm flex-shrink-0 bg-4 mr-3 text-white">
-                            <i class="la la-lock"></i>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="fs-15">You changed password</h5>
-                            <span class="d-block lh-18 pt-1 text-gray fs-13">November 12, 2019</span>
-                        </div>
-                    </a>
-                    <a href="dashboard.html" class="media media-card align-items-center">
-                        <div class="icon-element icon-element-sm flex-shrink-0 bg-5 mr-3 text-white">
-                            <i class="la la-user"></i>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="fs-15">Your account has been created successfully</h5>
-                            <span class="d-block lh-18 pt-1 text-gray fs-13">November 12, 2019</span>
-                        </div>
-                    </a>
-                    <a href="dashboard.html" class="media media-card align-items-center">
-                        <div class="icon-element icon-element-sm flex-shrink-0 bg-6 mr-3 text-white">
-                            <i class="la la-briefcase"></i>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="fs-15">You applied for a job Front-end Developer</h5>
-                            <span class="d-block lh-18 pt-1 text-gray fs-13">November 12, 2019</span>
-                        </div>
-                    </a>
-                    <a href="dashboard.html" class="media media-card align-items-center">
-                        <div class="icon-element icon-element-sm flex-shrink-0 bg-7 mr-3 text-white">
-                            <i class="la la-upload"></i>
-                        </div>
-                        <div class="media-body">
-                            <h5 class="fs-15">Your course uploaded successfully</h5>
-                            <span class="d-block lh-18 pt-1 text-gray fs-13">November 12, 2019</span>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </div><!-- end card -->
-    </div><!-- end col-lg-5 -->
+
+
+    
 </div><!-- end row -->
 
 @endsection
