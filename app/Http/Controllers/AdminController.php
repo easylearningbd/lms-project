@@ -74,7 +74,7 @@ class AdminController extends Controller
 
     }// End Method
 
-
+ 
     public function AdminPasswordUpdate(Request $request){
 
         /// Validation 
