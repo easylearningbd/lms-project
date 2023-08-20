@@ -9,10 +9,9 @@
         <h3 class="fs-17 font-weight-semi-bold pb-4">Change Password </h3>
        
        
-        <form method="post" action="{{ route('user.profile.update') }}" enctype="multipart/form-data" class="row pt-40px">
+        <form method="post" action="{{ route('user.password.update') }}" enctype="multipart/form-data" class="row pt-40px">
         @csrf
-       
-         
+        
         
             <div class="input-box col-lg-12">
                 <label class="label-text"> Old Password</label>
