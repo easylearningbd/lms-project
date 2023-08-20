@@ -59,6 +59,10 @@ class UserController extends Controller
     } // End Method 
 
 
+    public function UserChangePassword(){
+        return view('frontend.dashboard.change_password');
+    }// End Method 
+
 
 }
  
