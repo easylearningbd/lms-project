@@ -27,23 +27,25 @@
                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            <th>Sl</th>
+                            <th>Category Image </th>
+                            <th>Category Name</th> 
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                       
+                        @foreach ($category as $key=> $item) 
                         <tr>
-                            <td>Tiger Nixon</td>
-                            <td>System Architect</td>
-                            <td>Edinburgh</td>
-                            <td>61</td>
-                            <td>2011/04/25</td>
-                            <td>$320,800</td>
+                            <td>{{ $key+1 }}</td>
+                            <td> <img src="{{ asset($item->image) }}" alt="" style="width: 70px; height:40px;"> </td>
+                            <td>{{ $item->category_name }}</td> 
+                            <td>
+       <a href="" class="btn btn-info px-5">Edit </a>   
+       <a href="" class="btn btn-danger px-5">Delete </a>                    
+                            </td>
                         </tr>
+                        @endforeach
                          
                     </tbody>
                      
