@@ -41,7 +41,7 @@
                             <td> <img src="{{ asset($item->image) }}" alt="" style="width: 70px; height:40px;"> </td>
                             <td>{{ $item->category_name }}</td> 
                             <td>
-       <a href="" class="btn btn-info px-5">Edit </a>   
+       <a href="{{ route('edit.category',$item->id) }}" class="btn btn-info px-5">Edit </a>   
        <a href="" class="btn btn-danger px-5">Delete </a>                    
                             </td>
                         </tr>
