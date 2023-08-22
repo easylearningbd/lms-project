@@ -119,5 +119,32 @@ class CategoryController extends Controller
     }// End Method 
 
 
+    public function AddSubCategory(){
+
+        $category = Category::latest()->get();
+        return view('admin.backend.subcategory.add_subcategory',compact('category'));
+
+    }// End Method 
+
+
+    public function StoreSubCategory(Request $request){ 
+
+        SubCategory::insert([
+            'category_id' => $request->category_id,
+            'subcategory_name' => $request->subcategory_name,
+            'subcategory_slug' => strtolower(str_replace(' ','-',$request->subcategory_name)), 
+
+        ]);
+
+        $notification = array(
+            'message' => 'SubCategory Inserted Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.subcategory')->with($notification);  
+
+    }// End Method 
+
+
+
 
 } 
