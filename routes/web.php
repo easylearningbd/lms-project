@@ -86,6 +86,8 @@ Route::controller(CategoryController::class)->group(function(){
 
 Route::get('/admin/login', [AdminController::class, 'AdminLogin'])->name('admin.login');
 
+Route::get('/become/instructor', [AdminController::class, 'BecomeInstructor'])->name('become.instructor');
+
 
 ///// Instructor Group Middleware
 Route::middleware(['auth','roles:instructor'])->group(function(){

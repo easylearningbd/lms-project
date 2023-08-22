@@ -90,7 +90,7 @@ class AdminController extends Controller
                 'alert-type' => 'error'
             );
             return back()->with($notification);
-        }
+        } 
 
         /// Update The new Password 
         User::whereId(auth::user()->id)->update([
@@ -106,7 +106,11 @@ class AdminController extends Controller
     }// End Method
 
 
+    public function BecomeInstructor(){
 
+        return view('frontend.instructor.reg_instructor');
+
+    }// End Method
 
 
 }

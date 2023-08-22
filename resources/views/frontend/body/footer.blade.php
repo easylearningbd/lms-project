@@ -27,7 +27,7 @@
                     <ul class="generic-list-item">
                         <li><a href="#">About us</a></li>
                         <li><a href="#">Contact us</a></li>
-                        <li><a href="#">Become a Teacher</a></li>
+                        <li><a href="{{ route('become.instructor') }}">Become a Teacher</a></li>
                         <li><a href="#">Support</a></li>
                         <li><a href="#">FAQs</a></li>
                         <li><a href="#">Blog</a></li>
