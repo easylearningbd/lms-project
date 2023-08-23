@@ -1,5 +1,12 @@
 @extends('admin.admin_dashboard')
 @section('admin')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+<style>
+    .large-checkbox{
+        transform: scale(1.5);
+    }
+</style>
 
 <div class="page-content">
     <!--breadcrumb-->
@@ -53,8 +60,10 @@
 
 
                             <td>
-       <a href="{{ route('edit.category',$item->id) }}" class="btn btn-info px-5">Edit </a>   
-       <a href="{{ route('delete.category',$item->id) }}" class="btn btn-danger px-5" id="delete">Delete </a>                    
+    <div class="form-check-danger form-check form-switch">
+        <input class="form-check-input status-toggle large-checkbox" type="checkbox" id="flexSwitchCheckCheckedDanger" data-user-id="{{ $item->id }}" {{ $item->status ? 'checked' : ''}}  >
+        <label class="form-check-label" for="flexSwitchCheckCheckedDanger"> </label>
+    </div>                  
                             </td>
                         </tr>
                         @endforeach
@@ -71,7 +80,33 @@
    
 </div>
  
+<script>
+    $(document).ready(function(){
+        $('.status-toggle').on('change', function(){
+            var userId = $(this).data('user-id');
+            var isChecked = $(this).is(':checked');
 
+            // send an ajax request to update status 
+
+            $.ajax({
+                url: "{{ route('update.user.stauts') }}",
+                method: "POST",
+                data: {
+                    user_id : userId,
+                    is_checked: isChecked ? 1 : 0,
+                    _token: "{{ csrf_token() }}"
+                },
+                success: function(response){
+                    toastr.success(response.message);
+                },
+                error: function(){
+
+                }
+            });
+
+        });
+    });
+</script>
 
 
 @endsection
