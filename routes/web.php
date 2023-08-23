@@ -79,6 +79,15 @@ Route::controller(CategoryController::class)->group(function(){
 
 
 
+// Instructor All Route 
+Route::controller(AdminController::class)->group(function(){
+    Route::get('/all/instructor','AllInstructor')->name('all.instructor');
+  
+
+});
+
+
+
 
 
 }); // End Admin Group Middleware 

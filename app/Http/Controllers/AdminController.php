@@ -139,5 +139,12 @@ class AdminController extends Controller
     }// End Method
 
 
+    public function AllInstructor(){
+
+        $allinstructor = User::where('role','instructor')->latest()->get();
+        return view('admin.backend.instructor.all_instructor',compact('allinstructor'));
+    }// End Method
+
+
 }
  
