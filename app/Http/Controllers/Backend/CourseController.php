@@ -10,6 +10,7 @@ use App\Models\Course;
 use App\Models\Course_goal;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Auth; 
+use Carbon\Carbon;
 
 class CourseController extends Controller
 {
@@ -51,6 +52,53 @@ class CourseController extends Controller
         $videoName = time().'.'.$video->getClientOriginalExtension();
         $video->move(public_path('upload/course/video/'),$videoName);
         $save_video = 'upload/course/video/'.$videoName;
+
+        $course_id = Course::insertGetId([
+
+            'category_id' => $request->category_id,
+            'subcategory_id' => $request->subcategory_id,
+            'instructor_id' => Auth::user()->id,
+            'course_title' => $request->course_title,
+            'course_name' => $request->course_name,
+            'course_name_slug' => strtolower(str_replace(' ', '-', $request->course_name)),
+            'description' => $request->description,
+            'video' => $save_video,
+
+            'label' => $request->label,
+            'duration' => $request->duration,
+            'resources' => $request->resources,
+            'certificate' => $request->certificate,
+            'selling_price' => $request->selling_price,
+            'discount_price' => $request->discount_price,
+            'prerequisites' => $request->prerequisites,
+
+            'bestseller' => $request->bestseller,
+            'featured' => $request->featured,
+            'highestrated' => $request->highestrated,
+            'status' => 1,
+            'course_image' => $save_url,
+            'created_at' => Carbon::now(),
+
+        ]);
+
+        /// Course Goals Add Form 
+
+        $goles = Count($request->course_goals);
+        if ($goles != NULL) {
+            for ($i=0; $i < $goles; $i++) { 
+                $gcount = new Course_goal();
+                $gcount->course_id = $course_id;
+                $gcount->goal_name = $request->course_goals[$i];
+                $gcount->save();
+            }
+        }
+        /// End Course Goals Add Form 
+
+        $notification = array(
+            'message' => 'Course Inserted Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.course')->with($notification);  
 
     }// End Method 
 
