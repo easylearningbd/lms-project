@@ -22,7 +22,7 @@
         <div class="card-body p-4">
             <h5 class="mb-4">Add Course</h5>
             
-            <form id="myForm" action="{{ route('store.category') }}" method="post" class="row g-3" enctype="multipart/form-data">
+            <form id="myForm" action="{{ route('store.course') }}" method="post" class="row g-3" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group col-md-6">
@@ -266,20 +266,20 @@
     $(document).ready(function (){
         $('#myForm').validate({
             rules: {
-                category_name: {
+                course_name: {
                     required : true,
                 }, 
-                image: {
+                course_title: {
                     required : true,
                 }, 
                 
             },
             messages :{
-                category_name: {
-                    required : 'Please Enter Category Name',
+                course_name: {
+                    required : 'Please Enter Course Name',
                 }, 
-                image: {
-                    required : 'Please Select Category Image',
+                course_title: {
+                    required : 'Please Enter Course Titile',
                 }, 
                  
 

@@ -36,6 +36,24 @@ class CourseController extends Controller
 
     }// End Method 
 
+    public function StoreCourse(Request $request){
+
+        $request->validate([
+            'video' => 'required|mimes:mp4|max:10000',
+        ]);
+
+        $image = $request->file('course_image');  
+        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        Image::make($image)->resize(370,246)->save('upload/course/thambnail/'.$name_gen);
+        $save_url = 'upload/course/thambnail/'.$name_gen;
+
+        $video = $request->file('video');  
+        $videoName = time().'.'.$video->getClientOriginalExtension();
+        $video->move(public_path('upload/course/video/'),$videoName);
+        $save_video = 'upload/course/video/'.$videoName;
+
+    }// End Method 
+
 
 
 
