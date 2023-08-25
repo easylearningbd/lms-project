@@ -177,6 +177,34 @@ class CourseController extends Controller
     }// End Method 
 
 
+    public function UpdateCourseVideo(Request $request){
+
+        $course_id = $request->vid;
+        $oldVideo = $request->old_vid;
+
+        $video = $request->file('video');  
+        $videoName = time().'.'.$video->getClientOriginalExtension();
+        $video->move(public_path('upload/course/video/'),$videoName);
+        $save_video = 'upload/course/video/'.$videoName;
+
+        if (file_exists($oldVideo)) {
+            unlink($oldVideo);
+        }
+
+        Course::find($course_id)->update([
+            'video' => $save_video,
+            'updated_at' => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message' => 'Course Video Updated Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification); 
+
+    }// End Method 
+
+
 
 
 } 
