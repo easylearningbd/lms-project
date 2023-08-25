@@ -149,6 +149,34 @@ class CourseController extends Controller
     }// End Method 
 
 
+    public function UpdateCourseImage(Request $request){
+
+        $course_id = $request->id;
+        $oldImage = $request->old_img;
+
+        $image = $request->file('course_image');  
+        $name_gen = hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        Image::make($image)->resize(370,246)->save('upload/course/thambnail/'.$name_gen);
+        $save_url = 'upload/course/thambnail/'.$name_gen;
+
+        if (file_exists($oldImage)) {
+            unlink($oldImage);
+        }
+
+        Course::find($course_id)->update([
+            'course_image' => $save_url,
+            'updated_at' => Carbon::now(),
+        ]);
+
+        $notification = array(
+            'message' => 'Course Image Updated Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification); 
+
+    }// End Method 
+
+
 
 
 } 

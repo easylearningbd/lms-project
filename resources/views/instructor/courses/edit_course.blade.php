@@ -159,6 +159,55 @@
 </div>
 
 
+  {{-- //// Start Main Course Image Update /// --}}
+
+<div class="page-content">
+    <div class="card">
+        <div class="card-body">
+
+            <form action="{{ route('update.course.image') }}" method="post" enctype="multipart/form-data">
+                @csrf
+            <input type="hidden" name="id" value="{{ $course->id }}">
+            <input type="hidden" name="old_img" value="{{ $course->course_image }}">
+
+
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="input2" class="form-label">Course Image </label>
+                    <input class="form-control" name="course_image" type="file" id="image">
+                </div>
+
+                <div class="col-md-6"> 
+                    <img id="showImage" src="{{ asset($course->course_image) }}" alt="Admin" class="rounded-circle p-1 bg-primary" width="100">  
+                </div>
+            </div>
+
+            <br><br>
+            <div class="col-md-12">
+                <div class="d-md-flex d-grid align-items-center gap-3">
+      <button type="submit" class="btn btn-primary px-4">Save Changes</button>
+                  
+                </div>
+            </div>
+
+            </form>
+           
+         
+        </div>
+    </div>
+
+</div>
+
+{{-- //// Start Main Course Image Update /// --}}
+
+
+
+
+
+
+
+
+
 <!--========== Start of add multiple class with ajax ==============-->
 <div style="visibility: hidden">
     <div class="whole_extra_item_add" id="whole_extra_item_add">
