@@ -106,9 +106,10 @@ class CourseController extends Controller
     public function EditCourse($id){
 
         $course = Course::find($id);
+        $goals = Course_goal::where('course_id',$id)->get();
         $categories = Category::latest()->get();
         $subcategories = SubCategory::latest()->get();
-        return view('instructor.courses.edit_course',compact('course','categories','subcategories'));
+        return view('instructor.courses.edit_course',compact('course','categories','subcategories','goals'));
 
     }// End Method 
 
