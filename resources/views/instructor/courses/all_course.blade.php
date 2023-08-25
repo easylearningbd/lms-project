@@ -43,11 +43,11 @@
                             <td>{{ $key+1 }}</td>
                             <td> <img src="{{ asset($item->course_image) }}" alt="" style="width: 70px; height:40px;"> </td>
                             <td>{{ $item->course_name }}</td> 
-                            <td>{{ $item->category_id }}</td> 
+                            <td>{{ $item['category']['category_name'] }}</td> 
                             <td>{{ $item->selling_price }}</td> 
                             <td>{{ $item->discount_price }}</td> 
                             <td>
-       <a href="{{ route('edit.category',$item->id) }}" class="btn btn-info px-5">Edit </a>   
+       <a href="{{ route('edit.course',$item->id) }}" class="btn btn-info px-5">Edit </a>   
        <a href="{{ route('delete.category',$item->id) }}" class="btn btn-danger px-5" id="delete">Delete </a>                    
                             </td>
                         </tr>
