@@ -255,9 +255,10 @@
     <div class="card">
         <div class="card-body">
 
-            <form action="{{ route('update.course.video') }}" method="post" enctype="multipart/form-data">
+            <form action="{{ route('update.course.goal') }}" method="post" enctype="multipart/form-data">
                 @csrf
            
+                <input type="hidden" name="id" value="{{ $course->id }}">
          
         <!--   //////////// Goal Option /////////////// -->
         @foreach ($goals as $item) 
@@ -277,7 +278,7 @@
 
                 <span class="btn btn-danger btn-sm removeeventmore"><i class="fa fa-minus-circle">Remove</i></span>
 
-                
+
             </div>
                      </div>
                  </div>
