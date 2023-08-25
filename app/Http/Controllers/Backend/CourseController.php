@@ -235,6 +235,28 @@ class CourseController extends Controller
     }// End Method 
 
 
+    public function DeleteCourse($id){
+        $course = Course::find($id);
+        unlink($course->course_image);
+        unlink($course->video);
+
+        Course::find($id)->delete();
+
+        $goalsData = Course_goal::where('course_id',$id)->get();
+        foreach ($goalsData as $item) {
+            $item->goal_name;
+            Course_goal::where('course_id',$id)->delete();
+        }
+
+        $notification = array(
+            'message' => 'Course Deleted Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification); 
+
+    }// End Method 
+
+
 
 
 } 
