@@ -113,6 +113,42 @@ class CourseController extends Controller
     }// End Method 
 
 
+    public function UpdateCourse(Request $request){
+
+        $cid = $request->course_id;
+         
+           Course::find($cid)->update([
+            'category_id' => $request->category_id,
+            'subcategory_id' => $request->subcategory_id,
+            'instructor_id' => Auth::user()->id,
+            'course_title' => $request->course_title,
+            'course_name' => $request->course_name,
+            'course_name_slug' => strtolower(str_replace(' ', '-', $request->course_name)),
+            'description' => $request->description, 
+
+            'label' => $request->label,
+            'duration' => $request->duration,
+            'resources' => $request->resources,
+            'certificate' => $request->certificate,
+            'selling_price' => $request->selling_price,
+            'discount_price' => $request->discount_price,
+            'prerequisites' => $request->prerequisites,
+
+            'bestseller' => $request->bestseller,
+            'featured' => $request->featured,
+            'highestrated' => $request->highestrated,  
+
+        ]); 
+
+        $notification = array(
+            'message' => 'Course Updated Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.course')->with($notification);  
+
+    }// End Method 
+
+
 
 
 } 

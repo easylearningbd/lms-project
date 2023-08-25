@@ -121,6 +121,7 @@ Route::controller(CourseController::class)->group(function(){
 
     Route::post('/store/course','StoreCourse')->name('store.course');
     Route::get('/edit/course/{id}','EditCourse')->name('edit.course');
+    Route::post('/update/course','UpdateCourse')->name('update.course');
 
 
 });
