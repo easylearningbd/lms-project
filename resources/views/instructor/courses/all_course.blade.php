@@ -49,7 +49,7 @@
                             <td>
        <a href="{{ route('edit.course',$item->id) }}" class="btn btn-info" title="Edit"><i class="lni lni-eraser"></i> </a>   
        <a href="{{ route('delete.course',$item->id) }}" class="btn btn-danger" id="delete" title="delete"><i class="lni lni-trash"></i> </a>  
-       <a href="{{ route('edit.course',$item->id) }}" class="btn btn-warning" title="Lecture"><i class="lni lni-list"></i> </a>                    
+       <a href="{{ route('add.course.lecture',$item->id) }}" class="btn btn-warning" title="Lecture"><i class="lni lni-list"></i> </a>                    
                             </td>
                         </tr>
                         @endforeach

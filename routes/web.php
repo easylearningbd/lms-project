@@ -131,6 +131,14 @@ Route::controller(CourseController::class)->group(function(){
 });
 
 
+// Course Section and Lecture All Route 
+Route::controller(CourseController::class)->group(function(){
+    Route::get('/add/course/lecture/{id}','AddCourseLecture')->name('add.course.lecture');
+ 
+
+});
+
+
 
 
 }); // End Instructor Group Middleware 
