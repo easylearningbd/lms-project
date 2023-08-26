@@ -8,6 +8,8 @@ use App\Models\Category;
 use App\Models\SubCategory;
 use App\Models\Course;
 use App\Models\Course_goal;
+use App\Models\CourseSection;
+use App\Models\CourseLecture;
 use Intervention\Image\Facades\Image;
 use Illuminate\Support\Facades\Auth; 
 use Carbon\Carbon;
@@ -262,6 +264,23 @@ class CourseController extends Controller
         $course = Course::find($id);
 
         return view('instructor.courses.section.add_course_lecture',compact('course'));
+
+    }// End Method 
+
+    public function AddCourseSection(Request $request){
+
+        $cid = $request->id;
+
+        CourseSection::insert([
+            'course_id' => $cid,
+            'section_title' => $request->section_title, 
+        ]);
+
+        $notification = array(
+            'message' => 'Course Section Added Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);  
 
     }// End Method 
 
