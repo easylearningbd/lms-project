@@ -34,11 +34,33 @@
         <button type="submit" class="btn btn-danger px-2 ms-auto"> Delete Section</button> &nbsp;
 
 
-        <a class="btn btn-primary"  > Add Lecture </a>
+        <a class="btn btn-primary" onclick="addLectureDiv({{ $course->id }}, {{ $item->id }}, 'lectureContainer{{ $key }}' )" id="addLectureBtn($key)"> Add Lecture </a>
 
         </div>                      
 
+               </div>
+
+
+               <div class="courseHide" id="lectureContainer{{ $key }}">
+                <div class="container">
+                    <div class="lectureDiv mb-3 d-flex align-items-center justify-content-between">
+                        <div>
+                            <strong>lecture title asdfsdafasfdsf</strong>
                         </div>
+
+                        <div class="btn-group">
+          <a href="" class="btn btn-sm btn-primary">Edit</a> &nbsp;
+           <a href="" class="btn btn-sm btn-danger">Delete</a>
+
+                        </div> 
+                    </div> 
+                </div> 
+               </div>
+
+
+
+
+
 
                     </div>
 
@@ -93,5 +115,19 @@
     </div>
 </div>
 
+<script>
+    function addLectureDiv(courseId, sectionId, containerId) {
+        const lectureContainer = document.getElementById(containerId);
+
+        const newLectureDiv = document.createElement('div');
+        newLectureDiv.classList.add('lectureDiv','mb-3');
+
+        newLectureDiv.innerHTML = `
+        
+        `;
+
+    }
+
+</script>
 
 @endsection
