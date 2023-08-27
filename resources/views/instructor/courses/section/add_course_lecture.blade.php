@@ -31,7 +31,12 @@
       
          <div class="d-flex justify-content-between align-items-center">
 
+        <form action="{{ route('delete.section', ['id' => $item->id]) }}" method="POST">
+            @csrf
+
         <button type="submit" class="btn btn-danger px-2 ms-auto"> Delete Section</button> &nbsp;
+
+       </form>
 
 
         <a class="btn btn-primary" onclick="addLectureDiv({{ $course->id }}, {{ $item->id }}, 'lectureContainer{{ $key }}' )" id="addLectureBtn($key)"> Add Lecture </a>

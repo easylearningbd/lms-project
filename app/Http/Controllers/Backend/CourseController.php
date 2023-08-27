@@ -340,6 +340,23 @@ class CourseController extends Controller
 
     }// End Method 
 
+    public function DeleteSection($id){
+
+        $section = CourseSection::find($id);
+
+        /// Delete reated lectures 
+        $section->lectures()->delete();
+        // Delete the section 
+        $section->delete();
+
+        $notification = array(
+            'message' => 'Course Section Delete Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification); 
+
+    }// End Method 
+
 
 
 } 
