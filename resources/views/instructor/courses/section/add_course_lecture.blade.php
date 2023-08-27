@@ -175,8 +175,36 @@
         .then(response => response.json())
         .then(data => {
             console.log(data);
-            
 
+
+            lectureContainer.style.display = 'none';
+            location.reload();
+
+               // Start Message 
+
+               const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  icon: 'success', 
+                  showConfirmButton: false,
+                  timer: 6000 
+            })
+            if ($.isEmptyObject(data.error)) {
+                    
+                    Toast.fire({
+                    type: 'success',
+                    title: data.success, 
+                    })
+
+            }else{
+               
+           Toast.fire({
+                    type: 'error',
+                    title: data.error, 
+                    })
+                }
+
+              // End Message  
 
         })
         .catch(error => {
