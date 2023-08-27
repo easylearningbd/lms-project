@@ -309,6 +309,25 @@ class CourseController extends Controller
     }// End Method 
 
 
+    public function UpdateCourseLecture(Request $request){
+        $lid = $request->id;
+
+        CourseLecture::find($lid)->update([
+            'lecture_title' => $request->lecture_title,
+            'url' => $request->url,
+            'content' => $request->content,
+
+        ]);
+
+        $notification = array(
+            'message' => 'Course Lecture Updated Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->back()->with($notification);   
+
+    }// End Method 
+
+
 
 
 
