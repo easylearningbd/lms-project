@@ -140,6 +140,7 @@ Route::controller(CourseController::class)->group(function(){
  
     Route::get('/edit/lecture/{id}','EditLecture')->name('edit.lecture');
     Route::post('/update/course/lecture','UpdateCourseLecture')->name('update.course.lecture');
+    Route::get('/delete/lecture/{id}','DeleteLecture')->name('delete.lecture');
 });
 
 
