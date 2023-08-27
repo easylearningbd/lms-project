@@ -138,6 +138,7 @@ Route::controller(CourseController::class)->group(function(){
 
     Route::post('/save-lecture/','SaveLecture')->name('save-lecture');
  
+    Route::get('/edit/lecture/{id}','EditLecture')->name('edit.lecture');
 
 });
 
