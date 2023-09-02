@@ -38,17 +38,41 @@
         <div class="card card-item card-preview" data-tooltip-content="#tooltip_content_1">
             <div class="card-image">
                 <a href="course-details.html" class="d-block">
-                    <img class="card-img-top lazy" src="images/img-loading.png" data-src="images/img8.jpg" alt="Card image cap">
+                    <img class="card-img-top lazy" src="{{ asset($course->course_image) }}" data-src="images/img8.jpg" alt="Card image cap">
                 </a>
+
+                   
+    @php
+        $amount = $course->selling_price - $course->discount_price;
+        $discount = ($amount/$course->selling_price) * 100;
+    @endphp
+
                 <div class="course-badge-labels">
+
+                    @if ($course->bestseller == 1)
                     <div class="course-badge">Bestseller</div>
-                    <div class="course-badge blue">-39%</div>
+                    @else
+                    @endif
+
+                    @if ($course->highestrated == 1)
+                    <div class="course-badge sky-blue">Highest Rated</div>
+                    @else
+                    @endif
+
+                    @if ($course->discount_price == NULL)
+                    <div class="course-badge blue">New</div>
+                    @else
+                    <div class="course-badge blue">{{ round($discount) }}%</div>
+                    @endif
+                   
+
+
                 </div>
             </div><!-- end card-image -->
             <div class="card-body">
-                <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">All Levels</h6>
-                <h5 class="card-title"><a href="course-details.html">The Business Intelligence Analyst Course 2021</a></h5>
-                <p class="card-text"><a href="teacher-detail.html">Jose Portilla</a></p>
+                <h6 class="ribbon ribbon-blue-bg fs-14 mb-3">{{ $course->label }}</h6>
+                <h5 class="card-title"><a href="course-details.html">{{ $course->course_name }}</a></h5>
+          <p class="card-text"><a href=" ">{{ $course['user']['name'] }}</a></p>
                 <div class="rating-wrap d-flex align-items-center py-2">
                     <div class="review-stars">
                         <span class="rating-number">4.4</span>
@@ -61,7 +85,15 @@
                     <span class="rating-total pl-1">(20,230)</span>
                 </div><!-- end rating-wrap -->
                 <div class="d-flex justify-content-between align-items-center">
-                    <p class="card-price text-black font-weight-bold">12.99 <span class="before-price font-weight-medium">129.99</span></p>
+                   
+                    @if ($course->discount_price == NULL)
+                    <p class="card-price text-black font-weight-bold">${{ $course->selling_price }}  </p>
+                    @else
+                    <p class="card-price text-black font-weight-bold">${{ $course->discount_price }} <span class="before-price font-weight-medium">${{ $course->selling_price }}</span></p> 
+                    @endif
+                    
+                    
+                    
                     <div class="icon-element icon-element-sm shadow-sm cursor-pointer" title="Add to Wishlist"><i class="la la-heart-o"></i></div>
                 </div>
             </div><!-- end card-body -->
