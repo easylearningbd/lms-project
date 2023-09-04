@@ -457,7 +457,7 @@
                         <div class="card-body">
                             <div class="preview-course-video">
                                 <a href="javascript:void(0)" data-toggle="modal" data-target="#previewModal">
-                                    <img src="images/img-loading.png" data-src="images/preview-img.jpg" alt="course-img" class="w-100 rounded lazy">
+                                    <img src="{{ asset($course->course_image) }}" data-src="{{ asset($course->course_image) }}" alt="course-img" class="w-100 rounded lazy">
                                     <div class="preview-course-video-content">
                                         <div class="overlay"></div>
                                         <div class="play-button">
@@ -475,12 +475,25 @@
                                     </div>
                                 </a>
                             </div><!-- end preview-course-video -->
+                          
+    @php
+    $amount = $course->selling_price - $course->discount_price;
+    $discount = ($amount/$course->selling_price) * 100;
+   @endphp            
+                          
                             <div class="preview-course-feature-content pt-40px">
-                                <p class="d-flex align-items-center pb-2">
-                                    <span class="fs-35 font-weight-semi-bold text-black">$76.99</span>
-                                    <span class="before-price mx-1">$104.99</span>
-                                    <span class="price-discount">24% off</span>
-                                </p>
+        
+         <p class="d-flex align-items-center pb-2">
+            @if ($course->discount_price == NULL)
+            <span class="fs-35 font-weight-semi-bold text-black">${{ $course->selling_price }}</span>
+            @else
+            <span class="fs-35 font-weight-semi-bold text-black">${{ $course->discount_price }}</span>
+            <span class="before-price mx-1">${{ $course->selling_price }}</span>
+            @endif
+            
+            
+            <span class="price-discount">{{ round($discount) }}% off</span>
+        </p>
                                 <p class="preview-price-discount-text pb-35px">
                                     <span class="text-color-3">4 days</span> left at this price!
                                 </p>
@@ -491,15 +504,15 @@
                                 <p class="fs-14 text-center pb-4">30-Day Money-Back Guarantee</p>
                                 <div class="preview-course-incentives">
                                     <h3 class="card-title fs-18 pb-2">This course includes</h3>
-                                    <ul class="generic-list-item pb-3">
-                                        <li><i class="la la-play-circle-o mr-2 text-color"></i>2.5 hours on-demand video</li>
-                                        <li><i class="la la-file mr-2 text-color"></i>34 articles</li>
-                                        <li><i class="la la-file-text mr-2 text-color"></i>12 downloadable resources</li>
-                                        <li><i class="la la-code mr-2 text-color"></i>51 coding exercises</li>
-                                        <li><i class="la la-key mr-2 text-color"></i>Full lifetime access</li>
-                                        <li><i class="la la-television mr-2 text-color"></i>Access on mobile and TV</li>
-                                        <li><i class="la la-certificate mr-2 text-color"></i>Certificate of Completion</li>
-                                    </ul>
+            <ul class="generic-list-item pb-3">
+                <li><i class="la la-play-circle-o mr-2 text-color"></i>{{ $course->duration }} hours on-demand video</li>
+                <li><i class="la la-file mr-2 text-color"></i>{{ $course->resources }} articles</li>
+                <li><i class="la la-file-text mr-2 text-color"></i>12 downloadable resources</li>
+                <li><i class="la la-code mr-2 text-color"></i>51 coding exercises</li>
+                <li><i class="la la-key mr-2 text-color"></i>Full lifetime access</li>
+                <li><i class="la la-television mr-2 text-color"></i>Access on mobile and TV</li>
+                <li><i class="la la-certificate mr-2 text-color"></i>Certificate of Completion</li>
+            </ul>
                                     <div class="section-block"></div>
                                     <div class="buy-for-team-container pt-4">
                                         <h3 class="fs-18 font-weight-semi-bold pb-2">Training 5 or more people?</h3>
@@ -514,17 +527,17 @@
                         <div class="card-body">
                             <h3 class="card-title fs-18 pb-2">Course Features</h3>
                             <div class="divider"><span></span></div>
-                            <ul class="generic-list-item generic-list-item-flash">
-                                <li class="d-flex align-items-center justify-content-between"><span><i class="la la-clock mr-2 text-color"></i>Duration</span> 2.5 hours</li>
-                                <li class="d-flex align-items-center justify-content-between"><span><i class="la la-play-circle-o mr-2 text-color"></i>Lectures</span> 17</li>
-                                <li class="d-flex align-items-center justify-content-between"><span><i class="la la-file-text-o mr-2 text-color"></i>Resources</span> 12</li>
-                                <li class="d-flex align-items-center justify-content-between"><span><i class="la la-bolt mr-2 text-color"></i>Quizzes</span> 26</li>
-                                <li class="d-flex align-items-center justify-content-between"><span><i class="la la-eye mr-2 text-color"></i>Preview Lessons</span> 4</li>
-                                <li class="d-flex align-items-center justify-content-between"><span><i class="la la-language mr-2 text-color"></i>Language</span> English</li>
-                                <li class="d-flex align-items-center justify-content-between"><span><i class="la la-lightbulb mr-2 text-color"></i>Skill level</span> All levels</li>
-                                <li class="d-flex align-items-center justify-content-between"><span><i class="la la-users mr-2 text-color"></i>Students</span> 30,506</li>
-                                <li class="d-flex align-items-center justify-content-between"><span><i class="la la-certificate mr-2 text-color"></i>Certificate</span> Yes</li>
-                            </ul>
+    <ul class="generic-list-item generic-list-item-flash">
+        <li class="d-flex align-items-center justify-content-between"><span><i class="la la-clock mr-2 text-color"></i>Duration</span> {{ $course->duration }} hours</li>
+        
+        <li class="d-flex align-items-center justify-content-between"><span><i class="la la-file-text-o mr-2 text-color"></i>Resources</span> {{ $course->resources }}</li>
+        <li class="d-flex align-items-center justify-content-between"><span><i class="la la-bolt mr-2 text-color"></i>Quizzes</span> 26</li>
+        <li class="d-flex align-items-center justify-content-between"><span><i class="la la-eye mr-2 text-color"></i>Preview Lessons</span> 4</li>
+        <li class="d-flex align-items-center justify-content-between"><span><i class="la la-language mr-2 text-color"></i>Language</span> English</li>
+        <li class="d-flex align-items-center justify-content-between"><span><i class="la la-lightbulb mr-2 text-color"></i>Skill level</span> {{ $course->label }}</li>
+        <li class="d-flex align-items-center justify-content-between"><span><i class="la la-users mr-2 text-color"></i>Students</span> 30,506</li>
+        <li class="d-flex align-items-center justify-content-between"><span><i class="la la-certificate mr-2 text-color"></i>Certificate</span> {{ $course->certificate }}</li>
+    </ul>
                         </div>
                     </div><!-- end card -->
                     <div class="card card-item">
@@ -763,18 +776,17 @@
             <div class="modal-header border-bottom-gray">
                 <div class="pr-2">
                     <p class="pb-2 font-weight-semi-bold">Course Preview</p>
-                    <h5 class="modal-title fs-19 font-weight-semi-bold lh-24" id="previewModalTitle">Java Programming Masterclass for Software Developers</h5>
+                    <h5 class="modal-title fs-19 font-weight-semi-bold lh-24" id="previewModalTitle">{{ $course->course_name }}</h5>
                 </div>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true" class="la la-times"></span>
                 </button>
             </div><!-- end modal-header -->
             <div class="modal-body">
-                <video controls crossorigin playsinline poster="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-HD.jpg" id="player">
+                <video controls crossorigin playsinline poster="{{ asset($course->course_image) }}" id="player">
                     <!-- Video files -->
-                    <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4" type="video/mp4"/>
-                    <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-720p.mp4" type="video/mp4"/>
-                    <source src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-1080p.mp4" type="video/mp4"/>
+                    <source src="{{ asset($course->video) }}" type="video/mp4"/>
+                      
                 </video>
             </div><!-- end modal-body -->
         </div><!-- end modal-content -->
