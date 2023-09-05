@@ -55,7 +55,7 @@ class IndexController extends Controller
     public function InstructorDetails($id){
 
         $instructor = User::find($id);
-        $courses = Course::where('instructor_id','$id')->get();
+        $courses = Course::where('instructor_id',$id)->get();
         return view('frontend.instructor.instructor_details',compact('instructor','courses'));
 
     }// End Method 
