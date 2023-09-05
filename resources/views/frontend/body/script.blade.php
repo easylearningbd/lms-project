@@ -8,7 +8,18 @@
     })
 
     function addToWishList(course_id){
-        
+
+        $.ajax({
+            type: "POST",
+            dataType: 'json',
+            url: "/add-to-wishlist/"+course_id,
+
+            success:function(data){
+                console.log(data);
+
+            }
+        })
+
     }
    
 
