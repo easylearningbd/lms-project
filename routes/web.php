@@ -45,6 +45,7 @@ Route::middleware('auth')->group(function () {
     // User Wishlist All Route 
 Route::controller(WishListController::class)->group(function(){
     Route::get('/user/wishlist','AllWishlist')->name('user.wishlist');
+    Route::get('/get-wishlist-course/','GetWishlistCourse');
      
 
 });
