@@ -38,6 +38,11 @@ class WishListController extends Controller
     } // End Method 
 
 
+    public function AllWishlist(){
+
+        return view('frontend.wishlist.all_wishlist');
+
+    }// End Method 
 
 
 
