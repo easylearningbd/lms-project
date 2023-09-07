@@ -31,7 +31,38 @@ class CartController extends Controller
             return response()->json(['error' => 'Course is already in your cart']);
         }
 
+        if ($course->discount_price == NULL) {
 
+            Cart::add([
+                'id' => $id, 
+                'name' => $request->course_name, 
+                'qty' => 1, 
+                'price' => $course->selling_price, 
+                'weight' => 1, 
+                'options' => [
+                    'image' => $course->course_image,
+                    'slug' => $request->course_name_slug,
+                    'instructor' => $request->instructor,
+                ],
+            ]); 
+
+        }else{
+
+            Cart::add([
+                'id' => $id, 
+                'name' => $request->course_name, 
+                'qty' => 1, 
+                'price' => $course->discount_price, 
+                'weight' => 1, 
+                'options' => [
+                    'image' => $course->course_image,
+                    'slug' => $request->course_name_slug,
+                    'instructor' => $request->instructor,
+                ],
+            ]);  
+        }
+
+        return response()->json(['success' => 'Successfully Added on Your Cart']); 
 
     }// End Method 
 
