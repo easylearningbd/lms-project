@@ -9,6 +9,7 @@ use App\Http\Controllers\Backend\CategoryController;
 use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\WishListController;
+use App\Http\Controllers\Frontend\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -177,6 +178,8 @@ Route::get('/subcategory/{id}/{slug}', [IndexController::class, 'SubCategoryCour
 Route::get('/instructor/details/{id}', [IndexController::class, 'InstructorDetails'])->name('instructor.details');
 
 Route::post('/add-to-wishlist/{course_id}', [WishListController::class, 'AddToWishList']);
+
+Route::post('/cart/data/store/{id}', [CartController::class, 'AddToCart']);
 
 ///// End Route Accessable for All 
 
