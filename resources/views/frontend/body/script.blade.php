@@ -204,3 +204,39 @@
 
 </script>
      {{-- /// End Add To Cart  // --}}
+
+
+ {{-- /// Start Mini Cart  // --}}
+  <script type="text/javascript">
+
+    function miniCart(){
+        $.ajax({
+            type: 'GET',
+            url: '/course/mini/cart',
+            dataType: 'json',
+            success:function(response){
+
+                var miniCart = ""
+
+                $.each(response.carts, function(key,value){
+                    miniCart += `<li class="media media-card">
+                            <a href="shopping-cart.html" class="media-img">
+                                <img src="/${value.options.image}" alt="Cart image">
+                            </a>
+                            <div class="media-body">
+                                <h5><a href="course-details.html"> ${value.name}</a></h5>
+                                  
+                                 <span class="d-block fs-14">$${value.price}</span> 
+                            </div>
+                        </li> 
+                        `  
+                });
+                $('#miniCart').html(miniCart);
+
+            }
+        })
+    }
+    miniCart();
+
+ </script>
+{{-- /// End Mini Cart // --}}
