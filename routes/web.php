@@ -186,5 +186,13 @@ Route::get('/cart/data/', [CartController::class, 'CartData']);
 Route::get('/course/mini/cart/', [CartController::class, 'AddMiniCart']);
 Route::get('/minicart/course/remove/{rowId}', [CartController::class, 'RemoveMiniCart']);
 
+
+// Cart All Route 
+Route::controller(CartController::class)->group(function(){
+    Route::get('/mycart','MyCart')->name('mycart');
+    
+});
+
+
 ///// End Route Accessable for All 
 
