@@ -33,7 +33,7 @@
                 <thead>
                 <tr>
                     <th scope="col">Image</th>
-                    <th scope="col">Product Details</th>
+                    <th scope="col">Course Details</th>
                     <th scope="col">Price</th> 
                     <th scope="col">Action</th>
                 </tr>

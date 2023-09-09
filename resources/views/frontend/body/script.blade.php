@@ -325,7 +325,7 @@ const Toast = Swal.mixin({
                     </td>
                      
                     <td>
-                        <button type="button" class="icon-element icon-element-xs shadow-sm border-0" data-toggle="tooltip" data-placement="top" title="Remove">
+                        <button type="button" class="icon-element icon-element-xs shadow-sm border-0" data-toggle="tooltip" data-placement="top"  id="${value.rowId}" onclick="cartRemove(this.id)">
                             <i class="la la-times"></i>
                         </button>
                     </td>
@@ -340,6 +340,50 @@ const Toast = Swal.mixin({
         })
     }
     cart();
+
+     // My Cart Remove Start 
+     function cartRemove(rowId){
+        $.ajax({
+            type: 'GET',
+            url: '/cart-remove/'+rowId,
+            dataType: 'json',
+
+            success:function(data){
+            miniCart();
+            cart();
+// Start Message 
+
+const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  showConfirmButton: false,
+                  timer: 3000 
+            })
+            if ($.isEmptyObject(data.error)) {
+                    
+                    Toast.fire({
+                    type: 'success', 
+                    icon: 'success', 
+                    title: data.success, 
+                    })
+
+            }else{
+               
+           Toast.fire({
+                    type: 'error', 
+                    icon: 'error', 
+                    title: data.error, 
+                    })
+                }
+
+              // End Message   
+
+
+            }
+        })
+    }
+
+    // End My Cart Remove 
 
 </script>
 {{-- /// End MyCart // --}}
