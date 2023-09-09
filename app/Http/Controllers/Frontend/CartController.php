@@ -112,6 +112,21 @@ class CartController extends Controller
     } // End Method 
 
 
+    public function GetCartCourse(){
+
+        $carts = Cart::content();
+        $cartTotal = Cart::total();
+        $cartQty = Cart::count();
+
+        return response()->json(array(
+            'carts' => $carts,
+            'cartTotal' => $cartTotal,
+            'cartQty' => $cartQty,
+        ));
+
+    }// End Method 
+
+
 
 }
  
