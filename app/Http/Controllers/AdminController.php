@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth; 
 use App\Models\User;
+use App\Models\Course;
 use Illuminate\Support\Facades\Hash;
-
+ 
 class AdminController extends Controller
 {
     public function AdminDashboard(){
@@ -157,6 +158,14 @@ class AdminController extends Controller
         }
 
         return response()->json(['message' => 'User Status Updated Successfully']);
+
+    }// End Method
+
+
+    public function AdminAllCourse(){
+
+        $course = Course::latest()->get();
+        return view('admin.backend.courses.all_course',compact('course'));
 
     }// End Method
 
