@@ -53,7 +53,7 @@
                             <td>{{ $item['category']['category_name'] }}</td> 
                             <td>{{ $item->selling_price }}</td>
                             
-                            <td>  <a href="{{ route('edit.category',$item->id) }}" class="btn btn-info"><i class="lni lni-eye"></i> </a>   
+                            <td>  <a href="{{ route('admin.course.details',$item->id) }}" class="btn btn-info"><i class="lni lni-eye"></i> </a>   
                             </td> 
 
 

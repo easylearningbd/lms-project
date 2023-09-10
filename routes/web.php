@@ -108,6 +108,7 @@ Route::controller(AdminController::class)->group(function(){
 Route::controller(AdminController::class)->group(function(){
     Route::get('/admin/all/course','AdminAllCourse')->name('admin.all.course');
     Route::post('/update/course/stauts','UpdateCourseStatus')->name('update.course.stauts');
+    Route::get('/admin/course/details/{id}','AdminCourseDetails')->name('admin.course.details');
    
 });
 
