@@ -34,33 +34,41 @@
                     <div class="card">
                         <div class="card-body">
                             <table class="table mb-0">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td colspan="2">Larry the Bird</td>
-                                        <td>@twitter</td>
-                                    </tr>
-                                </tbody>
+                                
+    <tbody>
+        <tr> 
+            <td><strong>Category : </strong></td>
+            <td> {{ $course['category']['category_name'] }} </td> 
+        </tr>
+        <tr> 
+            <td><strong>SubCategory :</strong> </td>
+            <td> {{ $course['subcategory']['subcategory_name'] }}</td> 
+        </tr>
+        <tr> 
+            <td><strong>Instructor :</strong> </td>
+            <td> {{ $course['user']['name'] }}</td> 
+        </tr>
+        <tr> 
+            <td><strong>Label :</strong> </td>
+            <td> {{ $course->label }}</td> 
+        </tr>
+        <tr> 
+            <td><strong>Duration :</strong> </td>
+            <td> {{ $course->duration }}</td> 
+        </tr>
+
+        <tr> 
+            <td><strong>Video :</strong> </td>
+            <td>  
+                <video width="300" height="200" controls>
+                    <source src="{{ asset($course->video) }}" type="video/mp4">
+                </video>
+                
+            </td> 
+        </tr>
+
+            
+    </tbody>
                             </table>
                         </div>
                     </div>
@@ -70,34 +78,39 @@
     <div class="card">
         <div class="card-body">
             <table class="table mb-0">
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
+                                
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
+                    <tr> 
+                        <td><strong>Resources : </strong></td>
+                        <td> {{ $course->resources }} </td> 
                     </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
+                    <tr> 
+                        <td><strong>certificate :</strong> </td>
+                        <td> {{ $course->certificate }}</td> 
                     </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td colspan="2">Larry the Bird</td>
-                        <td>@twitter</td>
+                    <tr> 
+                        <td><strong>Selling Price :</strong> </td>
+                        <td> ${{ $course->selling_price }}</td> 
                     </tr>
+                    <tr> 
+                        <td><strong> Discount Price :</strong> </td>
+                        <td>${{ $course->discount_price }}</td> 
+                    </tr>
+                    <tr> 
+                        <td><strong>Status :</strong> </td>
+                        <td> 
+                            @if ($course->status == 1)
+                            <span class="badge bg-success">Active</span>
+                            @else
+                            <span class="badge bg-danger">Inactive</span>
+                            @endif
+                        </td> 
+                    </tr>
+            
+                   
+                        
                 </tbody>
-            </table>
+                                        </table>
         </div>
     </div>
 
