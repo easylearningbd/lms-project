@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\CourseController;
 use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\WishListController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Backend\CouponController;
 
 /*
 |--------------------------------------------------------------------------
@@ -111,6 +112,16 @@ Route::controller(AdminController::class)->group(function(){
     Route::get('/admin/course/details/{id}','AdminCourseDetails')->name('admin.course.details');
    
 });
+
+
+// Admin Coupon All Route 
+Route::controller(CouponController::class)->group(function(){
+    Route::get('/admin/all/coupon','AdminAllCoupon')->name('admin.all.coupon');
+   
+   
+});
+
+
 
 
 
