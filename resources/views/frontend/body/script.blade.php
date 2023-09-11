@@ -400,7 +400,11 @@ const Toast = Swal.mixin({
             url: "/coupon-apply",
 
             success:function(data){
-                
+
+                if (data.validity == true) {
+                    $('#couponField').hide();
+                }
+
 // Start Message 
 
 const Toast = Swal.mixin({
