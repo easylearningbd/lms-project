@@ -162,7 +162,7 @@
         $.ajax({
             type: "POST",
             dataType: 'json',
-            data: {
+            data: { 
                 _token: '{{ csrf_token() }}',
                 course_name: courseName,
                 course_name_slug: slug,
@@ -221,7 +221,7 @@
                 $('#cartQty').text(response.cartQty);
 
                 var miniCart = ""
-                 
+                  
                 $.each(response.carts, function(key,value){
                     miniCart += `<li class="media media-card">
                             <a href="shopping-cart.html" class="media-img">
@@ -387,6 +387,54 @@ const Toast = Swal.mixin({
 
 </script>
 {{-- /// End MyCart // --}}
+
+
+ {{-- /// Apply Coupon Start  // --}}
+ <script type="text/javascript">
+    function applyCoupon(){
+        var coupon_name = $('#coupon_name').val();
+        $.ajax({
+            type: "POST",
+            dataType: 'json',
+            data: {coupon_name:coupon_name},
+            url: "/coupon-apply",
+
+            success:function(data){
+                
+// Start Message 
+
+const Toast = Swal.mixin({
+                  toast: true,
+                  position: 'top-end',
+                  showConfirmButton: false,
+                  timer: 3000 
+            })
+            if ($.isEmptyObject(data.error)) {
+                    
+                    Toast.fire({
+                    type: 'success', 
+                    icon: 'success', 
+                    title: data.success, 
+                    })
+
+            }else{
+               
+           Toast.fire({
+                    type: 'error', 
+                    icon: 'error', 
+                    title: data.error, 
+                    })
+                }
+
+              // End Message   
+
+
+            }
+        })
+    }
+
+</script>
+{{-- /// End Apply Coupon  // --}}
 
 
 

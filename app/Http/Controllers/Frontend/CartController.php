@@ -134,6 +134,11 @@ class CartController extends Controller
     }// End Method 
 
 
+    public function CouponApply(Request $request){
+
+    }// End Method 
+
+
 
 }
  

@@ -221,5 +221,8 @@ Route::controller(CartController::class)->group(function(){
 });
 
 
+Route::post('/coupon-apply', [CartController::class, 'CouponApply']);
+
+
 ///// End Route Accessable for All 
 
