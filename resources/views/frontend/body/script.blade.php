@@ -437,6 +437,21 @@ const Toast = Swal.mixin({
         })
     }
 
+
+    /// Start Coupon Calculation Method 
+    function couponCalculation(){
+        $.ajax({
+            type: 'GET',
+            url: "/coupon-calculation",
+            dataType: 'json',
+
+            success:function(data){
+                
+            }
+        })
+    }
+
+
 </script>
 {{-- /// End Apply Coupon  // --}}
 

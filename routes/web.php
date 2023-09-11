@@ -222,6 +222,7 @@ Route::controller(CartController::class)->group(function(){
 
 
 Route::post('/coupon-apply', [CartController::class, 'CouponApply']);
+Route::get('/coupon-calculation', [CartController::class, 'CouponCalculation']);
 
 
 ///// End Route Accessable for All 
