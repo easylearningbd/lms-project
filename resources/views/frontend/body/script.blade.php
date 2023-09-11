@@ -351,6 +351,7 @@ const Toast = Swal.mixin({
             success:function(data){
             miniCart();
             cart();
+            couponCalculation(); 
 // Start Message 
 
 const Toast = Swal.mixin({

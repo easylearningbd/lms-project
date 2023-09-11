@@ -69,8 +69,9 @@
         <div class="col-lg-4 ml-auto">
             <div class="bg-gray p-4 rounded-rounded mt-40px" id="couponCalField">
                 
-                <a href="checkout.html" class="btn theme-btn w-100">Checkout <i class="la la-arrow-right icon ml-1"></i></a>
+                
             </div>
+            <a href="checkout.html" class="btn theme-btn w-100">Checkout <i class="la la-arrow-right icon ml-1"></i></a>
         </div>
     </div><!-- end container -->
 </section>
