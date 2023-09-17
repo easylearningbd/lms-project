@@ -268,7 +268,47 @@ class CartController extends Controller
         $data->save();
 
 
+       foreach ($request->course_title as $key => $course_title) {
+        
+            $existingOrder = Order::where('user_id',Auth::user()->id)->where('course_id',$request->course_id[$key])->first();
+
+            if ($existingOrder) {
+
+                $notification = array(
+                    'message' => 'You Have already enrolled in this course',
+                    'alert-type' => 'error'
+                );
+                return redirect()->back()->with($notification); 
+            } // end if 
+
+            $order = new Order();
+            $order->payment_id = $data->id;
+            $order->user_id = Auth::user()->id;
+            $order->course_id = $request->course_id[$key];
+            $order->instructor_id = $request->instructor_id[$key];
+            $order->course_title = $course_title;
+            $order->price = $request->price[$key];
+            $order->save();
+
+           } // end foreach 
+
+           $request->session()->forget('cart');
+
+            if ($request->cash_delivery == 'stripe') {
+               echo "stripe";
+            }else{
+
+                $notification = array(
+                    'message' => 'Cash Payment Submit Successfully',
+                    'alert-type' => 'success'
+                );
+                return redirect()->route('index')->with($notification); 
+
+            }  
+       
     }// End Method 
+
+    
 
 
 
