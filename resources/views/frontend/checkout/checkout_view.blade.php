@@ -85,9 +85,7 @@
                
             </div><!-- end payment-tab -->
         
-             
-
-
+            
         </div>
     </div><!-- end card-body -->
 </div><!-- end card -->
@@ -98,26 +96,23 @@
                         <h3 class="card-title fs-22 pb-3">Order Details</h3>
                         <div class="divider"><span></span></div>
                         <div class="order-details-lists">
-                            <div class="media media-card border-bottom border-bottom-gray pb-3 mb-3">
-                                <a href="course-details.html" class="media-img">
-                                    <img src="images/small-img.jpg" alt="Cart image">
-                                </a>
-                                <div class="media-body">
-                                    <h5 class="fs-15 pb-2"><a href="course-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
-                                    <p class="text-black font-weight-semi-bold lh-18">$12.99 <span class="before-price fs-14">$129.99</span></p>
-                                </div>
-                            </div><!-- end media -->
-                            <div class="media media-card border-bottom border-bottom-gray pb-3 mb-3">
-                                <a href="course-details.html" class="media-img">
-                                    <img src="images/small-img.jpg" alt="Cart image">
-                                </a>
-                                <div class="media-body">
-                                    <h5 class="fs-15 pb-2"><a href="course-details.html">The Complete JavaScript Course 2021: From Zero to Expert!</a></h5>
-                                    <p class="text-black font-weight-semi-bold lh-18">$12.99 <span class="before-price fs-14">$129.99</span></p>
-                                </div>
-                            </div><!-- end media -->
+         
+      @foreach ($carts as $item) 
+    <div class="media media-card border-bottom border-bottom-gray pb-3 mb-3">
+        <a href="{{ url('course/details/'.$item->id.'/'.$item->options->slug) }}" class="media-img">
+            <img src="{{ asset($item->options->image) }}" alt="Cart image">
+        </a>
+        <div class="media-body">
+            <h5 class="fs-15 pb-2"><a href="{{ url('course/details/'.$item->id.'/'.$item->options->slug) }}">{{ $item->name }} </a></h5>
+            <p class="text-black font-weight-semi-bold lh-18">${{ $item->price }}  </p>
+        </div>
+    </div><!-- end media -->
+    @endforeach     
+                         
+
+
                         </div><!-- end order-details-lists -->
-                        <a href="course-grid.html" class="btn-text"><i class="la la-edit mr-1"></i>Edit</a>
+                        <a href="{{ route('mycart') }}" class="btn-text"><i class="la la-edit mr-1"></i>Edit</a>
                     </div><!-- end card-body -->
                 </div><!-- end card -->
                 <div class="card card-item">
