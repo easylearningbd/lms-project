@@ -225,6 +225,10 @@ Route::post('/coupon-apply', [CartController::class, 'CouponApply']);
 Route::get('/coupon-calculation', [CartController::class, 'CouponCalculation']);
 Route::get('/coupon-remove', [CartController::class, 'CouponRemove']);
 
+/// Checkout Page Route 
+Route::get('/checkout', [CartController::class, 'CheckoutCreate'])->name('checkout');
+
+
 
 ///// End Route Accessable for All 
 

@@ -205,5 +205,39 @@ class CartController extends Controller
 
 
 
+    public function CheckoutCreate(){
+
+        if (Auth::check()) {
+            
+            if (Cart::total() > 0) {
+                $carts = Cart::content();
+                $cartTotal = Cart::total();
+                $cartQty = Cart::count();
+
+                return view('frontend.checkout.checkout_view',compact('carts','cartTotal','cartQty'));
+            } else{
+
+                $notification = array(
+                    'message' => 'Add At list One Course',
+                    'alert-type' => 'error'
+                );
+                return redirect()->to('/')->with($notification); 
+
+            }
+
+        }else{
+
+            $notification = array(
+                'message' => 'You Need to Login First',
+                'alert-type' => 'error'
+            );
+            return redirect()->route('login')->with($notification); 
+
+        }
+
+    }// End Method 
+
+
+
 }
  
