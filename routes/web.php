@@ -11,6 +11,7 @@ use App\Http\Controllers\Frontend\IndexController;
 use App\Http\Controllers\Frontend\WishListController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Backend\CouponController;
+use App\Http\Controllers\Backend\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -126,7 +127,12 @@ Route::controller(CouponController::class)->group(function(){
 });
 
 
+// Category All Route 
+Route::controller(SettingController::class)->group(function(){
+    Route::get('/smtp/setting','SmtpSetting')->name('smtp.setting');
+    
 
+});
 
 
 
