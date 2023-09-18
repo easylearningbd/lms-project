@@ -16,7 +16,7 @@ class Orderconfirm extends Mailable
     /** 
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(private $data)
     {
         //
     }
@@ -27,7 +27,7 @@ class Orderconfirm extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Orderconfirm',
+            subject: 'Your Order Is Confirm',
         );
     }
 
@@ -36,8 +36,10 @@ class Orderconfirm extends Mailable
      */
     public function content(): Content
     {
+        $order = $this->data;
         return new Content(
-            view: 'view.name',
+            view: 'mail.order_mail',
+            with: ['order' => $this->data],
         );
     }
 
