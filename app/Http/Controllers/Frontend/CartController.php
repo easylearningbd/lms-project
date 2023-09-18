@@ -294,6 +294,14 @@ class CartController extends Controller
 
            $request->session()->forget('cart');
 
+           $paymentId = $data->id;
+
+           /// Start Send email to student ///
+
+
+           /// End Send email to student /// 
+
+
             if ($request->cash_delivery == 'stripe') {
                echo "stripe";
             }else{
@@ -308,7 +316,7 @@ class CartController extends Controller
        
     }// End Method 
 
-    
+
 
 
 
