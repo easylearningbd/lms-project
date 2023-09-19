@@ -88,10 +88,7 @@
 
 <div class="col-lg-6">
     <div class="card">
-
-        <form method="POST" action="{{ route('admin.profile.store') }}"  enctype="multipart/form-data">
-            @csrf
-
+ 
         <div class="card-body">
             
             <div class="row mb-3">
@@ -150,7 +147,7 @@
 
 
         </div> 
-    </form>
+     
 
 
     </div>
@@ -159,6 +156,82 @@
     
 </div>
             </div>
+
+
+
+
+<div class="card radius-10">
+    <div class="card-body">
+        <div class="d-flex align-items-center">
+            
+         <div class="flex-grow-1 ms-3">
+            <div class="table-responsive">
+                <table class="table" style="font-weight: 600;">
+                    <tbody>
+                        <tr>
+                            <td class="col-md-1">
+                                <label>Image</label>
+                            </td>
+                            <td class="col-md-2">
+                                <label>Course Name</label>
+                            </td>
+                            <td class="col-md-2">
+                                <label>Category </label>
+                            </td>
+
+                            <td class="col-md-2">
+                                <label>Instructor</label>
+                            </td>
+                            <td class="col-md-2">
+                                <label>Price</label>
+                            </td> 
+                        </tr>
+
+                        @foreach ($orderItem as $item)
+                        <tr>
+                            <td class="col-md-1">
+                                <label><img src="{{ asset($item->course->course_image) }}" alt="" style="width: 50px; height:50px;"> </label>
+                            </td>
+
+                            <td class="col-md-2">
+                                <label> {{ $item->course->course_name }}  </label>
+                            </td>
+
+                            <td class="col-md-2">
+                                <label>{{ $item->course->category->category_name }}</label>
+                            </td>
+
+                            <td class="col-md-2">
+                                <label> {{ $item->instructor->name }} </label>
+                            </td>
+
+                            <td class="col-md-2">
+                                <label> ${{ $item->price }} </label>
+                            </td>
+                        </tr>
+ 
+                        @endforeach
+
+
+                    </tbody>
+
+                </table>
+                
+            </div>
+            </div>   
+
+            
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
         </div>
     </div>
 </div>
