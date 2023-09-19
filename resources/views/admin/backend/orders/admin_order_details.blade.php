@@ -137,7 +137,7 @@
                 </div>
                 <div class="col-sm-9 text-secondary">
                     @if ($payment->status == 'pending')
-                    <a href="" class="btn btn-block btn-success">Confirm Order</a>
+                    <a href="{{ route('pending-confrim',$payment->id) }}" class="btn btn-block btn-success" id="confirm">Confirm Order</a>
                     @elseif ($payment->status == 'confirm')    
                     <a href="" class="btn btn-block btn-success">Confirm Order</a>
                     @endif 
