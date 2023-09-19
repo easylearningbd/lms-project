@@ -48,7 +48,7 @@
                             <td> <span class="badge bg-success">{{ $item['payment']['status'] }}</span> </td> 
                             <td>
        <a href="{{ route('instructor.order.details',$item->payment->id) }}" class="btn btn-info" title="Edit"><i class="lni lni-eye"></i> </a>   
-       <a href="{{ route('instructor.order.invoice',$item->payment->id) }}" class="btn btn-danger" id="delete" title="delete"><i class="lni lni-download"></i> </a>  
+       <a href="{{ route('instructor.order.invoice',$item->payment->id) }}" class="btn btn-danger"   title="Invoice"><i class="lni lni-download"></i> </a>  
                          
                             </td>
                         </tr>
