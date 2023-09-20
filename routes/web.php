@@ -56,6 +56,15 @@ Route::controller(WishListController::class)->group(function(){
 });
 
 
+    // User My Course All Route 
+    Route::controller(OrderController::class)->group(function(){
+        Route::get('/my/course','MyCourse')->name('my.course'); 
+         
+    
+    });
+    
+
+
 
     
 });
