@@ -386,15 +386,20 @@ START COURSE-DASHBOARD
                 <h3 class="fs-20 font-weight-semi-bold">My question relates to</h3>
 
 
-    <form action="#" class="pt-4">
+    <form method="post" action="{{ route('user.question') }}" class="pt-4">
+        @csrf
+
+        <input type="hidden" name="course_id" value="{{ $course->course_id }}">
+        <input type="hidden" name="instructor_id" value="{{ $course->instructor_id }}">
+
         <div class="custom-control-wrap">
             <div class="custom-control custom-radio mb-3 pl-0">
-                 <input type="text" name="" class="form-control form--control pl-3" >
+                 <input type="text" name="subject" class="form-control form--control pl-3" >
                 
             </div>
 
             <div class="custom-control custom-radio mb-3 pl-0">
-                <textarea class="form-control form--control pl-3" name="message" rows="4" placeholder="Write your response..."></textarea>
+                <textarea class="form-control form--control pl-3" name="question" rows="4" placeholder="Write your response..."></textarea>
                 
             </div>
             
