@@ -31,6 +31,7 @@
                             <th>Course Name </th>
                             <th>Subject</th>
                             <th>User</th> 
+                            <th>Date</th> 
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -42,8 +43,9 @@
                             <td> {{ $item['course']['course_name'] }} </td>
                             <td>{{ $item->subject }}</td> 
                             <td>{{ $item['user']['name'] }}</td>  
+                            <td>{{ Carbon\Carbon::parse($item->created_at)->diffForHumans() }}</td>  
                             <td>
-       <a href=" " class="btn btn-info" title="Edit"><i class="lni lni-eye"></i> </a>   
+       <a href="{{ route('question.details',$item->id)  }}" class="btn btn-info" title="Edit"><i class="lni lni-eye"></i> </a>   
                          
                             </td>
                         </tr>
