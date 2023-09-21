@@ -234,6 +234,15 @@ Route::controller(OrderController::class)->group(function(){
 });
 
 
+// Question All Order Route 
+Route::controller(QuestionController::class)->group(function(){
+    Route::get('/instructor/all/question','InstructorAllQuestion')->name('instructor.all.question'); 
+    
+  
+});
+
+
+
 
 }); // End Instructor Group Middleware 
 
