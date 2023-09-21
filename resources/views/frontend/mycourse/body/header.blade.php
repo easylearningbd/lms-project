@@ -27,4 +27,8 @@
     <link rel="stylesheet" href="{{ asset('frontend/css/jquery-te-1.4.0.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/css/style.css') }}">
     <!-- end inject -->
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css" >
+
+    
 </head>
