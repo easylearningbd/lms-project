@@ -422,7 +422,7 @@ START COURSE-DASHBOARD
           
             <div class="lecture-overview-item">
                 <div class="question-overview-result-header d-flex align-items-center justify-content-between">
-                    <h3 class="fs-17 font-weight-semi-bold">30 questions in this course</h3>
+                    <h3 class="fs-17 font-weight-semi-bold">{{ count($allquestion) }} questions in this course</h3>
                     <button class="btn theme-btn theme-btn-sm theme-btn-transparent ask-new-question-btn">Ask a new question</button>
                 </div>
             </div><!-- end lecture-overview-item -->
@@ -435,42 +435,36 @@ START COURSE-DASHBOARD
             <div class="lecture-overview-item mt-0">
                 <div class="question-list-item">
                    
+    @php
+        $id = Auth::user()->id;
+        $question = App\Models\Question::where('user_id',$id)->where('course_id',$course->course->id)->where('parent_id',null)->orderBy('id','asc')->get();
+    @endphp               
                    
-                    <div class="media media-card border-bottom border-bottom-gray py-4 px-3">
+                    @foreach ($question as $que)
+                   <div class="media media-card border-bottom border-bottom-gray py-4 px-3">
                         <div class="media-img rounded-full flex-shrink-0 avatar-sm">
-                            <img class="rounded-full" src="images/small-avatar-1.jpg" alt="User image">
+                            <img class="rounded-full" src="{{ (!empty($que->user->photo)) ? url('upload/user_images/'.$que->user->photo) : url('upload/no_image.jpg')}}" alt="User image">
                         </div>
                         <div class="media-body">
                             <div class="d-flex align-items-center justify-content-between">
                                 <div class="question-meta-content">
                                     <a href="javascript:void(0)" class="d-block">
-                                        <h5 class="fs-16 pb-1">I still did't get H264 after installing Quicktime. Please what do I do</h5>
-                                        <p class="text-truncate fs-15 text-gray">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                            sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                            Ut enim ad minim veniam, quis nostrud exercitation.
+                       <h5 class="fs-16 pb-1">{{ $que->subject }} </h5>
+                      <p class="text-truncate fs-15 text-gray">
+                                          {{ $que->question }}
                                         </p>
                                     </a>
                                 </div><!-- end question-meta-content -->
-                                <div class="question-upvote-action">
-                                    <div class="number-upvotes pb-2 d-flex align-items-center">
-                                        <span>1</span>
-                                        <button type="button"><i class="la la-arrow-up"></i></button>
-                                    </div>
-                                    <div class="number-upvotes question-response d-flex align-items-center">
-                                        <span>1</span>
-                                        <button type="button" class="question-replay-btn"><i class="la la-comments"></i></button>
-                                    </div>
-                                </div><!-- end question-upvote-action -->
+                                
                             </div>
-                            <p class="meta-tags pt-1 fs-13">
-                                <a href="#">Alex Smith</a>
-                                <a href="#">Lecture 20</a>
-                                <span>3 hours ago</span>
+                            <p class="meta-tags pt-1 fs-13"> 
+                                <span>{{ Carbon\Carbon::parse($que->created_at)->diffForHumans() }}</span>
                             </p>
                         </div><!-- end media-body -->
                     </div><!-- end media -->
-
+ 
+                        
+                    @endforeach
 
 
 
