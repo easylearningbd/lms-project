@@ -81,14 +81,17 @@
                     </div>
                 </div>
             </div>
+
+            @foreach ($replay as $rep)
             <div class="chat-content-rightside">
                 <div class="d-flex ms-auto">
                     <div class="flex-grow-1 me-2">
-                        <p class="mb-0 chat-time text-end">you, 2:37 PM</p>
-                        <p class="chat-right-msg">I am in USA</p>
+                        <p class="mb-0 chat-time text-end">you, {{ Carbon\Carbon::parse($rep->created_at)->diffForHumans() }}</p>
+                        <p class="chat-right-msg">{{ $rep->question }}</p>
                     </div>
                 </div>
-            </div>
+            </div> 
+            @endforeach
           
             
             
@@ -98,10 +101,10 @@
         <form action="{{ route('instructor.replay') }}" method="POST">
             @csrf
            
-            <input type="hiddend" name="qid" value="{{ $question->id }}">
-            <input type="hiddend" name="course_id" value="{{ $question->course->id }}">
-            <input type="hiddend" name="user_id" value="{{ $question->user->id }}">
-            <input type="hiddend" name="instructor_id" value="{{ $profileData->id }}">
+            <input type="hidden" name="qid" value="{{ $question->id }}">
+            <input type="hidden" name="course_id" value="{{ $question->course->id }}">
+            <input type="hidden" name="user_id" value="{{ $question->user->id }}">
+            <input type="hidden" name="instructor_id" value="{{ $profileData->id }}">
            
 
         <div class="chat-footer d-flex align-items-center">
