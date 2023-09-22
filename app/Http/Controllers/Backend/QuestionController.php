@@ -48,6 +48,11 @@ class QuestionController extends Controller
 
     }// End Method 
 
+    public function InstructorReplay(Request $request){
+        
+
+    }// End Method 
+
 
 
 }
