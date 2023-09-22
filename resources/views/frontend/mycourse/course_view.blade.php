@@ -462,7 +462,36 @@ START COURSE-DASHBOARD
                             </p>
                         </div><!-- end media-body -->
                     </div><!-- end media -->
- 
+
+
+    @php
+        $replay = App\Models\Question::where('parent_id',$que->id)->get();
+    @endphp      
+
+                    @foreach ($replay as $rep)
+                    <div class="media media-card border-bottom border-bottom-gray py-4 px-3" style="background: #e6e6e6">
+                        <div class="media-img rounded-full flex-shrink-0 avatar-sm">
+                            <img class="rounded-full" src="{{ (!empty($rep->instructor->photo)) ? url('upload/instructor_images/'.$rep->instructor->photo) : url('upload/no_image.jpg')}}" alt="User image">
+                        </div>
+                        <div class="media-body">
+                            <div class="d-flex align-items-center justify-content-between">
+                                <div class="question-meta-content">
+                                    <a href="javascript:void(0)" class="d-block">
+                       <h5 class="fs-16 pb-1">{{ $rep->instructor->name }} </h5>
+                      <p class="text-truncate fs-15 text-gray">
+                                          {{ $rep->question }}
+                                        </p>
+                                    </a>
+                                </div><!-- end question-meta-content -->
+                                
+                            </div>
+                            <p class="meta-tags pt-1 fs-13"> 
+                                <span>{{ Carbon\Carbon::parse($rep->created_at)->diffForHumans() }}</span>
+                            </p>
+                        </div><!-- end media-body -->
+                    </div><!-- end media --> 
+                        
+                    @endforeach
                         
                     @endforeach
 
