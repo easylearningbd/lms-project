@@ -116,8 +116,7 @@
                     <div class="card-body">
                         <h3 class="card-title fs-22 pb-3">Billing Details</h3>
                         <div class="divider"><span></span></div>
-<form method="post" class="row" action="{{ route('payment') }}" enctype="multipart/form-data">
-    @csrf
+ 
 
     <div class="input-box col-lg-6">
         <label class="label-text">First Name</label>
@@ -165,12 +164,19 @@
         @csrf
         <div class="form-row">
             <label for="card-element"> Credit or Debit Cart</label>
+        
+            <input type="hidden" name="name" value="{{ $data['name'] }}">
+            <input type="hidden" name="email" value="{{ $data['email'] }}">
+            <input type="hidden" name="phone" value="{{ $data['phone'] }}">
+            <input type="hidden" name="address" value="{{ $data['address'] }}">
+
 
             <div id="card-element">
                 {{-- // stripe element will be inserted here --}}
             </div>
             <div id="card-errors" role="alert"></div>
         </div>
+        <br>
         <button class="btn btn-primary">Submit Payment</button>
     </form>
 
@@ -281,7 +287,7 @@
         </div><!-- end row -->
     </div><!-- end container -->
 
-</form>
+ 
 </section>
 <!-- ================================
        END CONTACT AREA

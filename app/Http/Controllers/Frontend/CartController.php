@@ -374,6 +374,29 @@ class CartController extends Controller
 
          ]);
 
+         $carts = Cart::content();
+         foreach ($carts as $cart) {
+            Order::insert([
+                'payment_id' => $order_id,
+                'user_id' => Auth::user()->id,
+                'course_id' => $cart->id,
+                'instructor_id' => $cart->options->instructor,
+                'course_title' => $cart->options->name,
+                'price' => $cart->price,
+            ]);
+         }// end foreach 
+
+         if (Session::has('coupon')) {
+            Session::forget('coupon');
+         }
+         Cart::destroy();
+
+         $notification = array(
+            'message' => 'Stripe Payment Submit Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('index')->with($notification); 
+
     }// End Method 
 
 
