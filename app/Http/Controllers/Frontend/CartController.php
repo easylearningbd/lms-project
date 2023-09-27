@@ -20,6 +20,7 @@ use App\Models\Payment;
 use App\Models\Order;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Orderconfirm;
+use Stripe;
 
 
 class CartController extends Controller
@@ -335,6 +336,44 @@ class CartController extends Controller
         } // End Elseif 
            
        
+    }// End Method 
+
+
+    public function StripeOrder(Request $request){
+        if (Session::has('coupon')) {
+            $total_amount = Session::get('coupon')['total_amount'];
+         }else {
+             $total_amount = round(Cart::total());
+         }
+
+         \Stripe\Stripe::setApiKey('sk_test_51IUTWzALc6pn5BvMjaRW9STAvY4pLiq1dNViHoh5KtqJc9Bx7d4WKlCcEdHOJdg3gCcC2F19cDxUmCBJekGSZXte00RN2Fc4vm');
+
+         $token = $_POST['stripeToken'];
+
+         $charge = \Stripe\Charge::create([
+            'amount' => $total_amount*100, 
+            'currency' => 'usd',
+            'description' => 'Lms',
+            'source' => $token,
+            'metadata' => ['order_id' => '3434'],
+         ]);
+
+         $order_id = Payment::insertGetId([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'total_amount' => $total_amount,
+            'payment_type' => 'Stripe',
+            'invoice_no' => 'EOS' . mt_rand(10000000, 99999999),
+            'order_date' => Carbon::now()->format('d F Y'),
+            'order_month' => Carbon::now()->format('F'),
+            'order_year' => Carbon::now()->format('Y'),
+            'status' => 'pending',
+            'created_at' => Carbon::now(), 
+
+         ]);
+
     }// End Method 
 
 

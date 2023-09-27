@@ -161,7 +161,7 @@
             <div class="border cart-totals p-40">
                 <div class="divider-2 mb-30">
                     <div class="table-responsive order_table checkout">
-    <form action="" method="post" id="payment-form">
+    <form action="{{ route('stripe_order') }}" method="post" id="payment-form">
         @csrf
         <div class="form-row">
             <label for="card-element"> Credit or Debit Cart</label>
