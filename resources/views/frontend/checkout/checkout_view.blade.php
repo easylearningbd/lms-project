@@ -79,7 +79,7 @@
                     <input checked="" id="bankTransfer" name="cash_delivery" type="radio" value="handcash">
                     <label for="bankTransfer">Direct Payment</label>
                 </div>
-
+ 
                 <div class="payment-tab-toggle">
                     <input checked="" id="bankTransfer" name="cash_delivery" type="radio" value="stripe">
                     <label for="bankTransfer">Stripe Payment</label>

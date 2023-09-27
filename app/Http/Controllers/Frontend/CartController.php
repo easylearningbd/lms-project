@@ -250,6 +250,20 @@ class CartController extends Controller
             $total_amount = round(Cart::total());
         }
 
+            $data = array(); 
+            $data['name'] = $request->name;
+            $data['email'] = $request->email;
+            $data['phone'] = $request->phone;
+            $data['address'] = $request->address;
+            $data['course_title'] = $request->course_title;
+            $cartTotal = Cart::total();
+            $carts = Cart::content();
+        
+
+        if ($request->cash_delivery == 'stripe') {
+            return view('frontend.payment.stripe',compact('data','cartTotal','carts'));
+        }elseif($request->cash_delivery == 'handcash'){ 
+
         // Cerate a new Payment Record 
 
         $data = new Payment();
@@ -312,18 +326,14 @@ class CartController extends Controller
 
            /// End Send email to student /// 
 
+           $notification = array(
+            'message' => 'Cash Payment Submit Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('index')->with($notification); 
 
-            if ($request->cash_delivery == 'stripe') {
-               echo "stripe";
-            }else{
-
-                $notification = array(
-                    'message' => 'Cash Payment Submit Successfully',
-                    'alert-type' => 'success'
-                );
-                return redirect()->route('index')->with($notification); 
-
-            }  
+        } // End Elseif 
+           
        
     }// End Method 
 
