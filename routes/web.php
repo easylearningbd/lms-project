@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Backend\OrderController;
 use App\Http\Controllers\Backend\QuestionController;
 use App\Http\Middleware\RedirectIfAuthenticated;
+use App\Http\Controllers\Backend\ReportController;
 
 /*
 |--------------------------------------------------------------------------
@@ -165,6 +166,12 @@ Route::controller(OrderController::class)->group(function(){
 });
 
 
+
+// Admin Report All Route 
+Route::controller(ReportController::class)->group(function(){
+    Route::get('/report/view','ReportView')->name('report.view'); 
+    
+});
 
 
 
