@@ -1,5 +1,5 @@
-@extends('admin.admin_dashboard')
-@section('admin')
+@extends('instructor.instructor_dashboard')
+@section('instructor')
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 <div class="page-content">
@@ -21,7 +21,7 @@
     <div class="card">
         <div class="card-body p-4">
             <h5 class="mb-4">Add Coupon</h5>
-            <form id="myForm" action="{{ route('admin.store.coupon') }}" method="post" class="row g-3" enctype="multipart/form-data">
+            <form id="myForm" action="{{ route('instructor.store.coupon') }}" method="post" class="row g-3" enctype="multipart/form-data">
                 @csrf
 
                 <div class="form-group col-md-6">

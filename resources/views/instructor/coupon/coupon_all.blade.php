@@ -30,8 +30,8 @@
                             <th>Sl</th>
                             <th>Coupon Name  </th>
                             <th>Coupon Discount</th> 
-                            <th>Coupon Validity</th> 
                             <th>Coupon Status </th> 
+                            <th>Course </th> 
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -42,7 +42,7 @@
     <td>{{ $key+1 }}</td>
     <td> {{ $item->coupon_name }} </td>
     <td>{{ $item->coupon_discount }}%</td> 
-    <td> {{ Carbon\Carbon::parse($item->coupon_validity)->format('D, d F Y')  }} </td>
+     
     <td>  
  @if ($item->coupon_validity >= Carbon\Carbon::now()->format('Y-m-d'))
  <span class="badge bg-success">Valid</span>   
@@ -50,6 +50,8 @@
  <span class="badge bg-danger">Invalid</span>
  @endif
     </td>
+
+    <td> {{ $item['course']['course_name'] }} </td>
 
     <td>
 <a href="{{ route('admin.edit.coupon',$item->id) }}" class="btn btn-info px-5">Edit </a>   
