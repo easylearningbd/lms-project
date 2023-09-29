@@ -8,6 +8,7 @@ use App\Models\Coupon;
 use App\Models\SubCategory;
 use Intervention\Image\Facades\Image;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth; 
 
 
 class CouponController extends Controller
@@ -72,7 +73,7 @@ class CouponController extends Controller
     }/// End Method 
 
     public function AdminDeleteCoupon($id){
-
+ 
         Coupon::find($id)->delete();
 
         $notification = array(
@@ -83,7 +84,14 @@ class CouponController extends Controller
 
     }/// End Method 
 
+    ///////////////////// Instructor All Coupon Method 
 
+    public function InstructorAllCoupon(){
+        $id = Auth::user()->id;
+        $coupon = Coupon::where('instructor_id',$id)->latest()->get();
+        return view('instructor.coupon.coupon_all',compact('coupon'));
+
+    }/// End Method 
 
 
 } 
