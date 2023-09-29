@@ -182,6 +182,14 @@ class CartController extends Controller
     }// End Method 
 
 
+    public function InsCouponApply(){
+
+    }// End Method 
+
+
+
+
+
     public function CouponCalculation(){
 
         if (Session::has('coupon')) {
@@ -356,7 +364,7 @@ class CartController extends Controller
             'description' => 'Lms',
             'source' => $token,
             'metadata' => ['order_id' => '3434'],
-         ]);
+         ]); 
 
          $order_id = Payment::insertGetId([
             'name' => $request->name,

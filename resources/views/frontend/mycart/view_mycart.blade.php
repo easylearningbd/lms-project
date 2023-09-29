@@ -58,7 +58,7 @@
                             
                       <a type="submit" onclick="applyCoupon()" class="btn theme-btn">Apply Code</a>      
                         </div>
-                    </div>
+                    </div> 
                 </form>
                @endif
 

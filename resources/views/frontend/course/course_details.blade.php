@@ -501,6 +501,17 @@
     <button type="submit" class="btn theme-btn w-100 mb-2" onclick="addToCart({{ $course->id }}, '{{ $course->course_name }}', '{{ $course->instructor_id }}', '{{ $course->course_name_slug }}' )" ><i class="la la-shopping-cart fs-18 mr-1"></i> Add to cart</button>
 
     <button type="button" class="btn theme-btn w-100 theme-btn-white mb-2"  onclick="buyCourse({{ $course->id }}, '{{ $course->course_name }}', '{{ $course->instructor_id }}', '{{ $course->course_name_slug }}' )"><i class="la la-shopping-bag mr-1"></i> Buy this course</button>
+
+    <div class="input-group mb-2" id="couponField">
+        <input class="form-control form--control pl-3" type="text"  id="coupon_name" placeholder="Coupon code">
+        <div class="input-group-append">
+            <input type="hidden" id="course_id" name="course_id" value="{{ $course->id }}">
+            <input type="hidden" id="instrutor_id" name="instrutor_id" value="{{ $course->instructor_id }}">
+      <a type="submit" onclick="applyInsCoupon()" class="btn theme-btn">Apply Code</a>      
+        </div>
+    </div>  
+
+
 </div>
                                 <p class="fs-14 text-center pb-4">30-Day Money-Back Guarantee</p>
                                 <div class="preview-course-incentives">
