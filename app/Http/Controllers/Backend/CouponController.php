@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Coupon;
+use App\Models\Course;
 use App\Models\SubCategory;
 use Intervention\Image\Facades\Image;
 use Carbon\Carbon;
@@ -92,6 +93,14 @@ class CouponController extends Controller
         return view('instructor.coupon.coupon_all',compact('coupon'));
 
     }/// End Method 
+
+
+    public function InstructorAddCoupon(){
+        $id = Auth::user()->id;
+        $courses = Course::where('instructor_id',$id)->get();
+        return view('instructor.coupon.coupon_add',compact('courses'));
+
+    }// End Method 
 
 
 } 

@@ -15,7 +15,7 @@
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-           <a href="{{ route('admin.add.coupon') }}" class="btn btn-primary px-5">Add Coupon </a>  
+           <a href="{{ route('instructor.add.coupon') }}" class="btn btn-primary px-5">Add Coupon </a>  
             </div>
         </div>
     </div>

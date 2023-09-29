@@ -257,6 +257,7 @@ Route::controller(QuestionController::class)->group(function(){
 // Instructor Coupon All Route 
 Route::controller(CouponController::class)->group(function(){
     Route::get('/instructor/all/coupon','InstructorAllCoupon')->name('instructor.all.coupon');
+    Route::get('/instructor/add/coupon','InstructorAddCoupon')->name('instructor.add.coupon');
     
 });
 
