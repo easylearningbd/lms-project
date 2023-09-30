@@ -423,6 +423,9 @@
                        <h3 class="fs-24 font-weight-semi-bold pb-4">Add a Review</h3>
                        
         <form method="post" action="{{ route('store.review') }}" class="row">
+            @csrf
+
+            
         <div class="leave-rating-wrap pb-4">
             <div class="leave-rating leave--rating">
                 <input type="radio" name='rate' id="star5" value="5" />
