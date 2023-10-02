@@ -275,6 +275,14 @@ Route::controller(CouponController::class)->group(function(){
 });
 
 
+// Instructor Review All Route 
+Route::controller(ReviewController::class)->group(function(){
+    Route::get('/instructor/all/review','InstructorAllReview')->name('instructor.all.review');  
+    
+});
+
+
+
 }); // End Instructor Group Middleware 
 
 
