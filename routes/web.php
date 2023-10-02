@@ -180,6 +180,8 @@ Route::controller(ReportController::class)->group(function(){
 // Admin Review All Route 
 Route::controller(ReviewController::class)->group(function(){
     Route::get('/admin/pending/review','AdminPendingReview')->name('admin.pending.review'); 
+    Route::post('/update/review/stauts','UpdateReviewStatus')->name('update.review.stauts'); 
+    Route::get('/admin/active/review','AdminActiveReview')->name('admin.active.review');
     
     
 });
