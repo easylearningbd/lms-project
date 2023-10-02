@@ -128,6 +128,23 @@
                
             </ul>
         </li>
+
+        <li>
+            <a class="has-arrow" href="javascript:;">
+                <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
+                </div>
+                <div class="menu-title">Manage Review</div>
+            </a>
+            <ul>
+                <li> <a href="{{ route('admin.pending.review') }}"><i class='bx bx-radio-circle'></i>Pending Review </a>
+                </li>
+                <li> <a href="{{ route('report.view') }}"><i class='bx bx-radio-circle'></i>Active Review </a>
+                </li>
+               
+               
+               
+            </ul>
+        </li>
         
       
      

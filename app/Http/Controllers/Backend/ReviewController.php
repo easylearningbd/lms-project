@@ -37,7 +37,12 @@ class ReviewController extends Controller
 
     }// End Method 
 
+    public function AdminPendingReview(){
 
+        $review = Review::where('status',0)->orderBy('id','DESC')->get();
+        return view('admin.backend.review.pending_review',compact('review'));
+
+    }// End Method 
 
 
 
