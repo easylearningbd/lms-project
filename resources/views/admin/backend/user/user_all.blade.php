@@ -44,7 +44,14 @@
                             <td>{{ $item->name }}</td> 
                             <td>{{ $item->email }}</td> 
                             <td>{{ $item->phone }}</td> 
-                            <td>sadfsd</td> 
+                            <td>
+        @if ($item->UserOnline())
+        <span class="badge badge-pill bg-success">Active Now</span>
+        @else 
+        <span class="badge badge-pill bg-danger">{{ Carbon\Carbon::parse($item->last_seen)->diffForHumans() }} </span>  
+             
+        @endif    
+                            </td> 
 
                             
                         </tr>
