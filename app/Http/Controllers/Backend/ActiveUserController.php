@@ -15,6 +15,14 @@ class ActiveUserController extends Controller
     }// End Method 
 
 
+    public function AllInstructor(){
+        $users = User::where('role','instructor')->latest()->get();
+        return view('admin.backend.user.instructor_all',compact('users'));
+
+    }// End Method 
+
+
+
 
 }
  

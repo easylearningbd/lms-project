@@ -190,7 +190,8 @@ Route::controller(ReviewController::class)->group(function(){
 
 // Admin All user and Instructor All Route 
 Route::controller(ActiveUserController::class)->group(function(){
-    Route::get('/all/user','AllUser')->name('all.user');  
+    Route::get('/all/user','AllUser')->name('all.user'); 
+    Route::get('/all/instructor','AllInstructor')->name('all.instructor'); 
     
 });
 
