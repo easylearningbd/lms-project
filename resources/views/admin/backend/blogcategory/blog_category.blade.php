@@ -42,7 +42,9 @@
                             <td> {{ $item->category_name }}  </td>
                             <td>{{ $item->category_slug }}</td> 
                             <td>
-       <a href="{{ route('edit.category',$item->id) }}" class="btn btn-info px-5">Edit </a>   
+      
+       <button type="button" class="btn btn-info px-5" data-bs-toggle="modal" data-bs-target="#category" id="{{ $item->id }}" onclick="categoryEdit(this.id)">Edit</button>
+
        <a href="{{ route('delete.category',$item->id) }}" class="btn btn-danger px-5" id="delete">Delete </a>                    
                             </td>
                         </tr>
@@ -86,5 +88,52 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Edit Modal -->
+    <div class="modal fade" id="category" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Edit Blog Category</h5>
+                  
+                </div>
+                <div class="modal-body"> 
+           <form action="{{ route('blog.category.store') }}" method="post">
+            @csrf
+
+            <input type="hidden" name="cat_id" id="cat_id">
+
+            <div class="form-group col-md-12">
+                <label for="input1" class="form-label">Blog Category Name</label>
+                <input type="text" name="category_name" class="form-control" id="cat"  >
+            </div>
+                    
+                </div>
+                <div class="modal-footer"> 
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function categoryEdit(id){
+            $.ajax({
+                type: 'GET',
+                url: '/edit/blog/category/'+id,
+                dataType: 'json',
+
+                success:function(data){
+                    // console.log(data)
+                    $('#cat').val(data.category_name);
+                    $('#cat_id').val(data.id);
+
+                }
+            })
+
+        }
+    </script>
 
 @endsection
