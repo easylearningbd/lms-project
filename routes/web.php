@@ -200,7 +200,8 @@ Route::controller(ActiveUserController::class)->group(function(){
 
 // Admin All user and Instructor All Route 
 Route::controller(BlogController::class)->group(function(){
-    Route::get('/blog/category','AllBlogCategory')->name('blog.category');  
+    Route::get('/blog/category','AllBlogCategory')->name('blog.category'); 
+    Route::post('/blog/category/store','StoreBlogCategory')->name('blog.category.store'); 
     
 });
 

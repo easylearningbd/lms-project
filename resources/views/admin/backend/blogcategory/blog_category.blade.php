@@ -15,7 +15,8 @@
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-           <a href="{{ route('add.category') }}" class="btn btn-primary px-5">Add Blog Category </a>  
+            
+           <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Add Blog Category</button>
             </div>
         </div>
     </div>
@@ -60,6 +61,30 @@
 </div>
  
 
+	<!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Blog Category</h5>
+                  
+                </div>
+                <div class="modal-body"> 
+           <form action="{{ route('blog.category.store') }}" method="post">
+            @csrf
 
+            <div class="form-group col-md-12">
+                <label for="input1" class="form-label">Blog Category Name</label>
+                <input type="text" name="category_name" class="form-control" id="input1"  >
+            </div>
+                    
+                </div>
+                <div class="modal-footer"> 
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
 
 @endsection
