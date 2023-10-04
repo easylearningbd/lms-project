@@ -40,7 +40,7 @@
                         <tr>
                             <td>{{ $key+1 }}</td>
                             <td>{{ $item->post_title }}</td> 
-                            <td>{{ $item->blogcat_id }}</td> 
+                            <td>{{ $item['blog']['category_name'] }}</td> 
                             <td> <img src="{{ asset($item->post_image) }}" alt="" style="width: 70px; height:40px;"> </td>
                             
                             <td>
