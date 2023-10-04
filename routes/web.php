@@ -367,6 +367,8 @@ Route::post('/stripe_order', [CartController::class, 'StripeOrder'])->name('stri
 
 Route::post('/store/review', [ReviewController::class, 'StoreReview'])->name('store.review');
 
+Route::get('/blog/details/{slug}', [BlogController::class, 'BlogDetails']);
+
 
 
 ///// End Route Accessable for All 

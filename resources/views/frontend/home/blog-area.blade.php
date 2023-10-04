@@ -25,7 +25,7 @@
                     </div>
                 </div><!-- end card-image -->
                 <div class="card-body">
-                    <h5 class="card-title"><a href="blog-single.html">{{ $item->post_title }}</a></h5>
+                    <h5 class="card-title"><a href="{{ url('blog/details/'.$item->post_slug) }}">{{ $item->post_title }}</a></h5>
                     <ul class="generic-list-item generic-list-item-bullet generic-list-item--bullet d-flex align-items-center flex-wrap fs-14 pt-2">
                         <li class="d-flex align-items-center">By<a href="#">Admin</a></li>
                         <li class="d-flex align-items-center"><a href="#">4 Comments</a></li>
