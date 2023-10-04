@@ -45,8 +45,10 @@
                         <h3 class="fs-18 font-weight-semi-bold pt-3">Tags</h3>
                         <div class="d-flex flex-wrap justify-content-between align-items-center pt-3">
                             <ul class="generic-list-item generic-list-item-boxed d-flex flex-wrap fs-15">
-                                <li class="mr-2"><a href="#">Web Design</a></li>
-                                <li class="mr-2"><a href="#">UI Design</a></li>
+                                @foreach ($tags_all as $tag)
+                                <li class="mr-2"><a href="#">{{ ucwords($tag) }}</a></li>
+                                
+                                @endforeach
                             </ul>
                             <div class="share-wrap">
                                 <ul class="social-icons social-icons-styled">
@@ -182,94 +184,18 @@
             </div><!-- end col-lg-8 -->
             <div class="col-lg-4">
                 <div class="sidebar">
+                 
+                    
                     <div class="card card-item">
                         <div class="card-body">
-                            <h3 class="card-title fs-18 pb-2">Search Field</h3>
-                            <div class="divider"><span></span></div>
-                            <form method="post">
-                                <div class="form-group mb-0">
-                                    <input class="form-control form--control pl-3" type="text" name="search" placeholder="Search courses">
-                                    <span class="la la-search search-icon"></span>
-                                </div>
-                            </form>
-                        </div>
-                    </div><!-- end card -->
-                    <div class="card card-item">
-                        <div class="card-body">
-                            <h3 class="card-title fs-18 pb-2">Categories</h3>
-                            <div class="divider"><span></span></div>
-                            <div class="custom-control custom-checkbox mb-1 fs-15">
-                                <input type="checkbox" class="custom-control-input" id="catCheckbox" required>
-                                <label class="custom-control-label custom--control-label text-black" for="catCheckbox">
-                                    Business<span class="ml-1 text-gray">(12,300)</span>
-                                </label>
-                            </div><!-- end custom-control -->
-                            <div class="custom-control custom-checkbox mb-1 fs-15">
-                                <input type="checkbox" class="custom-control-input" id="catCheckbox2" required>
-                                <label class="custom-control-label custom--control-label text-black" for="catCheckbox2">
-                                    UI & UX<span class="ml-1 text-gray">(12,300)</span>
-                                </label>
-                            </div><!-- end custom-control -->
-                            <div class="custom-control custom-checkbox mb-1 fs-15">
-                                <input type="checkbox" class="custom-control-input" id="catCheckbox3" required>
-                                <label class="custom-control-label custom--control-label text-black" for="catCheckbox3">
-                                    Animation<span class="ml-1 text-gray">(12,300)</span>
-                                </label>
-                            </div><!-- end custom-control -->
-                            <div class="custom-control custom-checkbox mb-1 fs-15">
-                                <input type="checkbox" class="custom-control-input" id="catCheckbox4" required>
-                                <label class="custom-control-label custom--control-label text-black" for="catCheckbox4">
-                                    Game Design<span class="ml-1 text-gray">(12,300)</span>
-                                </label>
-                            </div><!-- end custom-control -->
-                            <div class="collapse" id="collapseMore">
-                                <div class="custom-control custom-checkbox mb-1 fs-15">
-                                    <input type="checkbox" class="custom-control-input" id="catCheckbox5" required>
-                                    <label class="custom-control-label custom--control-label text-black" for="catCheckbox5">
-                                        Graphic Design<span class="ml-1 text-gray">(12,300)</span>
-                                    </label>
-                                </div><!-- end custom-control -->
-                                <div class="custom-control custom-checkbox mb-1 fs-15">
-                                    <input type="checkbox" class="custom-control-input" id="catCheckbox6" required>
-                                    <label class="custom-control-label custom--control-label text-black" for="catCheckbox6">
-                                        Typography<span class="ml-1 text-gray">(12,300)</span>
-                                    </label>
-                                </div><!-- end custom-control -->
-                                <div class="custom-control custom-checkbox mb-1 fs-15">
-                                    <input type="checkbox" class="custom-control-input" id="catCheckbox7" required>
-                                    <label class="custom-control-label custom--control-label text-black" for="catCheckbox7">
-                                        Web Development<span class="ml-1 text-gray">(12,300)</span>
-                                    </label>
-                                </div><!-- end custom-control -->
-                                <div class="custom-control custom-checkbox mb-1 fs-15">
-                                    <input type="checkbox" class="custom-control-input" id="catCheckbox8" required>
-                                    <label class="custom-control-label custom--control-label text-black" for="catCheckbox8">
-                                        Photography<span class="ml-1 text-gray">(12,300)</span>
-                                    </label>
-                                </div><!-- end custom-control -->
-                                <div class="custom-control custom-checkbox mb-1 fs-15">
-                                    <input type="checkbox" class="custom-control-input" id="catCheckbox9" required>
-                                    <label class="custom-control-label custom--control-label text-black" for="catCheckbox9">
-                                        Finance<span class="ml-1 text-gray">(12,300)</span>
-                                    </label>
-                                </div><!-- end custom-control -->
-                            </div><!-- end collapse -->
-                            <a class="collapse-btn collapse--btn fs-15" data-toggle="collapse" href="#collapseMore" role="button" aria-expanded="false" aria-controls="collapseMore">
-                                <span class="collapse-btn-hide">Show more<i class="la la-angle-down ml-1 fs-14"></i></span>
-                                <span class="collapse-btn-show">Show less<i class="la la-angle-up ml-1 fs-14"></i></span>
-                            </a>
-                        </div>
-                    </div><!-- end card -->
-                    <div class="card card-item">
-                        <div class="card-body">
-                            <h3 class="card-title fs-18 pb-2">Archives</h3>
+                            <h3 class="card-title fs-18 pb-2">Blog Category</h3>
                             <div class="divider"><span></span></div>
                             <ul class="generic-list-item">
-                                <li><a href="#">February 2019</a></li>
-                                <li><a href="#">January 2018</a></li>
-                                <li><a href="#">December 2017</a></li>
-                                <li><a href="#">November 2017</a></li>
-                                <li><a href="#">January 2016</a></li>
+                                @foreach ($bcategory as $cat)
+                                <li><a href="#">{{ $cat->category_name }}</a></li>
+                                   
+                                @endforeach
+                                
                             </ul>
                         </div>
                     </div><!-- end card -->
@@ -277,36 +203,20 @@
                         <div class="card-body">
                             <h3 class="card-title fs-18 pb-2">Recent Posts</h3>
                             <div class="divider"><span></span></div>
+                           
+                           @foreach ($post as $dpost)
                             <div class="media media-card border-bottom border-bottom-gray pb-4 mb-4">
-                                <a href="course-details.html" class="media-img">
-                                    <img class="mr-3" src="images/small-img-2.jpg" alt="Related course image">
+                                <a href="{{ url('blog/details/'.$dpost->post_slug) }}" class="media-img">
+                                    <img class="mr-3" src="{{ asset($dpost->post_image) }}" alt="Related course image">
                                 </a>
                                 <div class="media-body">
-                                    <h5 class="fs-15"><a href="course-details.html">The Complete JavaScript Course 2021</a></h5>
-                                    <span class="d-block lh-18 py-1 fs-14">Kamran Ahmed</span>
-                                    <p class="text-black font-weight-semi-bold lh-18 fs-15">$12.99 <span class="before-price fs-14">$129.99</span></p>
+                                    <h5 class="fs-15"><a href="{{ url('blog/details/'.$dpost->post_slug) }}">{{ $dpost->post_title }}</a></h5>
+                                    <span class="d-block lh-18 py-1 fs-14">Admin </span> 
                                 </div>
-                            </div><!-- end media -->
-                            <div class="media media-card border-bottom border-bottom-gray pb-4 mb-4">
-                                <a href="course-details.html" class="media-img">
-                                    <img class="mr-3" src="images/small-img-3.jpg" alt="Related course image">
-                                </a>
-                                <div class="media-body">
-                                    <h5 class="fs-15"><a href="course-details.html">Learning jQuery Mobile for Beginners</a></h5>
-                                    <span class="d-block lh-18 py-1 fs-14">Kamran Ahmed</span>
-                                    <p class="text-black font-weight-semi-bold lh-18 fs-15">$129.99</p>
-                                </div>
-                            </div><!-- end media -->
-                            <div class="media media-card border-bottom border-bottom-gray pb-4 mb-4">
-                                <a href="course-details.html" class="media-img">
-                                    <img class="mr-3" src="images/small-img-4.jpg" alt="Related course image">
-                                </a>
-                                <div class="media-body">
-                                    <h5 class="fs-15"><a href="course-details.html">Introduction LearnPress – LMS plugin</a></h5>
-                                    <span class="d-block lh-18 py-1 fs-14">Kamran Ahmed</span>
-                                    <p class="text-black font-weight-semi-bold lh-18 fs-15">Free</p>
-                                </div>
-                            </div><!-- end media -->
+                            </div><!-- end media --> 
+                               
+                            @endforeach
+
                             <div class="view-all-course-btn-box">
                                 <a href="blog-no-sidebar.html" class="btn theme-btn w-100">View All Posts <i class="la la-arrow-right icon ml-1"></i></a>
                             </div>
@@ -334,39 +244,8 @@
                             </form>
                         </div>
                     </div><!-- end card -->
-                    <div class="card card-item">
-                        <div class="card-body">
-                            <h3 class="card-title fs-18 pb-2">Post Tags</h3>
-                            <div class="divider"><span></span></div>
-                            <ul class="generic-list-item generic-list-item-boxed d-flex flex-wrap fs-15">
-                                <li class="mr-2"><a href="#">Business</a></li>
-                                <li class="mr-2"><a href="#">Event</a></li>
-                                <li class="mr-2"><a href="#">Video</a></li>
-                                <li class="mr-2"><a href="#">Audio</a></li>
-                                <li class="mr-2"><a href="#">Software</a></li>
-                                <li class="mr-2"><a href="#">Conference</a></li>
-                                <li class="mr-2"><a href="#">Marketing</a></li>
-                                <li class="mr-2"><a href="#">Freelance</a></li>
-                                <li class="mr-2"><a href="#">Tips</a></li>
-                                <li class="mr-2"><a href="#">Technology</a></li>
-                                <li class="mr-2"><a href="#">Entrepreneur</a></li>
-                            </ul>
-                        </div>
-                    </div><!-- end card -->
-                    <div class="card card-item">
-                        <div class="card-body">
-                            <h3 class="card-title fs-18 pb-2">Subscribe</h3>
-                            <div class="divider"><span></span></div>
-                            <form method="post">
-                                <div class="input-group">
-                                    <input class="form-control form--control pl-3" type="email" name="email" placeholder="Enter email address">
-                                    <div class="input-group-append">
-                                        <button class="btn theme-btn"><i class="la la-arrow-right"></i></button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div><!-- end card -->
+                 
+                  
                     <div class="card card-item">
                         <div class="card-body">
                             <h3 class="card-title fs-18 pb-2">Connect & Follow</h3>
