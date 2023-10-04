@@ -201,5 +201,15 @@ public function BlogDetails($slug){
 
 }// End Method 
 
+public function BlogCatList($id){
+
+    $blog = BlogPost::where('blogcat_id',$id)->get();
+    $breadcat = BlogCategory::where('id',$id)->first();
+    $bcategory = BlogCategory::latest()->get();
+    $post = BlogPost::latest()->limit(3)->get();
+    return view('frontend.blog.blog_cat_list',compact('blog','breadcat','bcategory','post'));
+
+}// End Method 
+
 
 } 
