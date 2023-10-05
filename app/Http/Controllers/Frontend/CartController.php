@@ -21,7 +21,9 @@ use App\Models\Order;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Orderconfirm;
 use Stripe;
-
+use App\Models\User;
+use App\Notifiations\OrderComplete;
+use Illuminate\Support\Facades\Notification;
 
 class CartController extends Controller
 {
@@ -277,6 +279,8 @@ class CartController extends Controller
 
     public function Payment(Request $request){
 
+        $user = User::where('role','instructor')->get();
+
         if (Session::has('coupon')) {
            $total_amount = Session::get('coupon')['total_amount'];
         }else {
@@ -354,10 +358,13 @@ class CartController extends Controller
                 'email' => $sendmail->email,
            ];
 
-           Mail::to($request->email)->send(new Orderconfirm($data));
-
-
+           Mail::to($request->email)->send(new Orderconfirm($data)); 
            /// End Send email to student /// 
+ 
+           /// Send Notification 
+           Notification::send($user, new OrderComplete($request->name));
+
+
 
            $notification = array(
             'message' => 'Cash Payment Submit Successfully',
