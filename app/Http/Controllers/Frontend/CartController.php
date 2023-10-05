@@ -22,7 +22,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\Orderconfirm;
 use Stripe;
 use App\Models\User;
-use App\Notifiations\OrderComplete;
+use App\Notifications\OrderComplete;
 use Illuminate\Support\Facades\Notification;
 
 class CartController extends Controller
