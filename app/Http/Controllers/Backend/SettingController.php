@@ -6,7 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SmtpSetting;
 use Intervention\Image\Facades\Image;
-
+use App\Models\SiteSetting;
+ 
 class SettingController extends Controller
 {
     public function SmtpSetting(){
@@ -37,6 +38,15 @@ class SettingController extends Controller
         return redirect()->back()->with($notification);  
 
     }// End Method 
+
+
+    public function SiteSetting(){
+
+        $site = SiteSetting::find(1);
+        return view('admin.backend.site.site_update',compact('site'));
+
+    }// End Method 
+
 
 
 
