@@ -488,6 +488,19 @@ class CartController extends Controller
 
     }// End Method 
 
+    public function MarkAsRead(Request $request, $notificationId){
+
+        $user = Auth::user();
+        $notification = $user->notifications()->where('id',$notificationId)->first();
+
+        if ($notification) {
+            $notification->markAsRead();
+
+        }
+        return response()->json(['count' => $user->unreadNotifications()->count()]);
+
+    }// End Method 
+
 
 
 

@@ -371,6 +371,7 @@ Route::get('/blog/details/{slug}', [BlogController::class, 'BlogDetails']);
 Route::get('/blog/cat/list/{id}', [BlogController::class, 'BlogCatList']);
 Route::get('/blog', [BlogController::class, 'BlogList'])->name('blog');
 
+Route::post('/mark-notification-as-read/{notification}', [CartController::class, 'MarkAsRead']);
 
 ///// End Route Accessable for All 
 
