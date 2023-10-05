@@ -213,7 +213,7 @@ public function BlogCatList($id){
 
 public function BlogList(){
 
-    $blog = BlogPost::latest()->get();
+    $blog = BlogPost::latest()->paginate(2);
     $bcategory = BlogCategory::latest()->get();
     $post = BlogPost::latest()->limit(3)->get();
     return view('frontend.blog.blog_list',compact('blog','bcategory','post'));
