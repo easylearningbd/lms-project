@@ -1,5 +1,8 @@
 @extends('frontend.master')
 @section('home')
+@section('title')
+{{ $blog->post_title  }} | Easy Learning
+@endsection
 
 <!-- ================================
     START BREADCRUMB AREA
