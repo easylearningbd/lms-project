@@ -43,12 +43,13 @@
 
 <hr>
 
+@foreach ($permission_groups as $group)
 <div class="row">
     <div class="col-3">
 
         <div class="form-check">
             <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-            <label class="form-check-label" for="flexCheckDefault">Permission All </label>
+            <label class="form-check-label" for="flexCheckDefault"> {{ $group->group_name }}</label>
         </div>
 
     </div>
@@ -63,6 +64,12 @@
     </div>
 
 </div>
+ {{-- // end row --}} 
+    
+@endforeach
+
+
+
 
 
 
