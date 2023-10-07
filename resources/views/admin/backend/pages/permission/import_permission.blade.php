@@ -8,7 +8,7 @@
         <div class="ps-3">
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb mb-0 p-0">
-                    <a href="{{ route('import.permission') }}" class="btn btn-warning ">Download Xlsx </a>  
+                    <a href="{{ route('export') }}" class="btn btn-warning ">Download Xlsx </a>  
                 </ol>
             </nav>
         </div>
