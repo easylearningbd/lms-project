@@ -19,7 +19,7 @@
     <div class="card">
         <div class="card-body p-4">
             <h5 class="mb-4">Import Permission</h5>
-            <form id="myForm" action="{{ route('store.permission') }}" method="post" class="row g-3" enctype="multipart/form-data">
+            <form id="myForm" action="{{ route('import') }}" method="post" class="row g-3" enctype="multipart/form-data">
                 @csrf
 
 
