@@ -27,15 +27,15 @@
     <div class="card">
         <div class="card-body p-4">
             
-            <form id="myForm" action="{{ route('store.permission') }}" method="post" class="row g-3" enctype="multipart/form-data">
+            <form id="myForm" action="{{ route('role.permission.store') }}" method="post" class="row g-3" enctype="multipart/form-data">
                 @csrf
  
                 <div class="form-group col-md-6">
                     <label for="input1" class="form-label"> Roles Name</label>
-            <select name="group_name" class="form-select mb-3" aria-label="Default select example">
+            <select name="role_id" class="form-select mb-3" aria-label="Default select example">
               <option selected="" disabled>Open Roles</option>
                @foreach ($roles as $role) 
-               <option value="Category">{{ $role->name }}</option>
+               <option value="{{ $role->id }}">{{ $role->name }}</option>
                 @endforeach    
                         
                     </select>
@@ -80,12 +80,7 @@
     
 @endforeach
 
-
-
-
-
-
-
+ 
  
                 <div class="col-md-12">
                     <div class="d-md-flex d-grid align-items-center gap-3">
