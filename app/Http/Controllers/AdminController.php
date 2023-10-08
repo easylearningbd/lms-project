@@ -240,6 +240,39 @@ class AdminController extends Controller
 
     }// End Method
 
+
+    public function EditAdmin($id){
+
+        $user = User::find($id);
+        $roles = Role::all();
+        return view('admin.backend.pages.admin.edit_admin',compact('user','roles'));
+
+    }// End Method
+
+    public function UpdateAdmin(Request $request,$id){
+
+        $user = User::find($id);
+        $user->username = $request->username;
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->phone = $request->phone;
+        $user->address = $request->address; 
+        $user->role = 'admin';
+        $user->status = '1';
+        $user->save();
+
+        $user->roles()->detach();
+        if ($request->roles) {
+            $user->assignRole($request->roles);
+        }
+
+        $notification = array(
+            'message' => 'Admin Updated Successfully',
+            'alert-type' => 'success'
+        );
+        return redirect()->route('all.admin')->with($notification); 
+
+    }// End Method
     
 
 
