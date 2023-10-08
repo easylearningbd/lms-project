@@ -27,7 +27,7 @@
     <div class="card">
         <div class="card-body p-4">
             
-            <form id="myForm" action="{{ route('role.permission.store') }}" method="post" class="row g-3" enctype="multipart/form-data">
+            <form id="myForm" action="{{ route('admin.roles.update',$role->id) }}" method="post" class="row g-3" enctype="multipart/form-data">
                 @csrf
  
                 <div class="form-group col-md-6">
