@@ -48,7 +48,7 @@
                             </td>
                             <td>
        <a href="{{ route('admin.edit.roles',$item->id) }}" class="btn btn-info px-5">Edit </a>   
-       <a href="{{ route('delete.roles',$item->id) }}" class="btn btn-danger px-5" id="delete">Delete </a>                    
+       <a href="{{ route('admin.delete.roles',$item->id) }}" class="btn btn-danger px-5" id="delete">Delete </a>                    
                             </td>
                         </tr>
                         @endforeach
