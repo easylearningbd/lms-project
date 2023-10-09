@@ -24,6 +24,7 @@
         
         <li class="menu-label">UI Elements</li>
        
+        @if (Auth::user()->can('category.menu')) 
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cart'></i>
@@ -31,13 +32,21 @@
                 <div class="menu-title">Manage Category</div>
             </a>
             <ul>
+                @if (Auth::user()->can('category.all')) 
                 <li> <a href="{{ route('all.category') }}"><i class='bx bx-radio-circle'></i>All Category </a>
                 </li>
+                @endif
+                @if (Auth::user()->can('subcategory.all')) 
                 <li> <a href="{{ route('all.subcategory') }}"><i class='bx bx-radio-circle'></i>All SubCategory  </a>
                 </li>
+                @endif
                 
             </ul>
         </li>
+        @endif
+
+
+        @if (Auth::user()->can('instructor.menu')) 
         <li>
             <a class="has-arrow" href="javascript:;">
                 <div class="parent-icon"><i class='bx bx-bookmark-heart'></i>
@@ -51,6 +60,7 @@
                
             </ul>
         </li>
+        @endif
 
 
         <li>
