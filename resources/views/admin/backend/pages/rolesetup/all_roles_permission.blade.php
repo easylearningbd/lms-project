@@ -35,7 +35,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                       
+                        
                         @foreach ($roles as $key=> $item) 
                         <tr>
                             <td>{{ $key+1 }}</td>

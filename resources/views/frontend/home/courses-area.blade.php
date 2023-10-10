@@ -2,7 +2,7 @@
     $courses = App\Models\Course::where('status',1)->orderBy('id','ASC')->limit(6)->get();
     $categories = App\Models\Category::orderBy('category_name','ASC')->get();
 @endphp
-
+ 
 <section class="course-area pb-120px">
     <div class="container">
         <div class="section-heading text-center">
