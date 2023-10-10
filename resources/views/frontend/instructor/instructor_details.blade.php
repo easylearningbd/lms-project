@@ -1,5 +1,8 @@
 @extends('frontend.master')
 @section('home')
+@section('title')
+{{ $instructor->name }} | Easy Learning
+@endsection
 
 
 <!-- ================================
@@ -203,13 +206,18 @@
         <div class="container">
             <ul class="nav nav-tabs generic-tab justify-content-center" id="myTab" role="tablist">
 
+                @auth
                 <li class="nav-item">
 
-                <div id="app">
-                    <send-message></send-message> 
-                </div>
+                    <div id="app">
+                        <send-message></send-message> 
+                    </div> 
+                </li>
+                @else
+                <button class="btn theme-btn d-none d-lg-inline-block">Login First</button>
+                 
+                @endauth
                 
-            </li>
                 
                 <li class="nav-item">
                     <a class="nav-link active" id="about-me-tab" data-toggle="tab" href="#about-me" role="tab" aria-controls="about-me" aria-selected="false">
