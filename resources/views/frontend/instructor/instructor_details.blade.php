@@ -209,9 +209,9 @@
                 @auth
                 <li class="nav-item">
 
-                    <div id="app">
-                        <send-message></send-message> 
-                    </div> 
+        <div id="app">
+            <send-message :recevierid="{{ $instructor->id }}" receivername="{{ $instructor->name }}"></send-message> 
+        </div> 
                 </li>
                 @else
                 <button class="btn theme-btn d-none d-lg-inline-block">Login First</button>
