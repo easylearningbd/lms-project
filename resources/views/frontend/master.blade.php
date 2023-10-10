@@ -71,9 +71,7 @@
 <div id="scroll-top">
     <i class="la la-arrow-up" title="Go top"></i>
 </div>
-<!-- end scroll top -->
-
-
+<!-- end scroll top --> 
 
 <!-- template js files -->
 <script src="{{ asset('frontend/js/jquery-3.4.1.min.js') }}"></script>
@@ -90,6 +88,7 @@
 <script src="{{ asset('frontend/js/plyr.js') }}"></script>
 <script src="{{ asset('frontend/js/jquery.lazy.min.js') }}"></script>
 <script src="{{ asset('frontend/js/main.js') }}"></script>
+
 
 <script>
     var player = new Plyr('#player');
