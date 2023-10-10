@@ -13,11 +13,11 @@
             <span class="section-divider"></span>
         </div><!-- end section-heading -->
         <div class="client-logo-carousel pt-4">
-            <a href="#" class="client-logo-item"><img src="images/sponsor-img.png" alt="brand image"></a>
-            <a href="#" class="client-logo-item"><img src="images/sponsor-img2.png" alt="brand image"></a>
-            <a href="#" class="client-logo-item"><img src="images/sponsor-img3.png" alt="brand image"></a>
-            <a href="#" class="client-logo-item"><img src="images/sponsor-img4.png" alt="brand image"></a>
-            <a href="#" class="client-logo-item"><img src="images/sponsor-img5.png" alt="brand image"></a>
+            <a href="#" class="client-logo-item"><img src="{{ asset('frontend/images/sponsor-img.png') }}" alt="brand image"></a>
+            <a href="#" class="client-logo-item"><img src="{{ asset('frontend/images/sponsor-img2.png') }}" alt="brand image"></a>
+            <a href="#" class="client-logo-item"><img src="{{ asset('frontend/images/sponsor-img3.png') }}" alt="brand image"></a>
+            <a href="#" class="client-logo-item"><img src="{{ asset('frontend/images/sponsor-img4.png') }}" alt="brand image"></a>
+            <a href="#" class="client-logo-item"><img src="{{ asset('frontend/images/sponsor-img5.png') }}" alt="brand image"></a>
         </div><!-- end client-logo-carousel -->
     </div><!-- end container -->
 </section><!-- end client-logo-area -->
