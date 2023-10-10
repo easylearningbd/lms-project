@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
-{
+{ 
     public function Index(){
         return view('frontend.index');
     } // End Method 
@@ -98,6 +98,12 @@ class UserController extends Controller
         return back()->with($notification); 
 
     }// End Method
+
+
+    public function LiveChat(){ 
+        return view('frontend.dashboard.live_chat'); 
+    } // End Method 
+
 
 
 }
