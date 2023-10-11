@@ -70,7 +70,9 @@ class ChatController extends Controller
     }// End Method 
 
 
-
+    public function LiveChat(){
+        return view('instructor.chat.live_chat');
+    }
 
 
 }

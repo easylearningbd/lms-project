@@ -441,6 +441,7 @@ Route::post('/mark-notification-as-read/{notification}', [CartController::class,
 Route::post('/send-message', [ChatController::class, 'SendMessage']);
 Route::get('/user-all', [ChatController::class, 'GetAllUsers']);
 Route::get('/user-message/{id}', [ChatController::class, 'UserMsgById']);
+Route::get('/instructor/live/chat', [ChatController::class, 'LiveChat'])->name('instructor.live.chat');
 
 ///// End Route Accessable for All 
 
