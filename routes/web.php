@@ -440,6 +440,7 @@ Route::post('/mark-notification-as-read/{notification}', [CartController::class,
 // Chat Post Request Route
 Route::post('/send-message', [ChatController::class, 'SendMessage']);
 Route::get('/user-all', [ChatController::class, 'GetAllUsers']);
+Route::get('/user-message/{id}', [ChatController::class, 'UserMsgById']);
 
 ///// End Route Accessable for All 
 
