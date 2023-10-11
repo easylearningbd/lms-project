@@ -10,7 +10,7 @@
               alt="UserImage"
               class="userImg"
             />
-            <span class="username text-center">users</span>
+            <span class="username text-center">{{ users }}</span>
           </a>
         </li>
 
@@ -109,6 +109,7 @@ export default {
   },
 
   created(){
+    this.getAllUser();
 
   },
   methods:{

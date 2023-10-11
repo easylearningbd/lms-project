@@ -35,7 +35,14 @@ class ChatController extends Controller
                 ->orWhere('receiver_id',auth()->id())
                 ->get();
 
-        return $chats;   
+        $users = $chats->flatMap(function($chat){
+            if ($chat->sender_id === auth()->id()) {
+               return [$chat->serder, $chat->receiver];
+            }
+            return [$chat->receiver, $chat->serder];
+        })->unique();       
+
+        return $users;   
 
     }// End Method 
 
