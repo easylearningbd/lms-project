@@ -42,7 +42,7 @@
                 <div class="header clearfix">
                   <strong class="primary-font">{{ msg.user.name }}</strong>
                   <small class="right text-muted">
-                    {{ msg.created_at }}
+                    {{  formatDate(msg.created_at) }}
                   </small>
                   
                 </div>
@@ -62,7 +62,7 @@
               <div class="chat-body clearfix">
                 <div class="header clearfix">
                   <small class="left text-muted"
-                    >{{ msg.created_at }}</small>
+                    >{{  formatDate(msg.created_at) }}</small>
                   <strong class="right primary-font">{{ msg.user.name }} </strong>  
                   
                 </div>
@@ -143,6 +143,10 @@ export default {
           this.errors = err.response.data.errors;
         })
     }, 
+    formatDate(dateString){
+      const options = {  month: 'short', day: 'numeric',hour:'2-digit', minute: '2-digit'};
+      return new Date(dateString).toLocaleDateString('en-US',options);
+    },
 
 
   },
